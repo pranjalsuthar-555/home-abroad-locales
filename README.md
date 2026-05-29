@@ -20,11 +20,11 @@ Design philosophy: earn trust before asking for preferences. Every screen should
 
 ## Screenshots
 
-<img src="assets/globe" width="100%" alt="3D globe with destination pins filtered by personality"/>
+<img src="src/assets/globe" width="100%" alt="3D globe with destination pins filtered by personality"/>
 
 <br/>
 
-<img src="assets/quiz" width="48%" alt="Quiz question with genuine tension between options"/> <img src="assets/postcard" width="48%" alt="Destination postcard with full data and local voice"/>
+<img src="src/assets/quiz" width="48%" alt="Quiz question with genuine tension between options"/> <img src="src/assets/postcard" width="48%" alt="Destination postcard with full data and local voice"/>
 
 ---
 
