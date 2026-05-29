@@ -4,7 +4,7 @@
 
 🌍 **Live app:** [home-abroad-locales.vercel.app](https://home-abroad-locales.vercel.app)
 
-Home Abroad is a destination discovery experience for people seriously considering life abroad. It pairs a personality quiz with a filterable database of 561 global destinations — surfaced through an interactive 3D globe and a detailed table view.
+Home Abroad Locales Database is a destination discovery experience for people seriously considering life abroad. It pairs a personality quiz with a filterable database of 561 global destinations — surfaced through an interactive 3D globe and a detailed table view.
 
 The design philosophy: feel like a beautiful letter, not a SaaS product.
 
