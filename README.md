@@ -1,89 +1,74 @@
-# Home Abroad
+# Home Abroad Locales
 
 **Find where you belong.**
 
-🌍 **Live app:** [home-abroad-locales.vercel.app](https://home-abroad-locales.vercel.app)
+A personality quiz + interactive 3D globe that helps people seriously considering life abroad discover their ideal destination from 561 global locations.
 
-Home Abroad Locales Database is a destination discovery experience for people seriously considering life abroad. It pairs a personality quiz with a filterable database of 561 global destinations — surfaced through an interactive 3D globe and a detailed table view.
-
-The design philosophy: feel like a beautiful letter, not a SaaS product.
+🌍 **Live:** [home-abroad-locales.vercel.app](https://home-abroad-locales.vercel.app)  
+📘 **Design philosophy:** feel like a beautiful letter, not a SaaS product.
 
 ---
 
 ## What it does
 
-Users enter the app, take a 10-question quiz designed to surface genuine tension between lifestyle values, and receive a primary + secondary personality type. From there, a pre-filtered globe of matching destinations is waiting — with tools to refine by budget, language, expat suitability, country trend, and personal dealbreakers.
+You enter the app, take a 10-question personality quiz designed to create genuine tension between lifestyle values, receive a primary + secondary personality type. From there, an interactive globe pre-filtered to your personality is waiting — with 8 adjustable filters (region, language, cost, expat suitability, country trend, advantages, dealbreakers) and a table view of all 561 destinations. Click any pin to see a full postcard with local writers, cost, languages, and a personalized note.
 
 ---
 
-## Screens
+## The personalities
 
-| Screen | Description |
-|---|---|
-| **Entry** | Password-gated. Passphrase: `i am home`. Personality type strips run above and below the input as ambient context. |
-| **Landing** | Two postcard layouts that auto-flip every 3.5 seconds — front to back — on a warm cream background. |
-| **Quiz** | 10 questions across life values, language tolerance, time horizon, and emotional drivers. Each answer maps to A / B / C / D. |
-| **Reveal** | Cinematic personality reveal with a primary type and a secondary "blended with" combo card. |
-| **Explorer** | 3D globe + table view of 561 destinations, pre-filtered to the user's personality. Eight adjustable filters. Guided walkthrough on first visit. |
-
----
-
-## Personality Types
-
-| Type | Name | Description |
+| Type | Name | Vibe |
 |---|---|---|
-| A | 🏙 Urban Explorer | Thrives in dynamic cities. Drawn to culture, connection, and possibility. |
-| B | 🌴 Coastal Dreamer | Seeks salt air and slow living. Wants to exhale, not perform. |
-| C | 🏔 Nature Seeker | Values solitude and space. Nature is the point, not the backdrop. |
-| D | 🐓 Rooted Romantic | Wants to belong somewhere real. Community, roots, and meaningful daily life. |
+| 🏙️ **A** | Urban Explorer | Thrives in dynamic cities. Culture, connection, possibility. |
+| 🌴 **B** | Coastal Dreamer | Salt air and slow living. Want to exhale, not perform. |
+| 🏔️ **C** | Nature Seeker | Solitude and space. Nature is the point, not backdrop. |
+| 🐓 **D** | Rooted Romantic | Belonging somewhere real. Community, roots, meaning. |
 
-Results show both a primary and secondary type — most people are a blend, and the combination is the real story.
+Most people are a blend — the combination is the real story.
 
 ---
 
-## Key Features
+## Features that matter
 
-### Personality Quiz
-- 10 questions designed to create genuine tension — every option should feel like it could be right
-- Scoring counts A/B/C/D responses; hybrid results shown when a secondary type is present
-- Results persist in `localStorage` so returning users skip straight to their Explorer
+**Personality quiz**
+- 10 questions with genuine tension (every option should feel right)
+- Hybrid results when secondary types present
+- Results persist in localStorage — returning users skip straight to Explorer
 
-### 3D Globe
-- Powered by `react-globe.gl` with Three.js raycasting for hover + click
+**3D Globe**
+- Powered by react-globe.gl + Three.js raycasting for hover + click
 - Warm atmosphere tint, auto-rotates when idle, pauses on interaction
-- Destination pins rendered as emoji (`📍`) with hover tooltips and click-to-postcard modals
+- Destination pins as emoji (📍) with hover tooltips + click-to-postcard modals
 
-### Filter System
-- **Personality** — pre-filled from quiz result
-- **Region** — continental groupings
-- **Language** — top 20 by destination count
-- **Cost of Living** — dual-handle slider, USD/month
-- **Expat Suitability** — score 1–5 (visa ease, safety, expat community)
-- **Country Trend** — Improving / Stable / Declining
-- **Advantages** — positive attributes to filter for
-- **Dealbreakers** — negative attributes to hide entirely
+**Filter system (8 dimensions)**
+- Personality (pre-filled from quiz)
+- Region (continental groupings)
+- Language (top 20 by destination count)
+- Cost of living (dual-handle slider, USD/month)
+- Expat suitability (1–5 score: visa ease, safety, expat community)
+- Country trend (Improving / Stable / Declining)
+- Advantages (positive attributes to filter for)
+- Dealbreakers (negative attributes to hide entirely)
 
-### Guided Filter Walkthrough
-- 8-step tour that spotlights each filter in sequence
-- Requires actual interaction (click, drag, select) before advancing — not a passive slideshow
-- Stored in `localStorage` as `ha_tour_done`; replayable via the "? Tour" button in the top bar
+**Guided walkthrough**
+- 8-step interactive tour spotlighting each filter
+- Requires actual interaction before advancing (not passive)
+- Stored in localStorage; replayable via "? Tour" button
 
-### Postcard Modals
-- Clicking any globe pin or table row opens a full postcard for that destination
-- Shows score, cost, languages, local writers, country trend, and a personalised note
+**Postcards + ambient audio**
+- Full destination postcard for each location
+- Soft voice note plays on Explorer entry
+- Mute/unmute toggle with animated waveform
 
-### Ambient Audio
-- Voice note plays softly on entering the Explorer screen (volume: 0.5)
-- Mute/unmute toggle in the bottom-left corner with an animated waveform indicator
-
-### Session Persistence
-- `ha_result` — persists quiz result across sessions in `localStorage`
-- `ha_access` — persists password confirmation in `localStorage`
-- Returning users with a saved result land directly on Explorer — no re-entry or re-quiz required
+**Session persistence**
+- `ha_result` — quiz result across sessions
+- `ha_access` — password confirmation
+- `ha_screen` — last active screen hint
+- Returning users with saved result land straight on Explorer
 
 ---
 
-## Tech Stack
+## Tech stack
 
 | Layer | Tool |
 |---|---|
@@ -91,123 +76,90 @@ Results show both a primary and secondary type — most people are a blend, and 
 | Globe | react-globe.gl (Three.js) |
 | CSV parsing | PapaParse |
 | Deployment | Vercel (serverless API + static frontend) |
-| Fonts | IM Fell English (Google Fonts), Beyond Sweet (local `.woff`), Dancing Script (Google Fonts) |
-| Styling | CSS custom properties + inline styles — no CSS framework |
+| Fonts | IM Fell English, Beyond Sweet, Dancing Script |
+| Styling | CSS custom properties + inline — no framework |
+| Serverless | Vercel Functions for destination data |
 
 ---
 
-## Project Structure
+## Data: 561 destinations
 
-```
-home-abroad-locales/
-├── api/
-│   └── destinations.js           # Vercel serverless function — serves destination data
-├── public/
-│   ├── HomeAbroad-Logo_Landscape-Color.webp
-│   ├── beyondsweet-webfont.woff
-│   ├── koh phangan island.webp
-│   ├── postcard layout - 1.webp
-│   ├── postcard layout - 2.webp
-│   └── LALB Kailas audio.mp3
-├── src/
-│   ├── components/
-│   │   ├── FilterWalkthrough.jsx  # 8-step guided tour component
-│   │   ├── FloatingBotanicals.jsx # Decorative botanical emoji elements
-│   │   ├── HoverCard.jsx          # Globe hover tooltip + table side panel
-│   │   ├── PostcardModal.jsx      # Full destination postcard overlay
-│   │   ├── WaxSeal.jsx            # Custom checkbox with wax seal aesthetic
-│   │   ├── TornEdge.jsx           # Decorative torn paper edge SVG
-│   │   └── FieldTooltips.jsx      # Tooltip definitions for filter fields
-│   ├── data/
-│   │   └── useDestinations.js     # Fetches + parses destination data from API
-│   ├── screens/
-│   │   ├── EntryScreen.jsx        # Password gate
-│   │   ├── LandingScreen.jsx      # Postcard flip + CTA
-│   │   ├── QuizScreen.jsx         # 10-question personality quiz
-│   │   ├── RevealScreen.jsx       # Personality type reveal
-│   │   └── ExplorerScreen.jsx     # Globe + table + filters
-│   ├── styles/
-│   │   └── globals.css            # All global CSS, variables, and animations
-│   ├── App.jsx                    # Screen router + session state
-│   └── main.jsx                   # React entry point
-└── index.html
-```
+Each record includes:
+- Destination + country + region
+- Personality tags (which types match)
+- Cost USD (estimated monthly)
+- Suitability score (1–5 for expats)
+- Languages spoken
+- Country trend (Improving/Stable/Declining)
+- Advantages & disadvantages
+- Local writers with links
+- Latitude / longitude
 
 ---
 
-## Local Development
+## How to run locally
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
 # → http://localhost:5173
 
-# Build for production
+# Production build
 npm run build
 
 # Preview production build
 npm run preview
 ```
 
-**Passphrase to enter the app: `i am home`**
+**Passphrase to enter the app:** `i am home`
 
 ---
 
 ## Deployment
 
-Deployed on Vercel. `api/destinations.js` is a Vercel serverless function serving destination data. The project links to an existing Vercel project via `.vercel/project.json`.
+Deployed on Vercel. `api/destinations.js` is a serverless function serving destination data.
 
 ```bash
-# Deploy to production
 npx vercel deploy --prod
 ```
 
 ---
 
-## Destination Data
+## Design notes
 
-**561 destinations** across all inhabited continents. Each record includes:
-
-| Field | Description |
-|---|---|
-| `destination` | City or place name |
-| `country` | Country |
-| `region` | Continental region |
-| `personalities` | Array of personality tags |
-| `costUSD` | Estimated monthly cost of living (USD) |
-| `suitabilityScore` | Expat suitability score, 1–5 |
-| `languages` | Languages spoken |
-| `countryTrend` | Improving / Stable / Declining |
-| `advantages` | Positive attributes |
-| `disadvantages` | Negative attributes / dealbreakers |
-| `writers` | Local voices with links |
-| `lat` / `lng` | Coordinates for globe placement |
+**Fonts:** IM Fell English (editorial serif), Beyond Sweet (script), Arial (body/UI)  
+**Palette:** Warm almond (#EDE0D4), coral CTAs (#FF6F61), lion/sand accents (#B78A63)  
+**Motion:** All animations use `dreamFadeUp`, `waxStampPress`, `slowReveal` — slow and unhurried  
+**Philosophy:** Every screen feels editorial and personal, not transactional. Earn trust before asking for preferences.
 
 ---
 
-## Design Notes
+## What you can learn from this
 
-- **Fonts**: IM Fell English for headings (editorial serif), Beyond Sweet for script accents and hero headline, Arial for all body copy and UI
-- **Palette**: Warm almond backgrounds (`#EDE0D4`), coral CTAs (`#FF6F61`), lion/sand accents (`#B78A63`), deep ink for text
-- **Motion**: All animations use `dreamFadeUp`, `waxStampPress`, and `slowReveal` — slow and unhurried, like a letter unfolding
-- **Philosophy**: Every screen is designed to feel editorial and personal, not transactional. The app earns the user's trust before asking for their preferences
+✓ Building complex data experiences without a backend  
+✓ React + Vite + Three.js integration  
+✓ Designing UX for anxious users (make scary accessible)  
+✓ CSV data parsing at scale  
+✓ Session persistence & localStorage strategy  
+✓ Guided onboarding that requires interaction  
+✓ Voice + motion in web design
 
 ---
 
-## localStorage Keys
+## Contributing
 
-| Key | Purpose | Cleared by |
-|---|---|---|
-| `ha_result` | Serialised personality result object | "Retake quiz" button |
-| `ha_access` | Password confirmation flag | Manual clear only |
-| `ha_screen` | Last active screen hint | "Retake quiz" button |
-| `ha_tour_done` | Guided walkthrough completion flag | "? Tour" button resets it |
+This is a portfolio project, but ideas welcome. Found a broken link or outdated info? Open an issue.
+
+---
+
+## About
+
+Built by **Pranjal Suthar** — exploring the intersection of applied psychology, design, and human behavior.
+
+→ [GitHub](https://github.com/pranjalsuthar-555) · [LinkedIn](https://www.linkedin.com/in/sutharpranjal) · [Email](mailto:pranjalsuthar.work@gmail.com)
 
 ---
 
 ## License
 
-Private. All rights reserved — Home Abroad.
+Private. All rights reserved.
