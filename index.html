@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title & description -->
+    <title>Home Abroad — Find Where You Belong</title>
+    <meta name="description" content="Discover your destination personality and find your perfect place to live abroad. 561 destinations, filtered for you." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#EDE0D4" />
+
+    <!-- Emoji favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
+
+    <!-- Open Graph -->
+    <meta property="og:title"       content="Home Abroad — Find Where You Belong" />
+    <meta property="og:description" content="Discover your destination personality and find your perfect place to live abroad. 561 destinations, filtered for you." />
+    <meta property="og:image"       content="/og-image.png" />
+    <meta property="og:type"        content="website" />
+    <meta name="twitter:card"       content="summary_large_image" />
+  </head>
+  <body>
+    <!-- CSS-only paper grain filter -->
+    <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+      <defs>
+        <filter id="paper-grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feBlend in="SourceGraphic" mode="multiply"/>
+        </filter>
+      </defs>
+    </svg>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
