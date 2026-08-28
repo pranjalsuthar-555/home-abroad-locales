@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-/* Drop the Midjourney render in as public/intro.mp4 (plus public/intro-poster.jpg).
-   Until those exist the watercolor gradient below shows through, so this screen
-   still looks finished with no video present. */
-const VIDEO_SRC  = '/intro.mp4'
-const POSTER_SRC = '/intro-poster.jpg'
+/* Drop the Midjourney renders into public/ as:
+     intro.mp4 / intro-poster.jpg                 (16:9, desktop)
+     intro-mobile.mp4 / intro-mobile-poster.jpg   (9:16, phones)
+   Until they exist the watercolor gradient below shows through, so this screen
+   still looks finished with no video present. If only the desktop pair is added,
+   phones fall back to it rather than showing nothing. */
+const PORTRAIT_QUERY = '(max-width: 700px)'
+
+const DESKTOP = { video: '/intro.mp4',        poster: '/intro-poster.jpg' }
+const MOBILE  = { video: '/intro-mobile.mp4', poster: '/intro-mobile-poster.jpg' }
 
 const introCSS = `
   .intro-video {
@@ -24,21 +29,25 @@ const introCSS = `
       linear-gradient(to bottom, rgba(27,30,34,0.10) 0%, rgba(27,30,34,0) 30%, rgba(27,30,34,0.14) 100%);
   }
 
+  /* Deep green fill (the Nature Seeker green already used across the app) rather than coral —
+     it reads against the terracotta-and-turquoise artwork instead of blending into it, and
+     carries ~7:1 contrast with white text. Swap --intro-cta-bg if the brand green differs. */
   .intro-cta {
+    --intro-cta-bg: #4A5C35;
     font-family: Arial, "Helvetica Neue", Helvetica, system-ui, sans-serif;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.02em;
     padding: 16px 34px;
     border: none;
     border-radius: var(--radius-pill, 999px);
-    background: var(--coral);
-    color: var(--white);
+    background: var(--intro-cta-bg);
+    color: #FFFFFF;
     cursor: pointer;
-    box-shadow: 0 6px 22px rgba(27,30,34,0.18);
+    box-shadow: 0 6px 22px rgba(27,30,34,0.28);
     transition: transform 0.25s var(--ease-spring, ease), box-shadow 0.25s ease, background 0.2s ease;
   }
-  .intro-cta:hover  { background: var(--redwood); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,30,34,0.22); }
+  .intro-cta:hover  { background: #3B4A2A; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,30,34,0.32); }
   .intro-cta:active { transform: translateY(0); }
 
   @media (max-width: 600px) {
@@ -48,15 +57,30 @@ const introCSS = `
 
 export default function IntroScreen({ onStartQuiz }) {
   const [videoReady, setVideoReady] = useState(false)
+  const [portrait, setPortrait]     = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(PORTRAIT_QUERY).matches
+  )
+  // if the portrait file hasn't been added yet, fall back to the landscape one
+  const [portraitMissing, setPortraitMissing] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia(PORTRAIT_QUERY)
+    const onChange = e => setPortrait(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  const source = portrait && !portraitMissing ? MOBILE : DESKTOP
 
   return (
     <div className="watercolor-bg" style={s.root}>
       <style>{introCSS}</style>
 
       <video
+        key={source.video}
         className={`intro-video${videoReady ? ' ready' : ''}`}
-        src={VIDEO_SRC}
-        poster={POSTER_SRC}
+        src={source.video}
+        poster={source.poster}
         autoPlay
         loop
         muted
@@ -64,7 +88,10 @@ export default function IntroScreen({ onStartQuiz }) {
         preload="auto"
         aria-hidden="true"
         onCanPlay={() => setVideoReady(true)}
-        onError={() => setVideoReady(false)}
+        onError={() => {
+          setVideoReady(false)
+          if (source === MOBILE) setPortraitMissing(true)
+        }}
       />
 
       <div className="intro-scrim" aria-hidden="true" />
@@ -120,5 +147,8 @@ const s = {
     lineHeight: 1.15,
     color: 'var(--ink)',
     margin: 0,
+    // the script face is hairline-thin; a soft cream halo keeps it readable where it
+    // crosses the busier parts of the artwork
+    textShadow: '0 1px 16px rgba(253,250,247,0.9), 0 0 40px rgba(253,250,247,0.7)',
   },
 }
