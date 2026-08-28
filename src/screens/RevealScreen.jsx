@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import FloatingBotanicals from '../components/FloatingBotanicals.jsx'
 
 const BG_GRADIENTS = {
   'Urban Explorer':  'linear-gradient(135deg, #F0ECF8 0%, #EDE0D4 100%)',
@@ -65,8 +64,6 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
       }}
     >
       <style>{revealCSS}</style>
-
-      <FloatingBotanicals />
 
       {/* retake */}
       <button onClick={onRetake} style={s.retakeBtn}>{t('reveal.retake')}</button>
