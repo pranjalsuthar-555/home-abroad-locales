@@ -473,6 +473,17 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           <img src="/HomeAbroad-Logo_Landscape-Color.webp" alt="Home Abroad" className="logo-img" />
         </div>
 
+        {/* sits in the header beside the logo — as a floating pill it collided with
+            the Export CSV button in table view */}
+        <button className="audio-indicator" onClick={toggleAudio} aria-label={audioPlaying ? 'Mute' : 'Play audio'}>
+          <span className="audio-wave-bars">
+            <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
+            <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
+            <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
+          </span>
+          <span className="audio-label">{audioPlaying ? 'Playing' : 'Listen'}</span>
+        </button>
+
         {/* personality tags — hidden on very small screens via CSS class */}
         <div className="explorer-personality-pills" style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
           {result?.primary && (
@@ -909,14 +920,6 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
 
       <audio ref={audioRef} src="/LALB Kailas audio.mp3" onEnded={() => setAudioPlaying(false)} />
 
-      <button className="audio-indicator" onClick={toggleAudio} aria-label={audioPlaying ? 'Mute' : 'Play audio'}>
-        <span className="audio-wave-bars">
-          <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
-          <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
-          <span className={`audio-bar ${audioPlaying ? 'playing' : ''}`} />
-        </span>
-        <span className="audio-label">{audioPlaying ? 'Playing' : 'Listen'}</span>
-      </button>
     </div>
   )
 }

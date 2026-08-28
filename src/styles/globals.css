@@ -850,7 +850,7 @@ body::after {
   .explorer-topbar .logo-img  { max-height: 26px; }
   /* drawer (z 40) is nearly full-width on phones — keep the floating audio pill under it
      instead of printing over the filter rows */
-  .audio-indicator            { z-index: 25; top: 72px; right: 14px; }
+  .audio-indicator .audio-label { display: none; }   /* icon-only on phones */
 }
 
 /* Quiz header: fixed 100px min-widths on the logo and counter overflow a phone once
@@ -863,25 +863,23 @@ body::after {
 }
 
 /* ── Audio indicator ── */
+/* inline in the explorer header next to the logo, so it can't overlap page content */
 .audio-indicator {
-  position: fixed;
-  top: 78px;
-  right: 20px;
-  z-index: 50;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(15, 12, 8, 0.72);
-  border: 1px solid rgba(255,255,255,0.12);
+  gap: 7px;
+  background: var(--almond-dark);
+  border: 1px solid var(--lion);
   border-radius: 20px;
-  padding: 7px 14px 7px 10px;
+  padding: 6px 12px 6px 9px;
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .audio-indicator:hover {
-  background: rgba(15, 12, 8, 0.88);
+  background: var(--almond);
+  border-color: var(--redwood);
 }
 
 .audio-wave-bars {
@@ -919,7 +917,7 @@ body::after {
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: var(--ink-light);
 }
 
 /* ── Filter Walkthrough Tour ── */
