@@ -1,0 +1,162 @@
+{
+  "language": {
+    "label": "Sprache"
+  },
+  "intro": {
+    "headline": "Wo beginnt Zuhause?",
+    "cta": "Entdecke deine Reise-Persönlichkeit"
+  },
+  "quiz": {
+    "questionLabel": "Frage {{n}}",
+    "counter": "{{n}} / 10",
+    "back": "← Zurück",
+    "progressLabel": "Fortschritt",
+    "questionAria": "Frage {{n}}",
+    "answered": " beantwortet",
+    "q1": {
+      "q": "Mal ehrlich: Warum denkst du wirklich darüber nach zu gehen?",
+      "a": "Ich will Energie und Kultur — mutige Kunst, lebendige Straßen, eine Stadt, die mir nie ausgeht",
+      "b": "Ich will komplett runterfahren — warmes Wasser, salzige Luft, absolut nichts vorhaben",
+      "c": "Ich will Raum und Stille — einen Ort, der ruhig genug ist, um mich wieder denken zu hören",
+      "d": "Ich will mich verbundener fühlen — mit Menschen, mit dem Ort, mit dem Alltag"
+    },
+    "q2": {
+      "q": "Du bist gerade in einer neuen Stadt angekommen. Was machst du zuerst?",
+      "a": "Ich gehe direkt auf den belebtesten Markt oder ins lebhafteste Viertel und lasse mich von der Energie mitziehen",
+      "b": "Ich suche das Wasser, ziehe die Schuhe aus und atme einfach",
+      "c": "Ich suche den nächsten Wanderweg, Wald oder ruhigen Rand der Stadt",
+      "d": "Ich suche die Person, die am längsten hier lebt, und bitte sie, mir alles zu zeigen"
+    },
+    "q3": {
+      "q": "Ein Freund fragt, was du im Ausland suchst. Du sagst...",
+      "a": "Einen lebendigen Ort — Kultur, Kunst, eine Szene, zu der ich wirklich gehören kann",
+      "b": "Einen Ort, an dem ich endlich durchatmen kann — langsame Morgen, warmes Wasser, keine Eile",
+      "c": "Einen ruhigen, wilden Ort, an dem die Landschaft das meiste sagt",
+      "d": "Einen Ort, an den ich wirklich gehöre. Ein echtes Viertel, echte Beziehungen"
+    },
+    "q4": {
+      "q": "Woran würdest du merken, dass du es im Ausland wirklich geschafft hast?",
+      "a": "Ich kenne die besten versteckten Lokale, und das halbe Viertel grüßt mich auf der Straße",
+      "b": "Ich schaue nicht mehr auf die Uhr. Die Tage verschwimmen — im besten Sinne",
+      "c": "Ich habe meinen eigenen stillen Weg gefunden, meine Aussicht, meinen Rückzugsort",
+      "d": "Im Café weiß man, was ich bestelle. Ich habe meinen Stammplatz. Die Leute kennen meinen Namen"
+    },
+    "q5": {
+      "q": "Worauf würdest du am ehesten verzichten, um im Ausland zu leben?",
+      "a": "Auf Berechenbarkeit — ich will hinter jeder Ecke etwas Unerwartetes",
+      "b": "Auf Ehrgeiz, zumindest eine Weile — ich würde die Hektik ohne Zögern gegen Leichtigkeit tauschen",
+      "c": "Auf Bequemlichkeit — ich würde abgelegen wohnen, wenn das echte Ruhe bedeutet",
+      "d": "Auf Vertrautes und Gewohntes — wenn es woanders mehr Wärme und Nähe bedeutet"
+    },
+    "q6": {
+      "q": "Du hast eine harte Woche im Ausland — Heimweh, Frust, nichts klappt. Was hilft dir da durch?",
+      "a": "Ich suche mir etwas, wo was los ist — einen Markt, ein Konzert, irgendetwas mit Energie",
+      "b": "Ich gehe ins Wasser oder schaue dem Sonnenuntergang zu. Das setzt alles zurück",
+      "c": "Ich mache einen langen Spaziergang irgendwo im Ruhigen und lasse den Kopf frei werden",
+      "d": "Ein Nachbar bringt Essen vorbei. Jemand fragt nach. Die Gemeinschaft, die ich aufgebaut habe, ist da"
+    },
+    "q7": {
+      "q": "Wie stehst du zu Sprachbarrieren?",
+      "a": "Der halbe Spaß ist, es unterwegs zusammenzupuzzeln — mitten auf dem Markt, mitten im Gespräch",
+      "b": "Ich mache mir nicht zu viele Gedanken — ein Lächeln und ein langsames Leben bringen einen weit",
+      "c": "Da, wo ich hingehe, brauche ich nicht viel Sprache. Es sind vor allem die Landschaft und ich",
+      "d": "Ich werde die Sprache lernen. Das gehört zum Dazugehören — man kommt sich auf halbem Weg entgegen"
+    },
+    "q8": {
+      "q": "Jemand fragt, wie lange du bleiben willst. Du sagst...",
+      "a": "Solange es spannend bleibt. Kann ein Jahr sein, kann ein Jahrzehnt sein",
+      "b": "Unbegrenzt, solange die Sonne weiter so über dem Wasser untergeht",
+      "c": "Solange die Ruhe bleibt",
+      "d": "Unbegrenzt. Wenn es mein Zuhause wird, warum sollte ich gehen?"
+    },
+    "q9": {
+      "q": "Was würde dich in einen Ort verlieben lassen?",
+      "a": "Zufällig in ein Straßenfest zu geraten und von Fremden zum Abendessen eingeladen zu werden",
+      "b": "Eine Hängematte, warmes Wasser und absolut nichts vorhaben",
+      "c": "Um eine Ecke zu biegen und eine Aussicht zu sehen, die mir den Atem nimmt",
+      "d": "Zu lesen, dass drei Menschen, die ich schätze, hier in den letzten zwei Jahren still Wurzeln geschlagen haben"
+    },
+    "q10": {
+      "q": "In zehn Jahren: Die Version von dir, die im Ausland die richtige Wahl getroffen hat...",
+      "a": "Entdeckt immer noch hinter jeder Ecke etwas Neues. Nie gelangweilt, immer neugierig",
+      "b": "Lebt dort, wo das Meer zum Alltag gehört. Langsamer, leichter, gelassener",
+      "c": "Hat eine Aussicht, an der sie sich nie sattsieht, und ein ruhiges Leben drumherum",
+      "d": "Hat ihr Dorf. Enge Freunde, Rituale, ein Leben, das sich wirklich bewohnt anfühlt"
+    }
+  },
+  "personalities": {
+    "urban": {
+      "name": "Stadtentdecker",
+      "description": "Du saugst Kultur auf wie ein Schwamm. Du blühst an lebendigen Orten auf, wo der Espresso stark ist, die Kunst mutig und die Möglichkeiten endlos scheinen. Stell dir vor: belebte Märkte, Jazzclubs bis spät in die Nacht, Straßen zum Zufußgehen und zehn verschiedene Sprachen in Hörweite. Dich treiben Neugier, Verbundenheit und der Reiz an, Teil von etwas zu sein.",
+      "youllLove": "Barcelona, Tokio, Lissabon, Buenos Aires, Mexiko-Stadt"
+    },
+    "coastal": {
+      "name": "Küstenträumer",
+      "description": "Langsame Morgen. Salz auf der Haut. Ein tiefes Bedürfnis durchzuatmen. Du gehörst dorthin, wo das Wasser klar ist, die Tage lang sind und Schuhe optional. Du willst niemanden beeindrucken — du bist hier, um abzuschalten, Nähe zu finden und vielleicht surfen zu lernen oder das Nickerchen zu perfektionieren.",
+      "youllLove": "Koh Phangan, Bali, Kanarische Inseln, Tulum, Sansibar"
+    },
+    "nature": {
+      "name": "Naturliebhaber",
+      "description": "Alleinsein ist dir heilig, und die Natur ist dein Rückzugsort. Es macht dir nichts aus, dir die Hände schmutzig zu machen oder den Umweg zu nehmen, wenn dafür Ruhe, Stille und großartige Ausblicke warten. Wahrscheinlich denkst du tief, hörst gut zu und bist vielleicht sogar ein wenig spirituell.",
+      "youllLove": "Chiang Mai, San Cristóbal de las Casas, die Pyrenäen, das Hochland von Oaxaca, die Dolomiten"
+    },
+    "rooted": {
+      "name": "Verwurzelter Romantiker",
+      "description": "Bei dir geht es um Einfachheit mit Sinn. Du schätzt Gemeinschaft, Verbundenheit und einen Alltag, der geerdet und langsam ist. Harte Arbeit schreckt dich nicht — vor allem dann nicht, wenn sie etwas Echtem dient: Essen anbauen, Kinder großziehen, Wurzeln schlagen.",
+      "youllLove": "Ländliches Frankreich, Südspanien, Zentralportugal, Nordthailand, das sizilianische Hinterland"
+    }
+  },
+  "reveal": {
+    "eyebrow": "deine Reise-Persönlichkeit ist",
+    "youllLove": "Du wirst lieben",
+    "blendedWith": "gemischt mit",
+    "percentOfAnswers": "{{pct}} % deiner Antworten",
+    "cta": "Zeig mir meine Reiseziele →",
+    "subtext": "{{count}} Reiseziele, nur für dich gefiltert",
+    "retake": "Test wiederholen"
+  },
+  "explorer": {
+    "search": "Suchen…",
+    "clearSearch": "Suche löschen",
+    "destinations": "Reiseziele",
+    "filters": "⚙ Filter",
+    "tour": "? Tour",
+    "replayTour": "? Tour erneut ansehen",
+    "retakeQuiz": "Test wiederholen",
+    "globeView": "Globusansicht",
+    "tableView": "Tabellenansicht",
+    "refineSearch": "Suche verfeinern",
+    "alreadyFiltered": "Bereits nach deiner Persönlichkeit gefiltert",
+    "closeFilters": "Filter schließen",
+    "resetAll": "Alle Filter zurücksetzen",
+    "ofTotal": "{{shown}} von {{total}}",
+    "exportCsv": "↓ CSV exportieren",
+    "loading": "Reiseziele werden geladen…",
+    "loadError": "Reiseziele konnten nicht geladen werden. Bitte lade die Seite neu.",
+    "emptyState": "Keine Reiseziele passen zu deinen aktuellen Filtern.",
+    "resetFilters": "Filter zurücksetzen",
+    "sections": {
+      "personality": "Persönlichkeit",
+      "region": "Region",
+      "language": "Sprache",
+      "cost": "Lebenshaltungskosten (USD/Monat)",
+      "suitability": "Eignung für Auswanderer",
+      "trend": "Ländertrend",
+      "advantages": "Vorteile",
+      "dealbreakers": "Ausschlusskriterien"
+    },
+    "dealbreakersSubtitle": "Orte ausblenden mit:",
+    "scoreAtLeast": "Bewertung ≥ {{n}}",
+    "columns": {
+      "destination": "Reiseziel",
+      "country": "Land",
+      "region": "Region",
+      "personality": "Persönlichkeit",
+      "cost": "Kosten/Monat",
+      "score": "Bewertung",
+      "languages": "Sprachen",
+      "localWriter": "Lokale Stimme"
+    },
+    "emptyStateHint": "Passe deine Filter an oder setze sie zurück."
+  }
+}

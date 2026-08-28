@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 /* Drop the Midjourney renders into public/ as:
      intro.mp4 / intro-poster.jpg                 (16:9, desktop)
@@ -59,6 +60,7 @@ const introCSS = `
 `
 
 export default function IntroScreen({ onStartQuiz }) {
+  const { t } = useTranslation()
   const [videoReady, setVideoReady] = useState(false)
   const [portrait, setPortrait]     = useState(
     () => typeof window !== 'undefined' && window.matchMedia(PORTRAIT_QUERY).matches
@@ -108,7 +110,7 @@ export default function IntroScreen({ onStartQuiz }) {
           className="font-handwritten animate-dreamFadeUp"
           style={{ ...s.headline, animationDelay: '0.45s' }}
         >
-          Where does home begin?
+          {t('intro.headline')}
         </h1>
 
         <button
@@ -116,7 +118,7 @@ export default function IntroScreen({ onStartQuiz }) {
           style={{ animationDelay: '0.8s' }}
           onClick={onStartQuiz}
         >
-          Discover your destination personality
+          {t('intro.cta')}
         </button>
       </div>
     </div>

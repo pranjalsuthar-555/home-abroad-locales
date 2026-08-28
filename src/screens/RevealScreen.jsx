@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import FloatingBotanicals from '../components/FloatingBotanicals.jsx'
 
 const BG_GRADIENTS = {
@@ -31,6 +32,7 @@ const revealCSS = `
 `
 
 export default function RevealScreen({ result, onContinue, onRetake }) {
+  const { t } = useTranslation()
   const [bgReady, setBgReady] = useState(false)
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
       <FloatingBotanicals />
 
       {/* retake */}
-      <button onClick={onRetake} style={s.retakeBtn}>Retake quiz</button>
+      <button onClick={onRetake} style={s.retakeBtn}>{t('reveal.retake')}</button>
 
       {/* top color edge */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: primary.color + '22' }} />
@@ -69,7 +71,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
           className="animate-slowReveal"
           style={{ ...s.eyebrow, animationDelay: '0.8s' }}
         >
-          your destination personality is
+          {t('reveal.eyebrow')}
         </span>
 
         {/* emoji — wax stamp */}
@@ -77,7 +79,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
           className="animate-waxStamp"
           style={{ animationDelay: '1.6s', fontSize: '4rem', lineHeight: 1.1, display: 'block' }}
           role="img"
-          aria-label={primary.key}
+          aria-label={t(`personalities.${primary.i18nKey}.name`)}
         >
           {primary.emoji}
         </span>
@@ -93,7 +95,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             lineHeight: 1.05,
           }}
         >
-          {primary.key}
+          {t(`personalities.${primary.i18nKey}.name`)}
         </h1>
 
         {/* decorative ink line */}
@@ -133,13 +135,13 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             textAlign: 'center',
           }}
         >
-          {primary.description}
+          {t(`personalities.${primary.i18nKey}.description`)}
         </p>
 
         {/* you'll love */}
         <div className="animate-dreamFadeUp" style={{ animationDelay: '4.4s', ...s.youllLove }}>
-          <span style={s.youllLoveLabel}>You'll love</span>
-          <span style={s.youllLoveCities}>{primary.youllLove}</span>
+          <span style={s.youllLoveLabel}>{t('reveal.youllLove')}</span>
+          <span style={s.youllLoveCities}>{t(`personalities.${primary.i18nKey}.youllLove`)}</span>
         </div>
 
         {/* secondary personality — always shown when it exists */}
@@ -147,7 +149,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
           <div className="animate-dreamFadeUp" style={{ animationDelay: '5s', ...s.comboBlock }}>
             <div style={s.comboDivider}>
               <span style={s.comboDividerLine} />
-              <span style={s.comboDividerText}>blended with</span>
+              <span style={s.comboDividerText}>{t('reveal.blendedWith')}</span>
               <span style={s.comboDividerLine} />
             </div>
             <div style={s.comboInner}>
@@ -160,7 +162,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
                   color: secondary.color,
                   lineHeight: 1.1,
                 }}>
-                  {secondary.key}
+                  {t(`personalities.${secondary.i18nKey}.name`)}
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-body)',
@@ -169,7 +171,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
                   marginTop: '4px',
                   letterSpacing: '0.03em',
                 }}>
-                  {result.secondaryPct}% of your answers
+                  {t('reveal.percentOfAnswers', { pct: result.secondaryPct })}
                 </div>
               </div>
             </div>
@@ -183,13 +185,13 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             style={{ animationDelay: '5.6s' }}
             onClick={() => onContinue(result)}
           >
-            Show me my destinations →
+            {t('reveal.cta')}
           </button>
           <span
             className="animate-dreamFadeIn"
             style={{ animationDelay: '5.9s', fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--slate)', letterSpacing: '0.01em' }}
           >
-            561 destinations, filtered just for you
+            {t('reveal.subtext', { count: 561 })}
           </span>
         </div>
       </div>

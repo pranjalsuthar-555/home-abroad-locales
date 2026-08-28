@@ -1,151 +1,21 @@
 import { useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 /* ─────────────────────────── DATA ─────────────────────────── */
 
-const QUESTIONS = [
-  {
-    id: 1,
-    question: "Be honest: why are you really thinking about leaving?",
-    options: [
-      { label: "I want energy and culture — bold art, buzzing streets, a city that never runs out of things to show me", value: 'A' },
-      { label: "I want to slow all the way down — warm water, salt air, absolutely nowhere to be", value: 'B' },
-      { label: "I want space and silence — somewhere quiet enough to hear myself think again", value: 'C' },
-      { label: "I want to feel more connected — to people, place, and daily life", value: 'D' },
-    ]
-  },
-  {
-    id: 2,
-    question: "You've just arrived in a new city. What do you do first?",
-    options: [
-      { label: "Head straight into the busiest market or neighbourhood and let the energy pull me in", value: 'A' },
-      { label: "Find the water, kick off my shoes, and just breathe", value: 'B' },
-      { label: "Look for the nearest trail, forest, or quiet edge of town", value: 'C' },
-      { label: "Find whoever's lived here the longest and ask them to show me around", value: 'D' },
-    ]
-  },
-  {
-    id: 3,
-    question: "A friend asks what you're looking for abroad. You say...",
-    options: [
-      { label: "Somewhere alive — culture, art, a scene I can actually be part of", value: 'A' },
-      { label: "Somewhere I can finally exhale — slow mornings, warm water, no rush", value: 'B' },
-      { label: "Somewhere quiet and wild, where the landscape does most of the talking", value: 'C' },
-      { label: "Somewhere I can actually belong. A real neighbourhood, real relationships", value: 'D' },
-    ]
-  },
-  {
-    id: 4,
-    question: "What would make you feel like you'd truly made it abroad?",
-    options: [
-      { label: "I know the best hole-in-the-wall spots, and half the neighbourhood recognises me on the street", value: 'A' },
-      { label: "I've stopped checking the time. The days blur together in the best way", value: 'B' },
-      { label: "I've found my own quiet trail, my own view, my own sanctuary", value: 'C' },
-      { label: "The café owner knows my order. I have a regular table. People know my name", value: 'D' },
-    ]
-  },
-  {
-    id: 5,
-    question: "What's the thing you're most willing to give up to live abroad?",
-    options: [
-      { label: "Predictability — I want something unexpected around every corner", value: 'A' },
-      { label: "Ambition, for a while — I'd trade the hustle for ease without hesitation", value: 'B' },
-      { label: "Convenience — I'll live somewhere remote if it means real peace and quiet", value: 'C' },
-      { label: "Comfort and familiarity — if it means more warmth and connection somewhere new", value: 'D' },
-    ]
-  },
-  {
-    id: 6,
-    question: "You're having a hard week abroad — homesick, frustrated, nothing's working. What gets you through?",
-    options: [
-      { label: "I go find something happening — a market, a show, anything with energy", value: 'A' },
-      { label: "I get in the water or watch the sunset. It resets everything", value: 'B' },
-      { label: "I go for a long walk somewhere quiet and let my head clear", value: 'C' },
-      { label: "A neighbour brings food. Someone checks in. The community I've built shows up", value: 'D' },
-    ]
-  },
-  {
-    id: 7,
-    question: "What's your relationship with language barriers?",
-    options: [
-      { label: "Half the fun is piecing it together on the fly, mid-market, mid-conversation", value: 'A' },
-      { label: "I don't overthink it — a smile and slow living go a long way", value: 'B' },
-      { label: "I don't need much language where I'm headed. It's mostly just me and the landscape", value: 'C' },
-      { label: "I'll learn the language. That's part of belonging — you meet people halfway", value: 'D' },
-    ]
-  },
-  {
-    id: 8,
-    question: "Someone asks how long you're planning to stay. You say...",
-    options: [
-      { label: "As long as it stays interesting. Could be a year, could be a decade", value: 'A' },
-      { label: "Indefinitely, if the sun keeps setting over water like this", value: 'B' },
-      { label: "As long as the quiet holds", value: 'C' },
-      { label: "Indefinitely. If it becomes home, why leave?", value: 'D' },
-    ]
-  },
-  {
-    id: 9,
-    question: "Which of these would make you fall in love with a destination?",
-    options: [
-      { label: "Stumbling onto a street party and being pulled into a stranger's home for dinner", value: 'A' },
-      { label: "A hammock, warm water, and absolutely nowhere to be", value: 'B' },
-      { label: "Turning a corner and finding a view so big it stops me cold", value: 'C' },
-      { label: "Reading that three people I respect have quietly put down roots here in the last two years", value: 'D' },
-    ]
-  },
-  {
-    id: 10,
-    question: "Ten years from now, the version of you that made the right choice abroad...",
-    options: [
-      { label: "Still finds something new around every corner. Never bored, always curious", value: 'A' },
-      { label: "Lives somewhere the ocean is part of daily life. Slower, lighter, unbothered", value: 'B' },
-      { label: "Has a view they never get tired of, and a quiet life built around it", value: 'C' },
-      { label: "Has a village. Close friends, rituals, a life that feels genuinely inhabited", value: 'D' },
-    ]
-  },
-]
+/* Question + answer copy lives in src/i18n/locales/*.json under quiz.q1..q10.
+   Only the A/B/C/D mapping is structural, so it stays here. */
+const QUESTION_KEYS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10']
+const OPTION_KEYS   = [['a','A'], ['b','B'], ['c','C'], ['d','D']]
 
+/* `key` stays in English on purpose — it's what the Explorer matches against the
+   "Destination Personality" tags in Airtable, which are English. Only the display
+   name and description are translated, via i18nKey. */
 const PERSONALITIES = {
-  A: {
-    letter: 'A',
-    key: 'Urban Explorer',
-    emoji: '🏙',
-    color: '#6B4FA0',
-    tagClass: 'tag-urban',
-    description:
-      "You're a culture sponge. You thrive in dynamic places where the espresso is strong, the art is bold, and the possibilities feel endless. Think: bustling markets, late-night jazz clubs, walkable streets, and ten different languages in earshot. You're fuelled by curiosity, connection, and the thrill of being part of something.",
-    youllLove: 'Barcelona, Tokyo, Lisbon, Buenos Aires, Mexico City',
-  },
-  B: {
-    letter: 'B',
-    key: 'Coastal Dreamer',
-    emoji: '🌴',
-    color: '#2A7A65',
-    tagClass: 'tag-coastal',
-    description:
-      "Slow mornings. Salt on your skin. A deep need to exhale. You belong somewhere where the water is clear, the days are long, and shoes are optional. You're not trying to impress anyone — you're here to unwind, connect, and maybe learn how to surf or nap like a pro.",
-    youllLove: 'Koh Phangan, Bali, Canary Islands, Tulum, Zanzibar',
-  },
-  C: {
-    letter: 'C',
-    key: 'Nature Seeker',
-    emoji: '🏔',
-    color: '#4A5C35',
-    tagClass: 'tag-nature',
-    description:
-      "Solitude is sacred, and nature is your sanctuary. You don't mind getting your hands dirty or taking the long way around if it means peace, quiet, and epic views. You're probably a deep thinker, a good listener, and maybe even a little bit mystical.",
-    youllLove: "Chiang Mai, San Cristóbal de las Casas, the Pyrenees, Oaxaca's highlands, the Dolomites",
-  },
-  D: {
-    letter: 'D',
-    key: 'Rooted Romantic',
-    emoji: '🐓',
-    color: '#8B4A1E',
-    tagClass: 'tag-rooted',
-    description:
-      "You're all about meaningful simplicity. You value community, connection, and daily life that's grounded and slow. You don't mind hard work — especially when it's in service of something real, like growing food, raising kids, or putting down roots.",
-    youllLove: 'Rural France, Southern Spain, Central Portugal, Northern Thailand, Sicily\'s countryside',
-  },
+  A: { letter: 'A', key: 'Urban Explorer',  i18nKey: 'urban',   emoji: '🏙', color: '#6B4FA0', tagClass: 'tag-urban'   },
+  B: { letter: 'B', key: 'Coastal Dreamer', i18nKey: 'coastal', emoji: '🌴', color: '#2A7A65', tagClass: 'tag-coastal' },
+  C: { letter: 'C', key: 'Nature Seeker',   i18nKey: 'nature',  emoji: '🏔', color: '#4A5C35', tagClass: 'tag-nature'  },
+  D: { letter: 'D', key: 'Rooted Romantic', i18nKey: 'rooted',  emoji: '🐓', color: '#8B4A1E', tagClass: 'tag-rooted'  },
 }
 
 /* ─────────────────────────── SCORING ─────────────────────────── */
@@ -209,6 +79,7 @@ const quizCSS = `
 `
 
 export default function QuizScreen({ onQuizComplete }) {
+  const { t } = useTranslation()
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers]                 = useState(Array(10).fill(null))
   const [phase, setPhase]                     = useState('idle') // 'idle' | 'exit' | 'enter'
@@ -256,7 +127,14 @@ export default function QuizScreen({ onQuizComplete }) {
     transitionTo(currentQuestion - 1, answers)
   }
 
-  const q        = QUESTIONS[currentQuestion]
+  const qKey     = QUESTION_KEYS[currentQuestion]
+  const q        = {
+    question: t(`quiz.${qKey}.q`),
+    options:  OPTION_KEYS.map(([optKey, letter]) => ({
+      label: t(`quiz.${qKey}.${optKey}`),
+      value: letter,
+    })),
+  }
   const selected = answers[currentQuestion]
   const pctDone  = (answers.filter(Boolean).length / 10) * 100
 
@@ -274,7 +152,7 @@ export default function QuizScreen({ onQuizComplete }) {
           <img src="/HomeAbroad-Logo_Landscape-Color.webp" alt="Home Abroad" className="logo-img" />
         </div>
 
-        <div style={s.dots} role="list" aria-label="Progress">
+        <div style={s.dots} role="list" aria-label={t('quiz.progressLabel')}>
           {Array.from({ length: 10 }, (_, i) => {
             const answered  = answers[i] !== null
             const isCurrent = i === currentQuestion
@@ -282,7 +160,7 @@ export default function QuizScreen({ onQuizComplete }) {
               <div
                 key={i}
                 role="listitem"
-                aria-label={`Question ${i + 1}${answered ? ' answered' : ''}`}
+                aria-label={t('quiz.questionAria', { n: i + 1 }) + (answered ? t('quiz.answered') : '')}
                 className={answered ? 'dot-stamp' : ''}
                 style={{
                   width:        isCurrent ? '12px' : '8px',
@@ -303,7 +181,7 @@ export default function QuizScreen({ onQuizComplete }) {
           })}
         </div>
 
-        <span className="quiz-counter" style={s.counter}>{currentQuestion + 1} / 10</span>
+        <span className="quiz-counter" style={s.counter}>{t('quiz.counter', { n: currentQuestion + 1 })}</span>
       </header>
 
       {/* ── progress bar ── */}
@@ -322,7 +200,7 @@ export default function QuizScreen({ onQuizComplete }) {
         />
 
         <div className={contentClass} style={{ ...s.content, position: 'relative', zIndex: 1 }}>
-          <span style={s.qLabel}>Question {currentQuestion + 1}</span>
+          <span style={s.qLabel}>{t('quiz.questionLabel', { n: currentQuestion + 1 })}</span>
           <h2 style={s.qText}>{q.question}</h2>
 
           <div style={s.grid} key={cardKey}>
@@ -375,7 +253,7 @@ export default function QuizScreen({ onQuizComplete }) {
 
         {currentQuestion > 0 && (
           <button onClick={handleBack} style={{ ...s.backBtn, position: 'relative', zIndex: 1 }}>
-            ← Back
+            {t('quiz.back')}
           </button>
         )}
       </main>

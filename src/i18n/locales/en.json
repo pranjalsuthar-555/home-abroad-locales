@@ -1,0 +1,162 @@
+{
+  "language": {
+    "label": "Language"
+  },
+  "intro": {
+    "headline": "Where does home begin?",
+    "cta": "Discover your destination personality"
+  },
+  "quiz": {
+    "questionLabel": "Question {{n}}",
+    "counter": "{{n}} / 10",
+    "back": "← Back",
+    "progressLabel": "Progress",
+    "questionAria": "Question {{n}}",
+    "answered": " answered",
+    "q1": {
+      "q": "Be honest: why are you really thinking about leaving?",
+      "a": "I want energy and culture — bold art, buzzing streets, a city that never runs out of things to show me",
+      "b": "I want to slow all the way down — warm water, salt air, absolutely nowhere to be",
+      "c": "I want space and silence — somewhere quiet enough to hear myself think again",
+      "d": "I want to feel more connected — to people, place, and daily life"
+    },
+    "q2": {
+      "q": "You've just arrived in a new city. What do you do first?",
+      "a": "Head straight into the busiest market or neighbourhood and let the energy pull me in",
+      "b": "Find the water, kick off my shoes, and just breathe",
+      "c": "Look for the nearest trail, forest, or quiet edge of town",
+      "d": "Find whoever's lived here the longest and ask them to show me around"
+    },
+    "q3": {
+      "q": "A friend asks what you're looking for abroad. You say...",
+      "a": "Somewhere alive — culture, art, a scene I can actually be part of",
+      "b": "Somewhere I can finally exhale — slow mornings, warm water, no rush",
+      "c": "Somewhere quiet and wild, where the landscape does most of the talking",
+      "d": "Somewhere I can actually belong. A real neighbourhood, real relationships"
+    },
+    "q4": {
+      "q": "What would make you feel like you'd truly made it abroad?",
+      "a": "I know the best hole-in-the-wall spots, and half the neighbourhood recognises me on the street",
+      "b": "I've stopped checking the time. The days blur together in the best way",
+      "c": "I've found my own quiet trail, my own view, my own sanctuary",
+      "d": "The café owner knows my order. I have a regular table. People know my name"
+    },
+    "q5": {
+      "q": "What's the thing you're most willing to give up to live abroad?",
+      "a": "Predictability — I want something unexpected around every corner",
+      "b": "Ambition, for a while — I'd trade the hustle for ease without hesitation",
+      "c": "Convenience — I'll live somewhere remote if it means real peace and quiet",
+      "d": "Comfort and familiarity — if it means more warmth and connection somewhere new"
+    },
+    "q6": {
+      "q": "You're having a hard week abroad — homesick, frustrated, nothing's working. What gets you through?",
+      "a": "I go find something happening — a market, a show, anything with energy",
+      "b": "I get in the water or watch the sunset. It resets everything",
+      "c": "I go for a long walk somewhere quiet and let my head clear",
+      "d": "A neighbour brings food. Someone checks in. The community I've built shows up"
+    },
+    "q7": {
+      "q": "What's your relationship with language barriers?",
+      "a": "Half the fun is piecing it together on the fly, mid-market, mid-conversation",
+      "b": "I don't overthink it — a smile and slow living go a long way",
+      "c": "I don't need much language where I'm headed. It's mostly just me and the landscape",
+      "d": "I'll learn the language. That's part of belonging — you meet people halfway"
+    },
+    "q8": {
+      "q": "Someone asks how long you're planning to stay. You say...",
+      "a": "As long as it stays interesting. Could be a year, could be a decade",
+      "b": "Indefinitely, if the sun keeps setting over water like this",
+      "c": "As long as the quiet holds",
+      "d": "Indefinitely. If it becomes home, why leave?"
+    },
+    "q9": {
+      "q": "Which of these would make you fall in love with a destination?",
+      "a": "Stumbling onto a street party and being pulled into a stranger's home for dinner",
+      "b": "A hammock, warm water, and absolutely nowhere to be",
+      "c": "Turning a corner and finding a view so big it stops me cold",
+      "d": "Reading that three people I respect have quietly put down roots here in the last two years"
+    },
+    "q10": {
+      "q": "Ten years from now, the version of you that made the right choice abroad...",
+      "a": "Still finds something new around every corner. Never bored, always curious",
+      "b": "Lives somewhere the ocean is part of daily life. Slower, lighter, unbothered",
+      "c": "Has a view they never get tired of, and a quiet life built around it",
+      "d": "Has a village. Close friends, rituals, a life that feels genuinely inhabited"
+    }
+  },
+  "personalities": {
+    "urban": {
+      "name": "Urban Explorer",
+      "description": "You're a culture sponge. You thrive in dynamic places where the espresso is strong, the art is bold, and the possibilities feel endless. Think: bustling markets, late-night jazz clubs, walkable streets, and ten different languages in earshot. You're fuelled by curiosity, connection, and the thrill of being part of something.",
+      "youllLove": "Barcelona, Tokyo, Lisbon, Buenos Aires, Mexico City"
+    },
+    "coastal": {
+      "name": "Coastal Dreamer",
+      "description": "Slow mornings. Salt on your skin. A deep need to exhale. You belong somewhere where the water is clear, the days are long, and shoes are optional. You're not trying to impress anyone — you're here to unwind, connect, and maybe learn how to surf or nap like a pro.",
+      "youllLove": "Koh Phangan, Bali, Canary Islands, Tulum, Zanzibar"
+    },
+    "nature": {
+      "name": "Nature Seeker",
+      "description": "Solitude is sacred, and nature is your sanctuary. You don't mind getting your hands dirty or taking the long way around if it means peace, quiet, and epic views. You're probably a deep thinker, a good listener, and maybe even a little bit mystical.",
+      "youllLove": "Chiang Mai, San Cristóbal de las Casas, the Pyrenees, Oaxaca's highlands, the Dolomites"
+    },
+    "rooted": {
+      "name": "Rooted Romantic",
+      "description": "You're all about meaningful simplicity. You value community, connection, and daily life that's grounded and slow. You don't mind hard work — especially when it's in service of something real, like growing food, raising kids, or putting down roots.",
+      "youllLove": "Rural France, Southern Spain, Central Portugal, Northern Thailand, Sicily's countryside"
+    }
+  },
+  "reveal": {
+    "eyebrow": "your destination personality is",
+    "youllLove": "You'll love",
+    "blendedWith": "blended with",
+    "percentOfAnswers": "{{pct}}% of your answers",
+    "cta": "Show me my destinations →",
+    "subtext": "{{count}} destinations, filtered just for you",
+    "retake": "Retake quiz"
+  },
+  "explorer": {
+    "search": "Search…",
+    "clearSearch": "Clear search",
+    "destinations": "destinations",
+    "filters": "⚙ Filters",
+    "tour": "? Tour",
+    "replayTour": "? Replay tour",
+    "retakeQuiz": "Retake quiz",
+    "globeView": "Globe view",
+    "tableView": "Table view",
+    "refineSearch": "Refine your search",
+    "alreadyFiltered": "Already filtered by your personality",
+    "closeFilters": "Close filters",
+    "resetAll": "Reset all filters",
+    "ofTotal": "{{shown}} of {{total}}",
+    "exportCsv": "↓ Export CSV",
+    "loading": "Loading destinations…",
+    "loadError": "Couldn't load destinations. Please refresh and try again.",
+    "emptyState": "No destinations match your current filters.",
+    "resetFilters": "Reset filters",
+    "sections": {
+      "personality": "Personality",
+      "region": "Region",
+      "language": "Language",
+      "cost": "Cost of Living (USD/mo)",
+      "suitability": "Expat Suitability",
+      "trend": "Country Trend",
+      "advantages": "Advantages",
+      "dealbreakers": "Dealbreakers"
+    },
+    "dealbreakersSubtitle": "Hide places with:",
+    "scoreAtLeast": "Score ≥ {{n}}",
+    "columns": {
+      "destination": "Destination",
+      "country": "Country",
+      "region": "Region",
+      "personality": "Personality",
+      "cost": "Cost/mo",
+      "score": "Score",
+      "languages": "Languages",
+      "localWriter": "Local Writer"
+    },
+    "emptyStateHint": "Try adjusting or resetting your filters."
+  }
+}

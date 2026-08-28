@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react'
 import * as THREE from 'three'
+import { useTranslation } from 'react-i18next'
 import Papa from 'papaparse'
 import HoverCard from '../components/HoverCard.jsx'
 import WaxSeal from '../components/WaxSeal.jsx'
@@ -33,6 +34,25 @@ function personalityTagClass(p = '') {
   if (l.includes('nature'))  return 'tag-nature'
   if (l.includes('rooted'))  return 'tag-rooted'
   return 'tag-region'
+}
+
+/* Airtable stores personality tags in English ("🐓 Rooted Romantic"). Those raw values
+   drive the filtering, so they must not change — this only swaps what's displayed,
+   keeping the emoji. Any tag outside the known four falls through unchanged. */
+function personalityI18nKey(p = '') {
+  const l = p.toLowerCase()
+  if (l.includes('urban'))   return 'urban'
+  if (l.includes('coastal')) return 'coastal'
+  if (l.includes('nature'))  return 'nature'
+  if (l.includes('rooted'))  return 'rooted'
+  return null
+}
+
+function localisePersonality(raw, t) {
+  const key = personalityI18nKey(raw)
+  if (!key) return raw
+  const emoji = (raw.match(/^\s*(\p{Extended_Pictographic}️?)/u) || [])[1]
+  return emoji ? `${emoji} ${t(`personalities.${key}.name`)}` : t(`personalities.${key}.name`)
 }
 
 function countBy(arr) {
@@ -137,7 +157,9 @@ function FilterSection({ title, subtitle, children, defaultOpen = false }) {
   )
 }
 
-function CheckGroup({ options, selected, onChange }) {
+/* labelFor lets a group display something other than the raw Airtable value — the
+   value itself still drives filtering, so matching is unaffected. */
+function CheckGroup({ options, selected, onChange, labelFor }) {
   function toggle(opt) {
     onChange(selected.includes(opt) ? selected.filter(s => s !== opt) : [...selected, opt])
   }
@@ -148,7 +170,7 @@ function CheckGroup({ options, selected, onChange }) {
           key={opt}
           checked={selected.includes(opt)}
           onChange={() => toggle(opt)}
-          label={opt}
+          label={labelFor ? labelFor(opt) : opt}
         />
       ))}
     </div>
@@ -210,28 +232,28 @@ function TableSkeleton() {
   )
 }
 
-function DestinationsLoading() {
+function DestinationsLoading({ t }) {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.25rem' }}>
       <div className="spinner" />
       <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--slate)', margin: 0 }}>
-        Loading destinations…
+        {t('explorer.loading')}
       </p>
     </div>
   )
 }
 
-function EmptyState({ onReset }) {
+function EmptyState({ onReset, t }) {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', padding: '4rem 2rem' }}>
       <span style={{ fontSize: '4rem' }}>🗺</span>
       <p style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.4rem', color: 'var(--ink)', textAlign: 'center', margin: 0 }}>
-        No destinations match your current filters.
+        {t('explorer.emptyState')}
       </p>
       <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--slate)', textAlign: 'center', margin: 0 }}>
-        Try adjusting or resetting your filters.
+        {t('explorer.emptyStateHint')}
       </p>
-      <button className="btn-ghost" onClick={onReset}>Reset filters</button>
+      <button className="btn-ghost" onClick={onReset}>{t('explorer.resetFilters')}</button>
     </div>
   )
 }
@@ -239,6 +261,7 @@ function EmptyState({ onReset }) {
 /* ═══════════════════════ MAIN COMPONENT ═══════════════════════ */
 
 export default function ExplorerScreen({ result, destinations = [], destLoading, destError, onRestartQuiz }) {
+  const { t } = useTranslation()
   const [viewMode,    setViewMode]    = useState('globe')
   const [isMobile,    setIsMobile]    = useState(() => window.innerWidth < 900)
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 900)
@@ -454,12 +477,12 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
         <div className="explorer-personality-pills" style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
           {result?.primary && (
             <span className={`tag ${result.primary.tagClass}`}>
-              {result.primary.emoji} {result.primary.key}
+              {result.primary.emoji} {t(`personalities.${result.primary.i18nKey}.name`)}
             </span>
           )}
           {result?.secondary && (
             <span className={`tag ${result.secondary.tagClass}`} style={{ opacity: 0.75 }}>
-              {result.secondary.emoji} {result.secondary.key}
+              {result.secondary.emoji} {t(`personalities.${result.secondary.i18nKey}.name`)}
             </span>
           )}
         </div>
@@ -469,7 +492,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           <span style={{ position: 'absolute', left: '10px', fontSize: '0.8rem', pointerEvents: 'none', color: 'var(--slate)' }}>🔍</span>
           <input
             type="text"
-            placeholder="Search…"
+            placeholder={t('explorer.search')}
             value={search}
             onChange={e => setSearch(e.target.value)}
             style={{
@@ -488,7 +511,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             <button
               onClick={() => setSearch('')}
               style={{ position: 'absolute', right: '9px', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--slate)', fontSize: '0.7rem', lineHeight: 1, padding: '2px' }}
-              aria-label="Clear search"
+              aria-label={t('explorer.clearSearch')}
             >✕</button>
           )}
         </div>
@@ -509,7 +532,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               {filtered.length}
             </span>
             <span className="explorer-count-label" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--slate)', whiteSpace: 'nowrap' }}>
-              destinations
+              {t('explorer.destinations')}
             </span>
           </div>
 
@@ -519,7 +542,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               <button
                 key={mode}
                 onClick={() => { setViewMode(mode); setSelectedDest(null) }}
-                title={mode === 'globe' ? 'Globe view' : 'Table view'}
+                title={mode === 'globe' ? t('explorer.globeView') : t('explorer.tableView')}
                 style={{
                   width: '36px', height: '34px', border: 'none', cursor: 'pointer',
                   background: viewMode === mode ? 'var(--coral)' : 'var(--almond-dark)',
@@ -537,7 +560,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             onClick={() => setSidebarOpen(o => !o)}
             style={{ padding: '7px 14px', fontSize: '0.82rem' }}
           >
-            ⚙ Filters
+            {t('explorer.filters')}
           </button>
 
           <button
@@ -551,7 +574,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             }}
             title="Replay filter walkthrough"
           >
-            ? Tour
+            {t('explorer.tour')}
           </button>
 
           <button
@@ -565,7 +588,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               whiteSpace: 'nowrap',
             }}
           >
-            Retake quiz
+            {t('explorer.retakeQuiz')}
           </button>
         </div>
       </header>
@@ -598,11 +621,11 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             >
               <div style={{ padding: '20px 20px 80px' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
-                  <h4 style={{ marginBottom: '4px' }}>Refine your search</h4>
+                  <h4 style={{ marginBottom: '4px' }}>{t('explorer.refineSearch')}</h4>
                   {isMobile && (
                     <button
                       onClick={() => setSidebarOpen(false)}
-                      aria-label="Close filters"
+                      aria-label={t('explorer.closeFilters')}
                       style={{
                         background: 'none', border: 'none', cursor: 'pointer',
                         fontSize: '1.1rem', lineHeight: 1, color: 'var(--slate)',
@@ -612,22 +635,22 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                   )}
                 </div>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--slate)', marginBottom: '16px' }}>
-                  Already filtered by your personality
+                  {t('explorer.alreadyFiltered')}
                 </p>
 
                 <div data-filter="personality">
-                  <FilterSection title="Personality" defaultOpen>
-                    <CheckGroup options={opts.personalities} selected={filters.personalities} onChange={v => setFilter('personalities', v)} />
+                  <FilterSection title={t('explorer.sections.personality')} defaultOpen>
+                    <CheckGroup options={opts.personalities} selected={filters.personalities} onChange={v => setFilter('personalities', v)} labelFor={p => localisePersonality(p, t)} />
                   </FilterSection>
                 </div>
-                <FilterSection title="Region">
+                <FilterSection title={t('explorer.sections.region')}>
                   <CheckGroup options={opts.regions} selected={filters.regions} onChange={v => setFilter('regions', v)} />
                 </FilterSection>
-                <FilterSection title="Language">
+                <FilterSection title={t('explorer.sections.language')}>
                   <CheckGroup options={opts.languages} selected={filters.languages} onChange={v => setFilter('languages', v)} />
                 </FilterSection>
                 <div data-filter="cost">
-                  <FilterSection title="Cost of Living (USD/mo)">
+                  <FilterSection title={t('explorer.sections.cost')}>
                     <div style={{ padding: '4px 0' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--ink-light)', marginBottom: '4px' }}>
                         <span>${filters.costRange[0].toLocaleString()}</span>
@@ -643,10 +666,10 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                   </FilterSection>
                 </div>
                 <div data-filter="score">
-                  <FilterSection title="Expat Suitability">
+                  <FilterSection title={t('explorer.sections.suitability')}>
                     <div style={{ padding: '4px 0' }}>
                       <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--ink-light)', marginBottom: '4px' }}>
-                        Score ≥ {filters.suitabilityMin}
+                        {t('explorer.scoreAtLeast', { n: filters.suitabilityMin })}
                       </div>
                       <input type="range" min={0} max={5} step={0.5} value={filters.suitabilityMin}
                         style={{ '--progress': `${(filters.suitabilityMin / 5) * 100}%` }}
@@ -655,17 +678,17 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                   </FilterSection>
                 </div>
                 <div data-filter="trend">
-                  <FilterSection title="Country Trend">
+                  <FilterSection title={t('explorer.sections.trend')}>
                     <TrendPills options={opts.trends} selected={filters.countryTrends} onChange={v => setFilter('countryTrends', v)} />
                   </FilterSection>
                 </div>
                 <div data-filter="advantages">
-                  <FilterSection title="Advantages">
+                  <FilterSection title={t('explorer.sections.advantages')}>
                     <CheckGroup options={opts.advantages} selected={filters.advantages} onChange={v => setFilter('advantages', v)} />
                   </FilterSection>
                 </div>
                 <div data-filter="dealbreakers">
-                  <FilterSection title="Dealbreakers" subtitle="Hide places with:">
+                  <FilterSection title={t('explorer.sections.dealbreakers')} subtitle={t('explorer.dealbreakersSubtitle')}>
                     <CheckGroup options={opts.disadvantages} selected={filters.disadvantages} onChange={v => setFilter('disadvantages', v)} />
                   </FilterSection>
                 </div>
@@ -681,13 +704,13 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                       onClick={() => { setSidebarOpen(false); startTour() }}
                       style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
                     >
-                      ? Replay tour
+                      {t('explorer.replayTour')}
                     </button>
                     <button
                       onClick={onRestartQuiz}
                       style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
                     >
-                      Retake quiz
+                      {t('explorer.retakeQuiz')}
                     </button>
                   </div>
                 )}
@@ -700,10 +723,10 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
                 <button onClick={resetFilters} className="reset-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--coral)', padding: 0 }}>
-                  Reset all filters
+                  {t('explorer.resetAll')}
                 </button>
                 <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--slate)' }}>
-                  {filtered.length} of {TOTAL}
+                  {t('explorer.ofTotal', { shown: filtered.length, total: TOTAL })}
                 </span>
               </div>
             </aside>
@@ -714,7 +737,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
         <main ref={mainRef} style={{ flex: 1, overflow: 'hidden', position: 'relative', display: 'flex', flexDirection: 'column' }}>
 
           {destLoading && destinations.length === 0 ? (
-            <DestinationsLoading />
+            <DestinationsLoading t={t} />
           ) : destError ? (
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
               <p style={{ color: 'var(--slate)', fontFamily: 'var(--font-body)', textAlign: 'center' }}>
@@ -722,7 +745,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               </p>
             </div>
           ) : filtered.length === 0 ? (
-            <EmptyState onReset={resetFilters} />
+            <EmptyState onReset={resetFilters} t={t} />
           ) : viewMode === 'globe' ? (
 
             /* ════ GLOBE VIEW ════ */
@@ -735,7 +758,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               style={{ flex: 1, position: 'relative', background: 'radial-gradient(ellipse at center, #3a5068 0%, #1a2535 100%)' }}
             >
               {globeSize.w > 0 && (
-                <Suspense fallback={<DestinationsLoading />}>
+                <Suspense fallback={<DestinationsLoading t={t} />}>
                   <div className="animate-dreamFadeIn" style={{ animationDelay: '0.3s', animationDuration: '1.5s' }}>
                   <Globe
                     ref={globeRef}
@@ -799,7 +822,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
                 <button className="btn-ghost" onClick={() => downloadCSV(filtered)} style={{ fontSize: '0.85rem', padding: '8px 16px' }}>
-                  ↓ Export CSV
+                  {t('explorer.exportCsv')}
                 </button>
               </div>
 
@@ -808,13 +831,13 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                   <table className="explorer-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '700px' }}>
                     <thead>
                       <tr style={{ background: 'var(--almond-dark)' }}>
-                        {['Destination', 'Country', 'Region', 'Personality', 'Cost/mo', 'Score', 'Languages', 'Local Writer'].map(col => (
-                          <th key={col} style={{
+                        {['destination','country','region','personality','cost','score','languages','localWriter'].map(colKey => (
+                          <th key={colKey} style={{
                             padding: '12px 16px', fontFamily: 'var(--font-body)', fontSize: '0.72rem',
                             fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em',
                             color: 'var(--slate)', textAlign: 'left', whiteSpace: 'nowrap',
                             borderBottom: '1px solid var(--almond-dark)',
-                          }}>{col}</th>
+                          }}>{t(`explorer.columns.${colKey}`)}</th>
                         ))}
                       </tr>
                     </thead>
@@ -834,7 +857,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                           <td style={{ ...s.td, maxWidth: '180px' }}>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                               {d.personalities.slice(0, 2).map(p => (
-                                <span key={p} className={`tag ${personalityTagClass(p)}`} style={{ fontSize: '0.65rem' }}>{p}</span>
+                                <span key={p} className={`tag ${personalityTagClass(p)}`} style={{ fontSize: '0.65rem' }}>{localisePersonality(p, t)}</span>
                               ))}
                             </div>
                           </td>

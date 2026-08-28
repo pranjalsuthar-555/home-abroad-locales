@@ -1,0 +1,162 @@
+{
+  "language": {
+    "label": "Idioma"
+  },
+  "intro": {
+    "headline": "Onde começa o lar?",
+    "cta": "Descubra a sua personalidade de destino"
+  },
+  "quiz": {
+    "questionLabel": "Pergunta {{n}}",
+    "counter": "{{n}} / 10",
+    "back": "← Voltar",
+    "progressLabel": "Progresso",
+    "questionAria": "Pergunta {{n}}",
+    "answered": " respondida",
+    "q1": {
+      "q": "Seja sincero: por que você está realmente pensando em partir?",
+      "a": "Quero energia e cultura — arte ousada, ruas cheias de vida, uma cidade que nunca para de me surpreender",
+      "b": "Quero desacelerar por completo — água morna, ar salgado, absolutamente nenhum compromisso",
+      "c": "Quero espaço e silêncio — um lugar calmo o suficiente para voltar a ouvir meus pensamentos",
+      "d": "Quero me sentir mais conectado — às pessoas, ao lugar e ao dia a dia"
+    },
+    "q2": {
+      "q": "Você acabou de chegar a uma cidade nova. O que faz primeiro?",
+      "a": "Vou direto ao mercado ou bairro mais movimentado e me deixo levar pela energia",
+      "b": "Procuro a água, tiro os sapatos e simplesmente respiro",
+      "c": "Procuro a trilha, a mata ou o canto mais tranquilo mais próximo",
+      "d": "Procuro quem mora aqui há mais tempo e peço para me mostrar o lugar"
+    },
+    "q3": {
+      "q": "Um amigo pergunta o que você procura no exterior. Você diz...",
+      "a": "Um lugar vivo — cultura, arte, uma cena da qual eu possa realmente fazer parte",
+      "b": "Um lugar onde eu possa finalmente respirar — manhãs lentas, água morna, sem pressa",
+      "c": "Um lugar calmo e selvagem, onde a paisagem fala por si",
+      "d": "Um lugar ao qual eu possa realmente pertencer. Um bairro de verdade, relações de verdade"
+    },
+    "q4": {
+      "q": "O que faria você sentir que realmente se estabeleceu no exterior?",
+      "a": "Conheço os melhores lugares escondidos, e metade do bairro me reconhece na rua",
+      "b": "Parei de olhar as horas. Os dias se misturam, no melhor sentido",
+      "c": "Encontrei minha própria trilha tranquila, minha vista, meu refúgio",
+      "d": "No café já sabem o meu pedido. Tenho a minha mesa. As pessoas sabem o meu nome"
+    },
+    "q5": {
+      "q": "Do que você está mais disposto a abrir mão para viver no exterior?",
+      "a": "Da previsibilidade — quero algo inesperado em cada esquina",
+      "b": "Da ambição, por um tempo — trocaria a correria pela leveza sem hesitar",
+      "c": "Do conforto — moraria num lugar remoto se isso significar paz e silêncio de verdade",
+      "d": "Do que é familiar e confortável — se isso significar mais calor humano e conexão em outro lugar"
+    },
+    "q6": {
+      "q": "Você está tendo uma semana difícil fora — saudade, frustração, nada funciona. O que te ajuda a atravessar isso?",
+      "a": "Saio atrás de algo acontecendo — uma feira, um show, qualquer coisa com energia",
+      "b": "Entro na água ou fico vendo o pôr do sol. Isso reinicia tudo",
+      "c": "Faço uma caminhada longa em algum lugar tranquilo e deixo a cabeça clarear",
+      "d": "Um vizinho traz comida. Alguém pergunta como estou. A comunidade que construí aparece"
+    },
+    "q7": {
+      "q": "Qual é a sua relação com a barreira do idioma?",
+      "a": "Metade da graça é ir montando na hora, no meio da feira, no meio da conversa",
+      "b": "Não penso demais — um sorriso e uma vida sem pressa levam longe",
+      "c": "Não preciso de muito idioma para onde vou. Somos basicamente eu e a paisagem",
+      "d": "Vou aprender o idioma. Isso faz parte de pertencer — a gente encontra o outro no meio do caminho"
+    },
+    "q8": {
+      "q": "Alguém pergunta quanto tempo você pretende ficar. Você diz...",
+      "a": "Enquanto continuar interessante. Pode ser um ano, podem ser dez",
+      "b": "Por tempo indeterminado, se o sol continuar se pondo sobre a água assim",
+      "c": "Enquanto o silêncio durar",
+      "d": "Por tempo indeterminado. Se virar o meu lar, por que sair?"
+    },
+    "q9": {
+      "q": "O que faria você se apaixonar por um destino?",
+      "a": "Esbarrar numa festa de rua e ser puxado para jantar na casa de um desconhecido",
+      "b": "Uma rede, água morna e absolutamente nenhum compromisso",
+      "c": "Virar a esquina e encontrar uma vista tão imensa que me faz parar",
+      "d": "Ler que três pessoas que eu admiro criaram raízes aqui nos últimos dois anos"
+    },
+    "q10": {
+      "q": "Daqui a dez anos, a versão de você que fez a escolha certa no exterior...",
+      "a": "Ainda encontra algo novo em cada esquina. Nunca entediada, sempre curiosa",
+      "b": "Vive onde o mar faz parte do dia a dia. Mais devagar, mais leve, mais tranquila",
+      "c": "Tem uma vista da qual nunca se cansa e uma vida calma construída em volta dela",
+      "d": "Tem a sua gente. Amigos próximos, rituais, uma vida que parece de fato habitada"
+    }
+  },
+  "personalities": {
+    "urban": {
+      "name": "Explorador Urbano",
+      "description": "Você absorve cultura como uma esponja. Floresce em lugares dinâmicos onde o café é forte, a arte é ousada e as possibilidades parecem infinitas. Pense: mercados movimentados, clubes de jazz de madrugada, ruas que se percorrem a pé e dez idiomas diferentes ao alcance do ouvido. O que te move é a curiosidade, a conexão e a emoção de fazer parte de algo.",
+      "youllLove": "Barcelona, Tóquio, Lisboa, Buenos Aires, Cidade do México"
+    },
+    "coastal": {
+      "name": "Sonhador Litorâneo",
+      "description": "Manhãs lentas. Sal na pele. Uma necessidade profunda de respirar fundo. O seu lugar é onde a água é clara, os dias são longos e os sapatos são opcionais. Você não está tentando impressionar ninguém — está aqui para relaxar, criar laços e talvez aprender a surfar ou a tirar uma soneca como um profissional.",
+      "youllLove": "Koh Phangan, Bali, Ilhas Canárias, Tulum, Zanzibar"
+    },
+    "nature": {
+      "name": "Buscador da Natureza",
+      "description": "A solidão é sagrada e a natureza é o seu refúgio. Você não se importa em sujar as mãos ou fazer o caminho mais longo se isso significar paz, silêncio e vistas incríveis. Você provavelmente pensa fundo, escuta bem e talvez seja até um pouco místico.",
+      "youllLove": "Chiang Mai, San Cristóbal de las Casas, os Pirenéus, as serras de Oaxaca, as Dolomitas"
+    },
+    "rooted": {
+      "name": "Romântico Enraizado",
+      "description": "O seu negócio é a simplicidade com sentido. Você valoriza comunidade, conexão e uma vida cotidiana pausada e com os pés no chão. Não tem medo de trabalho duro — principalmente quando serve a algo real, como plantar o próprio alimento, criar filhos ou criar raízes.",
+      "youllLove": "França rural, sul da Espanha, centro de Portugal, norte da Tailândia, interior da Sicília"
+    }
+  },
+  "reveal": {
+    "eyebrow": "a sua personalidade de destino é",
+    "youllLove": "Você vai amar",
+    "blendedWith": "combinado com",
+    "percentOfAnswers": "{{pct}}% das suas respostas",
+    "cta": "Mostre-me os meus destinos →",
+    "subtext": "{{count}} destinos, filtrados só para você",
+    "retake": "Refazer o teste"
+  },
+  "explorer": {
+    "search": "Pesquisar…",
+    "clearSearch": "Limpar pesquisa",
+    "destinations": "destinos",
+    "filters": "⚙ Filtros",
+    "tour": "? Guia",
+    "replayTour": "? Rever o guia",
+    "retakeQuiz": "Refazer o teste",
+    "globeView": "Vista de globo",
+    "tableView": "Vista de tabela",
+    "refineSearch": "Refine a sua busca",
+    "alreadyFiltered": "Já filtrado pela sua personalidade",
+    "closeFilters": "Fechar filtros",
+    "resetAll": "Limpar todos os filtros",
+    "ofTotal": "{{shown}} de {{total}}",
+    "exportCsv": "↓ Exportar CSV",
+    "loading": "A carregar destinos…",
+    "loadError": "Não foi possível carregar os destinos. Atualize a página e tente novamente.",
+    "emptyState": "Nenhum destino corresponde aos seus filtros atuais.",
+    "resetFilters": "Limpar filtros",
+    "sections": {
+      "personality": "Personalidade",
+      "region": "Região",
+      "language": "Idioma",
+      "cost": "Custo de vida (USD/mês)",
+      "suitability": "Adequação para expatriados",
+      "trend": "Tendência do país",
+      "advantages": "Vantagens",
+      "dealbreakers": "Impedimentos"
+    },
+    "dealbreakersSubtitle": "Ocultar lugares com:",
+    "scoreAtLeast": "Pontuação ≥ {{n}}",
+    "columns": {
+      "destination": "Destino",
+      "country": "País",
+      "region": "Região",
+      "personality": "Personalidade",
+      "cost": "Custo/mês",
+      "score": "Pontuação",
+      "languages": "Idiomas",
+      "localWriter": "Autor local"
+    },
+    "emptyStateHint": "Tente ajustar ou limpar os seus filtros."
+  }
+}

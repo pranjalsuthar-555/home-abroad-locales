@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useDestinations } from './data/useDestinations.js'
-import IntroScreen    from './screens/IntroScreen.jsx'
-import QuizScreen     from './screens/QuizScreen.jsx'
-import RevealScreen   from './screens/RevealScreen.jsx'
-import ExplorerScreen from './screens/ExplorerScreen.jsx'
+import IntroScreen      from './screens/IntroScreen.jsx'
+import QuizScreen       from './screens/QuizScreen.jsx'
+import RevealScreen     from './screens/RevealScreen.jsx'
+import ExplorerScreen   from './screens/ExplorerScreen.jsx'
+import LanguageSwitcher from './components/LanguageSwitcher.jsx'
 
 function loadSaved() {
   try {
@@ -51,34 +52,43 @@ export default function App() {
     setCurrentScreen('quiz')
   }
 
-  switch (currentScreen) {
-    case 'intro':
-      return <IntroScreen onStartQuiz={handleStartQuiz} />
+  function renderScreen() {
+    switch (currentScreen) {
+      case 'intro':
+        return <IntroScreen onStartQuiz={handleStartQuiz} />
 
-    case 'quiz':
-      return <QuizScreen onQuizComplete={handleQuizComplete} />
+      case 'quiz':
+        return <QuizScreen onQuizComplete={handleQuizComplete} />
 
-    case 'reveal':
-      return (
-        <RevealScreen
-          result={personalityResult}
-          onContinue={handleRevealDone}
-          onRetake={handleRestartQuiz}
-        />
-      )
+      case 'reveal':
+        return (
+          <RevealScreen
+            result={personalityResult}
+            onContinue={handleRevealDone}
+            onRetake={handleRestartQuiz}
+          />
+        )
 
-    case 'explorer':
-      return (
-        <ExplorerScreen
-          result={personalityResult}
-          destinations={destinations}
-          destLoading={destLoading}
-          destError={destError}
-          onRestartQuiz={handleRestartQuiz}
-        />
-      )
+      case 'explorer':
+        return (
+          <ExplorerScreen
+            result={personalityResult}
+            destinations={destinations}
+            destLoading={destLoading}
+            destError={destError}
+            onRestartQuiz={handleRestartQuiz}
+          />
+        )
 
-    default:
-      return null
+      default:
+        return null
+    }
   }
+
+  return (
+    <>
+      {renderScreen()}
+      <LanguageSwitcher />
+    </>
+  )
 }
