@@ -73,6 +73,9 @@ const s = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '3rem 1.5rem 4rem',
+    // the flip card's 3D perspective paints wider than its layout box, which pushes
+    // the page into sideways scroll on narrow screens
+    overflowX: 'hidden',
   },
   scene: {
     perspective: '1200px',

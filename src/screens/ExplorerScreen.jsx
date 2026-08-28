@@ -240,6 +240,7 @@ function EmptyState({ onReset }) {
 
 export default function ExplorerScreen({ result, destinations = [], destLoading, destError, onRestartQuiz }) {
   const [viewMode,    setViewMode]    = useState('globe')
+  const [isMobile,    setIsMobile]    = useState(() => window.innerWidth < 900)
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 900)
   const [filters,     setFilters]     = useState(DEFAULT_FILTERS)
   const [search,      setSearch]      = useState('')
@@ -260,7 +261,12 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
   const [audioPlaying, setAudioPlaying] = useState(false)
   const [audioPlayed,  setAudioPlayed]  = useState(false)
 
-  const [showTour, setShowTour] = useState(() => localStorage.getItem('ha_tour_done') !== 'true')
+  /* The walkthrough drives the filter sidebar, which is a full-screen drawer on mobile —
+     auto-running it there would bury the globe behind filters on first load. Phones start
+     on the globe instead; the tour stays available from the "? Tour" button. */
+  const [showTour, setShowTour] = useState(
+    () => window.innerWidth >= 900 && localStorage.getItem('ha_tour_done') !== 'true'
+  )
 
   function startTour() {
     setSidebarOpen(true)
@@ -343,9 +349,13 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
     return () => obs.disconnect()
   }, [])
 
-  /* ── close sidebar on mobile resize ── */
+  /* ── track viewport so layout reacts to resize / orientation change ── */
   useEffect(() => {
-    const h = () => { if (window.innerWidth < 900) setSidebarOpen(false) }
+    const h = () => {
+      const mobile = window.innerWidth < 900
+      setIsMobile(mobile)
+      if (mobile) setSidebarOpen(false)
+    }
     window.addEventListener('resize', h)
     return () => window.removeEventListener('resize', h)
   }, [])
@@ -435,7 +445,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
       <style>{explorerCSS}</style>
 
       {/* ══ TOP BAR ══ */}
-      <header style={s.topBar}>
+      <header className="explorer-topbar" style={s.topBar}>
         <div className="header-logo">
           <img src="/HomeAbroad-Logo_Landscape-Color.webp" alt="Home Abroad" className="logo-img" />
         </div>
@@ -455,7 +465,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
         </div>
 
         {/* search input */}
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', flex: '0 1 200px' }}>
+        <div className="explorer-search" style={{ position: 'relative', display: 'flex', alignItems: 'center', flex: '0 1 200px' }}>
           <span style={{ position: 'absolute', left: '10px', fontSize: '0.8rem', pointerEvents: 'none', color: 'var(--slate)' }}>🔍</span>
           <input
             type="text"
@@ -498,7 +508,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             >
               {filtered.length}
             </span>
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--slate)', whiteSpace: 'nowrap' }}>
+            <span className="explorer-count-label" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--slate)', whiteSpace: 'nowrap' }}>
               destinations
             </span>
           </div>
@@ -531,6 +541,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           </button>
 
           <button
+            className="explorer-tour-btn"
             onClick={startTour}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
@@ -544,6 +555,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           </button>
 
           <button
+            className="explorer-retake-btn"
             onClick={onRestartQuiz}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
@@ -564,27 +576,41 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
         {/* ── FILTER SIDEBAR ── */}
         {sidebarOpen && (
           <>
-            {/* mobile overlay */}
-            {window.innerWidth < 900 && (
+            {/* mobile scrim — starts below the header so the top bar stays tappable */}
+            {isMobile && (
               <div
                 onClick={() => setSidebarOpen(false)}
-                style={{ position: 'fixed', inset: 0, zIndex: 30, background: 'rgba(27,30,34,0.2)', backdropFilter: 'blur(2px)' }}
+                style={{ position: 'fixed', top: '64px', left: 0, right: 0, bottom: 0, zIndex: 30, background: 'rgba(27,30,34,0.2)', backdropFilter: 'blur(2px)' }}
               />
             )}
             <aside
               className="sidebar-scroll dotted-texture"
               style={{
-                width: window.innerWidth >= 900 ? '300px' : '100%',
-                position: window.innerWidth >= 900 ? 'relative' : 'fixed',
-                top: window.innerWidth >= 900 ? 'auto' : '64px',
-                left: 0, bottom: 0, zIndex: window.innerWidth >= 900 ? 'auto' : 40,
+                width: isMobile ? 'min(88%, 340px)' : '300px',
+                position: isMobile ? 'fixed' : 'relative',
+                top: isMobile ? '64px' : 'auto',
+                left: 0, bottom: 0, zIndex: isMobile ? 40 : 'auto',
                 backgroundColor: 'var(--white)',
                 borderRight: '1px solid var(--almond-dark)',
+                boxShadow: isMobile ? '4px 0 24px rgba(27,30,34,0.18)' : 'none',
                 overflowY: 'auto', flexShrink: 0,
               }}
             >
               <div style={{ padding: '20px 20px 80px' }}>
-                <h4 style={{ marginBottom: '4px' }}>Refine your search</h4>
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
+                  <h4 style={{ marginBottom: '4px' }}>Refine your search</h4>
+                  {isMobile && (
+                    <button
+                      onClick={() => setSidebarOpen(false)}
+                      aria-label="Close filters"
+                      style={{
+                        background: 'none', border: 'none', cursor: 'pointer',
+                        fontSize: '1.1rem', lineHeight: 1, color: 'var(--slate)',
+                        padding: '4px 6px', marginTop: '-2px',
+                      }}
+                    >✕</button>
+                  )}
+                </div>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--slate)', marginBottom: '16px' }}>
                   Already filtered by your personality
                 </p>
@@ -643,6 +669,28 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                     <CheckGroup options={opts.disadvantages} selected={filters.disadvantages} onChange={v => setFilter('disadvantages', v)} />
                   </FilterSection>
                 </div>
+
+                {/* these live in the header on desktop, which has no room for them on phones */}
+                {isMobile && (
+                  <div style={{
+                    marginTop: '20px', paddingTop: '16px',
+                    borderTop: '1px solid var(--almond-dark)',
+                    display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px',
+                  }}>
+                    <button
+                      onClick={() => { setSidebarOpen(false); startTour() }}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
+                    >
+                      ? Replay tour
+                    </button>
+                    <button
+                      onClick={onRestartQuiz}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
+                    >
+                      Retake quiz
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* sticky footer */}

@@ -269,7 +269,7 @@ export default function QuizScreen({ onQuizComplete }) {
       <style>{quizCSS}</style>
 
       {/* ── top bar ── */}
-      <header style={s.topBar}>
+      <header className="quiz-topbar" style={s.topBar}>
         <div className="header-logo">
           <img src="/HomeAbroad-Logo_Landscape-Color.webp" alt="Home Abroad" className="logo-img" />
         </div>
@@ -303,7 +303,7 @@ export default function QuizScreen({ onQuizComplete }) {
           })}
         </div>
 
-        <span style={s.counter}>{currentQuestion + 1} / 10</span>
+        <span className="quiz-counter" style={s.counter}>{currentQuestion + 1} / 10</span>
       </header>
 
       {/* ── progress bar ── */}

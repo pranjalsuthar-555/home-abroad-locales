@@ -123,13 +123,13 @@ export default function EntryScreen({ onEnter }) {
         </div>
       </div>
 
+      <p style={s.footer}>© Home Abroad</p>
+
       {/* ── bottom personality strip ── */}
       <div style={{ ...s.strip, background: 'var(--white)' }}>
         {STRIP_BOTTOM.map((item, i) => <span key={i}       style={s.stripItem}>{item}</span>)}
         {STRIP_BOTTOM.map((item, i) => <span key={`r${i}`} style={{ ...s.stripItem, opacity: 0.4 }}>{item}</span>)}
       </div>
-
-      <p style={s.footer}>© Home Abroad</p>
     </div>
   )
 }
@@ -235,15 +235,16 @@ const s = {
     border: 'none',
     padding: 0,
   },
+  /* sits in normal flow just above the bottom strip — absolute positioning made it
+     overlap the strip text on short/narrow screens */
   footer: {
-    position: 'absolute',
-    bottom: '10px',
-    left: '50%',
-    transform: 'translateX(-50%)',
+    textAlign: 'center',
+    padding: '0 0 10px',
     fontFamily: 'var(--font-body)',
     fontSize: '0.7rem',
     color: 'var(--slate)',
     whiteSpace: 'nowrap',
+    flexShrink: 0,
     zIndex: 2,
   },
 }
