@@ -21,6 +21,13 @@ const revealCSS = `
   .reveal-name {
     animation: slowReveal 1.2s var(--ease-reveal) both;
   }
+  .reveal-portrait {
+    width: 180px; height: 180px;
+    object-fit: cover; border-radius: 50%;
+    display: block;
+    box-shadow: 0 8px 28px rgba(27,30,34,0.13);
+  }
+  @media (max-width: 600px) { .reveal-portrait { width: 132px; height: 132px; } }
   .reveal-shimmer {
     background: linear-gradient(90deg, currentColor 0%, rgba(255,255,255,0.45) 50%, currentColor 100%);
     background-size: 200% auto;
@@ -34,6 +41,7 @@ const revealCSS = `
 export default function RevealScreen({ result, onContinue, onRetake }) {
   const { t } = useTranslation()
   const [bgReady, setBgReady] = useState(false)
+  const [artOk,   setArtOk]   = useState(true)
 
   useEffect(() => {
     const t = setTimeout(() => setBgReady(true), 1500)
@@ -74,15 +82,28 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
           {t('reveal.eyebrow')}
         </span>
 
-        {/* emoji — wax stamp */}
-        <span
-          className="animate-waxStamp"
-          style={{ animationDelay: '1.6s', fontSize: '4rem', lineHeight: 1.1, display: 'block' }}
-          role="img"
-          aria-label={t(`personalities.${primary.i18nKey}.name`)}
-        >
-          {primary.emoji}
-        </span>
+        {/* Watercolour portrait if public/personalities/<key>.webp exists, otherwise the
+            emoji it replaces — so this ships fine before the artwork is drawn. */}
+        {artOk ? (
+          <img
+            className="animate-waxStamp reveal-portrait"
+            style={{ animationDelay: '1.6s' }}
+            src={`/personalities/${primary.i18nKey}.webp`}
+            alt={t(`personalities.${primary.i18nKey}.name`)}
+            onError={() => setArtOk(false)}
+            width="180"
+            height="180"
+          />
+        ) : (
+          <span
+            className="animate-waxStamp"
+            style={{ animationDelay: '1.6s', fontSize: '4rem', lineHeight: 1.1, display: 'block' }}
+            role="img"
+            aria-label={t(`personalities.${primary.i18nKey}.name`)}
+          >
+            {primary.emoji}
+          </span>
+        )}
 
         {/* personality name */}
         <h1
@@ -115,11 +136,6 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             style={{ animation: 'inkLineDraw 0.7s var(--ease-reveal) 3s both' }}
           />
         </svg>
-
-        {/* 3 decorative dots in personality color */}
-        <div aria-hidden="true" style={{ position: 'absolute', width: '5px',  height: '5px',  borderRadius: '50%', background: primary.color, top: '38%', left: '18%',  animation: 'waxStampPress 0.45s var(--ease-spring) 2.8s both' }} />
-        <div aria-hidden="true" style={{ position: 'absolute', width: '9px',  height: '9px',  borderRadius: '50%', background: primary.color, top: '42%', right: '16%', animation: 'waxStampPress 0.45s var(--ease-spring) 3.1s both' }} />
-        <div aria-hidden="true" style={{ position: 'absolute', width: '4px',  height: '4px',  borderRadius: '50%', background: primary.color, top: '48%', left: '22%',  animation: 'waxStampPress 0.45s var(--ease-spring) 2.9s both' }} />
 
         {/* description */}
         <p

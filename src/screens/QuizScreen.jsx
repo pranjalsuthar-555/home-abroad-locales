@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { PERSONALITIES } from '../data/personalities.js'
 
 /* ─────────────────────────── DATA ─────────────────────────── */
 
@@ -7,16 +8,6 @@ import { useTranslation } from 'react-i18next'
    Only the A/B/C/D mapping is structural, so it stays here. */
 const QUESTION_KEYS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10']
 const OPTION_KEYS   = [['a','A'], ['b','B'], ['c','C'], ['d','D']]
-
-/* `key` stays in English on purpose — it's what the Explorer matches against the
-   "Destination Personality" tags in Airtable, which are English. Only the display
-   name and description are translated, via i18nKey. */
-const PERSONALITIES = {
-  A: { letter: 'A', key: 'Urban Explorer',  i18nKey: 'urban',   emoji: '🏙', color: '#6B4FA0', tagClass: 'tag-urban'   },
-  B: { letter: 'B', key: 'Coastal Dreamer', i18nKey: 'coastal', emoji: '🌴', color: '#2A7A65', tagClass: 'tag-coastal' },
-  C: { letter: 'C', key: 'Nature Seeker',   i18nKey: 'nature',  emoji: '🏔', color: '#4A5C35', tagClass: 'tag-nature'  },
-  D: { letter: 'D', key: 'Rooted Romantic', i18nKey: 'rooted',  emoji: '🐓', color: '#8B4A1E', tagClass: 'tag-rooted'  },
-}
 
 /* ─────────────────────────── SCORING ─────────────────────────── */
 
@@ -76,11 +67,36 @@ const quizCSS = `
   .dot-stamp {
     animation: waxStampPress 0.45s var(--ease-spring) both;
   }
+  .quiz-vignette {
+    width: 148px;
+    height: 148px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 20px rgba(27,30,34,0.10);
+    animation: dreamFadeUp 0.5s var(--ease-dream) both;
+  }
+  @media (max-width: 600px) {
+    .quiz-vignette { width: 104px; height: 104px; margin-bottom: 12px; }
+  }
+  /* the illustration is decorative; on very short screens it costs more than it adds */
+  @media (max-height: 600px) {
+    .quiz-vignette { display: none; }
+  }
 `
 
 export default function QuizScreen({ onQuizComplete }) {
   const { t } = useTranslation()
   const [currentQuestion, setCurrentQuestion] = useState(0)
+
+  // warm the next illustration so it doesn't pop in mid-transition
+  useEffect(() => {
+    if (currentQuestion >= 9) return
+    const img = new Image()
+    img.src = `/quiz/q${currentQuestion + 2}.webp`
+  }, [currentQuestion])
+
   const [answers, setAnswers]                 = useState(Array(10).fill(null))
   const [phase, setPhase]                     = useState('idle') // 'idle' | 'exit' | 'enter'
   const [advancing, setAdvancing]             = useState(false)
@@ -200,6 +216,15 @@ export default function QuizScreen({ onQuizComplete }) {
         />
 
         <div className={contentClass} style={{ ...s.content, position: 'relative', zIndex: 1 }}>
+          <img
+            key={currentQuestion}
+            className="quiz-vignette"
+            src={`/quiz/q${currentQuestion + 1}.webp`}
+            alt=""
+            aria-hidden="true"
+            width="148"
+            height="148"
+          />
           <span style={s.qLabel}>{t('quiz.questionLabel', { n: currentQuestion + 1 })}</span>
           <h2 style={s.qText}>{q.question}</h2>
 

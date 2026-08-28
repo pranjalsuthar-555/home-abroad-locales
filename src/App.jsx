@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDestinations } from './data/useDestinations.js'
+import { rehydrateResult } from './data/personalities.js'
 import IntroScreen      from './screens/IntroScreen.jsx'
 import QuizScreen       from './screens/QuizScreen.jsx'
 import RevealScreen     from './screens/RevealScreen.jsx'
@@ -9,7 +10,8 @@ import LanguageSwitcher from './components/LanguageSwitcher.jsx'
 function loadSaved() {
   try {
     const raw = localStorage.getItem('ha_result')
-    return raw ? JSON.parse(raw) : null
+    // rehydrate: a result stored by an older build can be missing fields added since
+    return raw ? rehydrateResult(JSON.parse(raw)) : null
   } catch {
     return null
   }
