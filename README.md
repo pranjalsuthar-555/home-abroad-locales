@@ -1,213 +1,114 @@
-# Home Abroad
+# Home Abroad Locales
+
+> **Status:** Live · Last updated May 2026
 
 **Find where you belong.**
 
-🌍 **Live app:** [home-abroad-locales.vercel.app](https://home-abroad-locales.vercel.app)
-
-Home Abroad is a destination discovery experience for people seriously considering life abroad. It pairs a personality quiz with a filterable database of 561 global destinations — surfaced through an interactive 3D globe and a detailed table view.
-
-The design philosophy: feel like a beautiful letter, not a SaaS product.
+🌍 **Live:** [home-abroad-locales.vercel.app](https://home-abroad-locales.vercel.app) · Password: `i am home`
 
 ---
 
-## What it does
+## The idea
 
-Users enter the app, take a 10-question quiz designed to surface genuine tension between lifestyle values, and receive a primary + secondary personality type. From there, a pre-filtered globe of matching destinations is waiting — with tools to refine by budget, language, expat suitability, country trend, and personal dealbreakers.
+Most tools for moving abroad treat it like a logistics problem. It isn't. It's a question about who you are and what kind of life you want.
 
----
+This app starts there. A 10-question quiz designed so every answer feels right — because the tension between options is the only honest way to surface what you actually value. From there, a 3D globe pre-filtered to your personality type, with 8 adjustable dimensions, full destination postcards, and local writer perspectives.
 
-## Screens
-
-| Screen | Description |
-|---|---|
-| **Entry** | Password-gated. Passphrase: `i am home`. Personality type strips run above and below the input as ambient context. |
-| **Landing** | Two postcard layouts that auto-flip every 3.5 seconds — front to back — on a warm cream background. |
-| **Quiz** | 10 questions across life values, language tolerance, time horizon, and emotional drivers. Each answer maps to A / B / C / D. |
-| **Reveal** | Cinematic personality reveal with a primary type and a secondary "blended with" combo card. |
-| **Explorer** | 3D globe + table view of 561 destinations, pre-filtered to the user's personality. Eight adjustable filters. Guided walkthrough on first visit. |
+Design philosophy: earn trust before asking for preferences. Every screen should feel like a letter, not a product.
 
 ---
 
-## Personality Types
+## Screenshots
 
-| Type | Name | Description |
+<img src="src/assets/globe" width="100%" alt="3D globe with destination pins filtered by personality"/>
+
+<br/>
+
+<img src="src/assets/quiz" width="48%" alt="Quiz question with genuine tension between options"/> <img src="src/assets/postcard" width="48%" alt="Destination postcard with full data and local voice"/>
+
+---
+
+## The personalities
+
+| Type | Name | Vibe |
 |---|---|---|
-| A | 🏙 Urban Explorer | Thrives in dynamic cities. Drawn to culture, connection, and possibility. |
-| B | 🌴 Coastal Dreamer | Seeks salt air and slow living. Wants to exhale, not perform. |
-| C | 🏔 Nature Seeker | Values solitude and space. Nature is the point, not the backdrop. |
-| D | 🐓 Rooted Romantic | Wants to belong somewhere real. Community, roots, and meaningful daily life. |
+| 🏙️ **A** | Urban Explorer | Thrives in dynamic cities. Culture, connection, possibility. |
+| 🌴 **B** | Coastal Dreamer | Salt air and slow living. Want to exhale, not perform. |
+| 🏔️ **C** | Nature Seeker | Solitude and space. Nature is the point, not backdrop. |
+| 🐓 **D** | Rooted Romantic | Belonging somewhere real. Community, roots, meaning. |
 
-Results show both a primary and secondary type — most people are a blend, and the combination is the real story.
-
----
-
-## Key Features
-
-### Personality Quiz
-- 10 questions designed to create genuine tension — every option should feel like it could be right
-- Scoring counts A/B/C/D responses; hybrid results shown when a secondary type is present
-- Results persist in `localStorage` so returning users skip straight to their Explorer
-
-### 3D Globe
-- Powered by `react-globe.gl` with Three.js raycasting for hover + click
-- Warm atmosphere tint, auto-rotates when idle, pauses on interaction
-- Destination pins rendered as emoji (`📍`) with hover tooltips and click-to-postcard modals
-
-### Filter System
-- **Personality** — pre-filled from quiz result
-- **Region** — continental groupings
-- **Language** — top 20 by destination count
-- **Cost of Living** — dual-handle slider, USD/month
-- **Expat Suitability** — score 1–5 (visa ease, safety, expat community)
-- **Country Trend** — Improving / Stable / Declining
-- **Advantages** — positive attributes to filter for
-- **Dealbreakers** — negative attributes to hide entirely
-
-### Guided Filter Walkthrough
-- 8-step tour that spotlights each filter in sequence
-- Requires actual interaction (click, drag, select) before advancing — not a passive slideshow
-- Stored in `localStorage` as `ha_tour_done`; replayable via the "? Tour" button in the top bar
-
-### Postcard Modals
-- Clicking any globe pin or table row opens a full postcard for that destination
-- Shows score, cost, languages, local writers, country trend, and a personalised note
-
-### Ambient Audio
-- Voice note plays softly on entering the Explorer screen (volume: 0.5)
-- Mute/unmute toggle in the bottom-left corner with an animated waveform indicator
-
-### Session Persistence
-- `ha_result` — persists quiz result across sessions in `localStorage`
-- `ha_access` — persists password confirmation in `localStorage`
-- Returning users with a saved result land directly on Explorer — no re-entry or re-quiz required
+Most people are a blend. The combination is the real story.
 
 ---
 
-## Tech Stack
+## Features
+
+**Personality quiz**
+10 questions. Hybrid results when secondary types present. Results persist across sessions — returning users skip straight to the globe.
+
+**3D Globe**
+react-globe.gl + Three.js raycasting for hover and click. Warm atmosphere tint, auto-rotates when idle, pauses on interaction. Destination pins with hover tooltips and click-to-postcard modals.
+
+**8 filter dimensions**
+Personality type · Region · Language · Cost of living (dual-handle slider, USD/month) · Expat suitability score · Country trend · Advantages · Dealbreakers
+
+**Destination postcards**
+Full data per location: cost, suitability score, country trend, languages, advantages, disadvantages, local writers with links, personalised note based on your type.
+
+**Guided walkthrough**
+8-step interactive tour. Requires actual interaction before advancing — not passive. Replayable via the Tour button.
+
+**Ambient audio**
+Soft voice note on first entry. Mute/unmute with animated waveform. The sound tells you what kind of experience this is before the UI does.
+
+---
+
+## Tech stack
 
 | Layer | Tool |
 |---|---|
 | Framework | React 19 + Vite 8 |
 | Globe | react-globe.gl (Three.js) |
 | CSV parsing | PapaParse |
-| Deployment | Vercel (serverless API + static frontend) |
-| Fonts | IM Fell English (Google Fonts), Beyond Sweet (local `.woff`), Dancing Script (Google Fonts) |
-| Styling | CSS custom properties + inline styles — no CSS framework |
+| Deployment | Vercel (serverless functions + static frontend) |
+| Styling | CSS custom properties + inline — no framework |
 
 ---
 
-## Project Structure
+## The data
 
-```
-home-abroad-locales/
-├── api/
-│   └── destinations.js           # Vercel serverless function — serves destination data
-├── public/
-│   ├── HomeAbroad-Logo_Landscape-Color.webp
-│   ├── beyondsweet-webfont.woff
-│   ├── koh phangan island.webp
-│   ├── postcard layout - 1.webp
-│   ├── postcard layout - 2.webp
-│   └── LALB Kailas audio.mp3
-├── src/
-│   ├── components/
-│   │   ├── FilterWalkthrough.jsx  # 8-step guided tour component
-│   │   ├── FloatingBotanicals.jsx # Decorative botanical emoji elements
-│   │   ├── HoverCard.jsx          # Globe hover tooltip + table side panel
-│   │   ├── PostcardModal.jsx      # Full destination postcard overlay
-│   │   ├── WaxSeal.jsx            # Custom checkbox with wax seal aesthetic
-│   │   ├── TornEdge.jsx           # Decorative torn paper edge SVG
-│   │   └── FieldTooltips.jsx      # Tooltip definitions for filter fields
-│   ├── data/
-│   │   └── useDestinations.js     # Fetches + parses destination data from API
-│   ├── screens/
-│   │   ├── EntryScreen.jsx        # Password gate
-│   │   ├── LandingScreen.jsx      # Postcard flip + CTA
-│   │   ├── QuizScreen.jsx         # 10-question personality quiz
-│   │   ├── RevealScreen.jsx       # Personality type reveal
-│   │   └── ExplorerScreen.jsx     # Globe + table + filters
-│   ├── styles/
-│   │   └── globals.css            # All global CSS, variables, and animations
-│   ├── App.jsx                    # Screen router + session state
-│   └── main.jsx                   # React entry point
-└── index.html
-```
+561 destinations. Each record: destination, country, region, personality tags, estimated monthly cost (USD), expat suitability score (1–5), languages spoken, country trend, advantages, dealbreakers, local writers with links, coordinates.
 
 ---
 
-## Local Development
+## Design details
+
+**Palette:** warm almond `#EDE0D4` · coral CTAs `#FF6F61` · lion/sand `#B78A63`
+**Fonts:** IM Fell English (editorial serif) · Beyond Sweet (script) · Arial (body)
+**Motion:** `dreamFadeUp` · `waxStampPress` · `slowReveal` — slow and unhurried
+
+Every animation name is intentional. The pacing tells you what this is before you read a word.
+
+---
+
+## Run locally
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
 # → http://localhost:5173
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
 ```
 
-**Passphrase to enter the app: `i am home`**
-
----
-
-## Deployment
-
-Deployed on Vercel. `api/destinations.js` is a Vercel serverless function serving destination data. The project links to an existing Vercel project via `.vercel/project.json`.
-
-```bash
-# Deploy to production
-npx vercel deploy --prod
-```
-
----
-
-## Destination Data
-
-**561 destinations** across all inhabited continents. Each record includes:
-
-| Field | Description |
-|---|---|
-| `destination` | City or place name |
-| `country` | Country |
-| `region` | Continental region |
-| `personalities` | Array of personality tags |
-| `costUSD` | Estimated monthly cost of living (USD) |
-| `suitabilityScore` | Expat suitability score, 1–5 |
-| `languages` | Languages spoken |
-| `countryTrend` | Improving / Stable / Declining |
-| `advantages` | Positive attributes |
-| `disadvantages` | Negative attributes / dealbreakers |
-| `writers` | Local voices with links |
-| `lat` / `lng` | Coordinates for globe placement |
-
----
-
-## Design Notes
-
-- **Fonts**: IM Fell English for headings (editorial serif), Beyond Sweet for script accents and hero headline, Arial for all body copy and UI
-- **Palette**: Warm almond backgrounds (`#EDE0D4`), coral CTAs (`#FF6F61`), lion/sand accents (`#B78A63`), deep ink for text
-- **Motion**: All animations use `dreamFadeUp`, `waxStampPress`, and `slowReveal` — slow and unhurried, like a letter unfolding
-- **Philosophy**: Every screen is designed to feel editorial and personal, not transactional. The app earns the user's trust before asking for their preferences
-
----
-
-## localStorage Keys
-
-| Key | Purpose | Cleared by |
-|---|---|---|
-| `ha_result` | Serialised personality result object | "Retake quiz" button |
-| `ha_access` | Password confirmation flag | Manual clear only |
-| `ha_screen` | Last active screen hint | "Retake quiz" button |
-| `ha_tour_done` | Guided walkthrough completion flag | "? Tour" button resets it |
+Passphrase: `i am home`
 
 ---
 
 ## License
 
-Private. All rights reserved — Home Abroad.
+Private. All rights reserved.
+
+---
+
+Built by **Pranjal Suthar** for [Home Abroad](https://homeabroadhq.substack.com) — a Substack publication for people building lives across borders.
+
+→ [GitHub](https://github.com/pranjalsuthar-555) · [LinkedIn](https://www.linkedin.com/in/sutharpranjal) · [Email](mailto:pranjalsuthar.work@gmail.com)
