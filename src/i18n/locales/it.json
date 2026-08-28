@@ -15,73 +15,73 @@
     "answered": " completata",
     "q1": {
       "q": "Sii sincero: perché stai davvero pensando di partire?",
-      "a": "Voglio energia e cultura — arte audace, strade che pulsano, una città che non smette mai di sorprendermi",
-      "b": "Voglio rallentare del tutto — acqua tiepida, aria salata, assolutamente nessun impegno",
-      "c": "Voglio spazio e silenzio — un posto abbastanza tranquillo da tornare a sentirmi pensare",
-      "d": "Voglio sentirmi più legato — alle persone, al luogo, alla vita di tutti i giorni"
+      "a": "Voglio più energia e cultura: arte audace, strade vivaci e una città con qualcosa di nuovo da scoprire ogni giorno.",
+      "b": "Voglio rallentare, vivere vicino ad acque tiepide e smettere di correre da una cosa all'altra.",
+      "c": "Voglio più spazio, meno distrazioni e abbastanza calma per tornare a pensare con lucidità.",
+      "d": "Voglio sentirmi più legato alle persone, al luogo e alla vita quotidiana che mi circonda."
     },
     "q2": {
       "q": "Sei appena arrivato in una città nuova. Cosa fai per prima cosa?",
-      "a": "Vado dritto al mercato o al quartiere più vivace e mi lascio trascinare dall'energia",
-      "b": "Cerco l'acqua, mi tolgo le scarpe e semplicemente respiro",
-      "c": "Cerco il sentiero, il bosco o l'angolo tranquillo più vicino",
-      "d": "Cerco chi vive qui da più tempo e gli chiedo di farmi da guida"
+      "a": "Vado al mercato o nel quartiere più vivace ed esploro ciò che attira la mia attenzione.",
+      "b": "Cerco l'acqua, mi tolgo le scarpe e mi prendo un momento per respirare.",
+      "c": "Cerco il sentiero, il bosco o l'angolo tranquillo più vicino.",
+      "d": "Parlo con chi vive qui da molto tempo e chiedo dove andare per capire davvero il posto."
     },
     "q3": {
       "q": "Un amico ti chiede cosa cerchi all'estero. Tu rispondi...",
-      "a": "Un posto vivo — cultura, arte, una scena di cui poter davvero far parte",
-      "b": "Un posto dove poter finalmente respirare — mattine lente, acqua tiepida, nessuna fretta",
-      "c": "Un posto tranquillo e selvaggio, dove è il paesaggio a parlare",
-      "d": "Un posto a cui poter davvero appartenere. Un quartiere vero, relazioni vere"
+      "a": "Un posto pieno di cultura, arte ed eventi a cui posso partecipare.",
+      "b": "Un posto con mattine lente, acqua tiepida e nessuna pressione di correre.",
+      "c": "Un posto tranquillo e immerso nella natura, con tanto spazio per stare da solo.",
+      "d": "Un posto a cui posso appartenere, dove costruire legami stretti e far parte di un quartiere."
     },
     "q4": {
       "q": "Cosa ti farebbe sentire che ce l'hai davvero fatta all'estero?",
-      "a": "Conosco i migliori posti nascosti e mezzo quartiere mi riconosce per strada",
-      "b": "Ho smesso di guardare l'orologio. Le giornate si confondono, nel senso migliore",
-      "c": "Ho trovato il mio sentiero tranquillo, la mia vista, il mio rifugio",
-      "d": "Al bar sanno già cosa prendo. Ho il mio tavolo. La gente sa come mi chiamo"
+      "a": "Conosco i posti migliori della zona, ho sempre un posto nuovo dove andare e riconosco le persone del quartiere.",
+      "b": "Non programmo più ogni ora. Le mie giornate sono rilassate, aperte e senza fretta.",
+      "c": "Ho un sentiero preferito, una vista a cui torno e un posto dove posso stare da solo.",
+      "d": "Al bar sanno cosa prendo, ho il mio tavolo abituale e la gente sa come mi chiamo."
     },
     "q5": {
       "q": "A cosa saresti più disposto a rinunciare per vivere all'estero?",
-      "a": "Alla prevedibilità — voglio qualcosa di inaspettato dietro ogni angolo",
-      "b": "All'ambizione, per un po' — scambierei la frenesia con la leggerezza senza esitare",
-      "c": "Alla comodità — vivrei in un posto remoto se questo significa pace e silenzio veri",
-      "d": "Al familiare e al comodo — se questo significa più calore e legami altrove"
+      "a": "Alla prevedibilità. Voglio che esperienze, luoghi e persone continuino a sorprendermi.",
+      "b": "All'ambizione, per un po'. Scambierei una vita lavorativa piena con più riposo e libertà.",
+      "c": "Alla comodità. Vivrei lontano da negozi e servizi se questo mi desse più spazio e accesso alla natura.",
+      "d": "Alla comodità e alle abitudini, se mi aiutasse a costruire legami più forti altrove."
     },
     "q6": {
-      "q": "Stai vivendo una settimana difficile all'estero — nostalgia, frustrazione, non funziona niente. Cosa ti aiuta ad andare avanti?",
-      "a": "Esco a cercare qualcosa che succede — un mercato, un concerto, qualsiasi cosa con energia",
-      "b": "Entro in acqua o guardo il tramonto. Rimette tutto a posto",
-      "c": "Faccio una lunga camminata in un posto tranquillo e lascio che la testa si schiarisca",
-      "d": "Un vicino porta da mangiare. Qualcuno chiede come sto. La comunità che ho costruito si fa viva"
+      "q": "Stai vivendo una settimana difficile all'estero: nostalgia, frustrazione, non funziona niente. Cosa ti aiuta di più?",
+      "a": "Cerco qualcosa che succede lì vicino, come un mercato, un concerto o una mostra, e mi lascio risollevare dall'atmosfera.",
+      "b": "Nuoto, mi siedo vicino all'acqua o guardo il tramonto finché non mi sento più calmo.",
+      "c": "Faccio una lunga camminata nella natura e mi do il tempo di schiarirmi le idee.",
+      "d": "Un vicino porta da mangiare, un amico si fa sentire o qualcuno della mia comunità passa del tempo con me."
     },
     "q7": {
       "q": "Qual è il tuo rapporto con le barriere linguistiche?",
-      "a": "Metà del bello è ricostruire tutto al volo, in mezzo al mercato, in mezzo a una conversazione",
-      "b": "Non ci penso troppo — un sorriso e una vita lenta portano lontano",
-      "c": "Dove vado non mi serve molta lingua. Siamo soprattutto io e il paesaggio",
-      "d": "Imparerò la lingua. Fa parte dell'appartenere — ci si incontra a metà strada"
+      "a": "Mi piace cavarmela strada facendo, anche in mezzo a un mercato affollato o a una conversazione.",
+      "b": "Me la cavo bene con parole semplici e gesti, mentre imparo con i miei tempi.",
+      "c": "Mi basta poca conversazione, perché preferisco passare gran parte del tempo da solo o all'aperto.",
+      "d": "Imparerò la lingua locale, perché fare questo sforzo fa parte dell'entrare nella comunità."
     },
     "q8": {
       "q": "Qualcuno ti chiede quanto pensi di restare. Tu rispondi...",
-      "a": "Finché resta interessante. Può essere un anno, possono essere dieci",
-      "b": "A tempo indeterminato, se il sole continua a tramontare sull'acqua così",
-      "c": "Finché dura la quiete",
-      "d": "A tempo indeterminato. Se diventa casa, perché andarsene?"
+      "a": "Finché il posto continua a darmi cose nuove da esplorare. Può essere 1 anno o 10.",
+      "b": "A tempo indeterminato, se posso continuare a vivere vicino all'acqua e a godermi un ritmo più lento.",
+      "c": "Finché avrò ancora lo spazio, la solitudine e l'accesso alla natura per cui sono venuto.",
+      "d": "A tempo indeterminato. Se ci costruisco una casa e una comunità, non sentirò il bisogno di andarmene."
     },
     "q9": {
       "q": "Quale di queste cose ti farebbe innamorare di una destinazione?",
-      "a": "Capitare per caso in una festa di strada e finire a cena a casa di uno sconosciuto",
-      "b": "Un'amaca, acqua tiepida e assolutamente nessun impegno",
-      "c": "Girare l'angolo e trovare una vista così immensa da lasciarmi senza fiato",
-      "d": "Leggere che tre persone che stimo hanno messo radici qui negli ultimi due anni"
+      "a": "Imbattermi per caso in una festa di strada, unirmi ai festeggiamenti e finire la serata a cena con persone nuove.",
+      "b": "Passare un pomeriggio su un'amaca, con acqua tiepida lì vicino e niente in programma.",
+      "c": "Girare l'angolo e trovare un paesaggio immenso che mi fa fermare a contemplare tutto.",
+      "d": "Vedere persone di cui mi fido costruire lì case, amicizie e abitudini durature."
     },
     "q10": {
       "q": "Tra dieci anni, la versione di te che ha fatto la scelta giusta all'estero...",
-      "a": "Trova ancora qualcosa di nuovo dietro ogni angolo. Mai annoiata, sempre curiosa",
-      "b": "Vive dove il mare fa parte della quotidianità. Più lenta, più leggera, più serena",
-      "c": "Ha una vista di cui non si stanca mai e una vita tranquilla costruita attorno",
-      "d": "Ha la sua gente. Amici veri, riti, una vita che si sente davvero abitata"
+      "a": "Scopre ancora posti, persone ed esperienze nuove, e si annoia raramente.",
+      "b": "Vive vicino al mare e ha una quotidianità più lenta, più leggera e meno stressante.",
+      "c": "Ha una vista bellissima, tanto spazio e una vita tranquilla costruita attorno alla natura.",
+      "d": "Ha amici stretti, riti familiari e una comunità che sembra casa."
     }
   },
   "personalities": {

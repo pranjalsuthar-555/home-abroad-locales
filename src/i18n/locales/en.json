@@ -15,73 +15,73 @@
     "answered": " answered",
     "q1": {
       "q": "Be honest: why are you really thinking about leaving?",
-      "a": "I want energy and culture — bold art, buzzing streets, a city that never runs out of things to show me",
-      "b": "I want to slow all the way down — warm water, salt air, absolutely nowhere to be",
-      "c": "I want space and silence — somewhere quiet enough to hear myself think again",
-      "d": "I want to feel more connected — to people, place, and daily life"
+      "a": "I want more energy and culture: bold art, busy streets and a city with something new to discover every day.",
+      "b": "I want to slow down, live near warm water and stop rushing from one thing to the next.",
+      "c": "I want more space, fewer distractions and enough calm to think clearly again.",
+      "d": "I want to feel more connected to the people, place and daily life around me."
     },
     "q2": {
       "q": "You've just arrived in a new city. What do you do first?",
-      "a": "Head straight into the busiest market or neighbourhood and let the energy pull me in",
-      "b": "Find the water, kick off my shoes, and just breathe",
-      "c": "Look for the nearest trail, forest, or quiet edge of town",
-      "d": "Find whoever's lived here the longest and ask them to show me around"
+      "a": "Head to the busiest market or neighbourhood and explore whatever catches my attention.",
+      "b": "Find the water, kick off my shoes and take a moment to breathe.",
+      "c": "Look for the nearest trail, forest or peaceful edge of town.",
+      "d": "Speak to a long-time resident and ask where I should go to understand the place properly."
     },
     "q3": {
       "q": "A friend asks what you're looking for abroad. You say...",
-      "a": "Somewhere alive — culture, art, a scene I can actually be part of",
-      "b": "Somewhere I can finally exhale — slow mornings, warm water, no rush",
-      "c": "Somewhere quiet and wild, where the landscape does most of the talking",
-      "d": "Somewhere I can actually belong. A real neighbourhood, real relationships"
+      "a": "Somewhere full of culture, art and events I can take part in.",
+      "b": "Somewhere with slow mornings, warm water and no pressure to rush.",
+      "c": "Somewhere peaceful and surrounded by nature, with plenty of room to be alone.",
+      "d": "Somewhere I can belong, build close relationships and become part of a neighbourhood."
     },
     "q4": {
       "q": "What would make you feel like you'd truly made it abroad?",
-      "a": "I know the best hole-in-the-wall spots, and half the neighbourhood recognises me on the street",
-      "b": "I've stopped checking the time. The days blur together in the best way",
-      "c": "I've found my own quiet trail, my own view, my own sanctuary",
-      "d": "The café owner knows my order. I have a regular table. People know my name"
+      "a": "I know the best local spots, always have somewhere new to go and recognise people around the neighbourhood.",
+      "b": "I no longer plan every hour. My days feel relaxed, open and unhurried.",
+      "c": "I have a favourite trail, a view I return to and a place where I can be alone.",
+      "d": "The café owner knows my order, I have a regular table and people know my name."
     },
     "q5": {
       "q": "What's the thing you're most willing to give up to live abroad?",
-      "a": "Predictability — I want something unexpected around every corner",
-      "b": "Ambition, for a while — I'd trade the hustle for ease without hesitation",
-      "c": "Convenience — I'll live somewhere remote if it means real peace and quiet",
-      "d": "Comfort and familiarity — if it means more warmth and connection somewhere new"
+      "a": "Predictability. I want new experiences, places and people to keep surprising me.",
+      "b": "Ambition, for a while. I'd trade a busy work life for more rest and freedom.",
+      "c": "Convenience. I'd live far from shops and services if it gave me more space and access to nature.",
+      "d": "Comfort and familiarity, if it helped me build stronger relationships somewhere new."
     },
     "q6": {
-      "q": "You're having a hard week abroad — homesick, frustrated, nothing's working. What gets you through?",
-      "a": "I go find something happening — a market, a show, anything with energy",
-      "b": "I get in the water or watch the sunset. It resets everything",
-      "c": "I go for a long walk somewhere quiet and let my head clear",
-      "d": "A neighbour brings food. Someone checks in. The community I've built shows up"
+      "q": "You're having a hard week abroad, homesick, frustrated, nothing's working. What gets you through?",
+      "a": "I find something happening nearby, such as a market, concert or exhibition, and let the atmosphere lift me.",
+      "b": "I swim, sit by the water or watch the sunset until I feel calmer.",
+      "c": "I take a long walk in nature and give myself time to clear my head.",
+      "d": "A neighbour brings food, a friend checks in or someone from my community spends time with me."
     },
     "q7": {
       "q": "What's your relationship with language barriers?",
-      "a": "Half the fun is piecing it together on the fly, mid-market, mid-conversation",
-      "b": "I don't overthink it — a smile and slow living go a long way",
-      "c": "I don't need much language where I'm headed. It's mostly just me and the landscape",
-      "d": "I'll learn the language. That's part of belonging — you meet people halfway"
+      "a": "I enjoy working things out as I go, even in the middle of a busy market or conversation.",
+      "b": "I'm comfortable communicating with simple words and gestures while I learn at my own pace.",
+      "c": "I'm comfortable with limited conversation because I prefer spending most of my time alone or outdoors.",
+      "d": "I'll learn the local language because making an effort is part of joining the community."
     },
     "q8": {
       "q": "Someone asks how long you're planning to stay. You say...",
-      "a": "As long as it stays interesting. Could be a year, could be a decade",
-      "b": "Indefinitely, if the sun keeps setting over water like this",
-      "c": "As long as the quiet holds",
-      "d": "Indefinitely. If it becomes home, why leave?"
+      "a": "As long as the place keeps giving me new things to explore. That could be 1 year or 10.",
+      "b": "Indefinitely, if I can keep living near the water and enjoying a slower pace.",
+      "c": "As long as I still have the space, solitude and access to nature I came for.",
+      "d": "Indefinitely. If I build a home and community there, I won't feel the need to leave."
     },
     "q9": {
       "q": "Which of these would make you fall in love with a destination?",
-      "a": "Stumbling onto a street party and being pulled into a stranger's home for dinner",
-      "b": "A hammock, warm water, and absolutely nowhere to be",
-      "c": "Turning a corner and finding a view so big it stops me cold",
-      "d": "Reading that three people I respect have quietly put down roots here in the last two years"
+      "a": "Finding a street party by chance, joining the celebration and ending the night over dinner with new people.",
+      "b": "Spending an afternoon in a hammock with warm water nearby and nothing on my schedule.",
+      "c": "Turning a corner and finding a vast landscape that makes me stop and take it all in.",
+      "d": "Seeing people I trust build lasting homes, friendships and routines there."
     },
     "q10": {
       "q": "Ten years from now, the version of you that made the right choice abroad...",
-      "a": "Still finds something new around every corner. Never bored, always curious",
-      "b": "Lives somewhere the ocean is part of daily life. Slower, lighter, unbothered",
-      "c": "Has a view they never get tired of, and a quiet life built around it",
-      "d": "Has a village. Close friends, rituals, a life that feels genuinely inhabited"
+      "a": "Still discovers new places, people and experiences, and rarely feels bored.",
+      "b": "Lives near the ocean and has a slower, lighter and less stressful daily life.",
+      "c": "Has a beautiful view, plenty of space and a peaceful life built around nature.",
+      "d": "Has close friends, familiar rituals and a community that feels like home."
     }
   },
   "personalities": {
