@@ -94,6 +94,12 @@ export default function FilterWalkthrough({ onComplete }) {
     if (current.target) {
       const el = document.querySelector(current.target);
       if (el) {
+        // steps say things like "drag the slider", so open the section first —
+        // otherwise the control being described isn't on screen
+        const body = el.querySelector('.filter-section-body');
+        const toggle = el.querySelector('button');
+        if (body && !body.classList.contains('open') && toggle) toggle.click();
+
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         setTimeout(() => {
           setTargetRect(el.getBoundingClientRect());
@@ -104,12 +110,41 @@ export default function FilterWalkthrough({ onComplete }) {
     }
   }, [step, current.target]);
 
+  /* Filter sections change height when they open, and the sidebar scrolls — so the
+     rect captured above goes stale and the tooltip drifts away from what it describes.
+     Re-measure on scroll/resize while a step is active. */
+  useEffect(() => {
+    if (!current.target) return;
+    let frame = null;
+    const remeasure = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const el = document.querySelector(current.target);
+        if (el) setTargetRect(el.getBoundingClientRect());
+      });
+    };
+    window.addEventListener('scroll', remeasure, true);   // capture: catches sidebar scroll
+    window.addEventListener('resize', remeasure);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', remeasure, true);
+      window.removeEventListener('resize', remeasure);
+    };
+  }, [step, current.target]);
+
   useEffect(() => {
     if (!current.requiresInteraction || !current.target) return;
     const el = document.querySelector(current.target);
     if (!el) return;
 
-    const handleInteraction = () => setInteracted(true);
+    const handleInteraction = () => {
+      setInteracted(true);
+      // the section just expanded/collapsed — keep the tooltip with it
+      requestAnimationFrame(() => {
+        const target = document.querySelector(current.target);
+        if (target) setTargetRect(target.getBoundingClientRect());
+      });
+    };
 
     el.addEventListener('click', handleInteraction);
     el.addEventListener('input', handleInteraction);
@@ -143,24 +178,10 @@ export default function FilterWalkthrough({ onComplete }) {
 
   return (
     <>
-      <div className="tour-overlay" />
-
-      {targetRect && (() => {
-        const spotTop    = Math.max(4, targetRect.top - 8);
-        const spotHeight = Math.min(targetRect.height + 16, window.innerHeight - spotTop - 4);
-        return (
-          <div
-            className="tour-spotlight"
-            style={{
-              top:    spotTop,
-              left:   targetRect.left - 8,
-              width:  targetRect.width + 16,
-              height: spotHeight,
-            }}
-          />
-        );
-      })()}
-
+      {/* No dimming overlay or highlight ring: the spotlight was drawn from a rect
+          captured once, so expanding a filter section left the control you'd just
+          clicked sitting inside the dark ring. The tooltip anchors to the target
+          instead, which gives the same context without covering anything. */}
       <div
         className={`tour-tooltip ${current.position === 'center' ? 'tour-tooltip-center' : 'tour-tooltip-right'}`}
         style={targetRect && current.position === 'right' ? {

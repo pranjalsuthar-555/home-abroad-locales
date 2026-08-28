@@ -21,13 +21,16 @@ const revealCSS = `
   .reveal-name {
     animation: slowReveal 1.2s var(--ease-reveal) both;
   }
+  /* the artwork is a wide, detailed scene — a small circle would crop away most of it,
+     so it reads as a postcard instead */
   .reveal-portrait {
-    width: 180px; height: 180px;
-    object-fit: cover; border-radius: 50%;
+    width: min(400px, 84vw);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
     display: block;
-    box-shadow: 0 8px 28px rgba(27,30,34,0.13);
+    box-shadow: 0 10px 30px rgba(27,30,34,0.16);
   }
-  @media (max-width: 600px) { .reveal-portrait { width: 132px; height: 132px; } }
   .reveal-shimmer {
     background: linear-gradient(90deg, currentColor 0%, rgba(255,255,255,0.45) 50%, currentColor 100%);
     background-size: 200% auto;
@@ -91,8 +94,8 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             src={`/personalities/${primary.i18nKey}.webp`}
             alt={t(`personalities.${primary.i18nKey}.name`)}
             onError={() => setArtOk(false)}
-            width="180"
-            height="180"
+            width="440"
+            height="248"
           />
         ) : (
           <span
@@ -222,8 +225,13 @@ const s = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    // NOT justifyContent:center — a centred flex child that outgrows its container
+    // overflows equally in both directions, putting the top out of reach even when
+    // scrollable. The column's `margin: auto 0` centres it when there is room and
+    // pins it to the top when there isn't.
+    justifyContent: 'flex-start',
+    overflowX: 'hidden',
+    overflowY: 'auto',
   },
   retakeBtn: {
     position: 'fixed',
@@ -237,9 +245,10 @@ const s = {
   column: {
     position: 'relative', zIndex: 1,
     width: '100%', maxWidth: '600px',
-    padding: '80px 2rem',
+    padding: '56px 2rem',
+    margin: 'auto 0',            // see root: centres when it fits, never clips when it doesn't
     display: 'flex', flexDirection: 'column',
-    alignItems: 'center', gap: '1.75rem',
+    alignItems: 'center', gap: '1.5rem',
     textAlign: 'center',
   },
   eyebrow: {

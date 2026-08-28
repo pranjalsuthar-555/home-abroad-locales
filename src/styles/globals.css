@@ -850,7 +850,7 @@ body::after {
   .explorer-topbar .logo-img  { max-height: 26px; }
   /* drawer (z 40) is nearly full-width on phones — keep the floating audio pill under it
      instead of printing over the filter rows */
-  .audio-indicator            { z-index: 25; bottom: 16px; }
+  .audio-indicator            { z-index: 25; top: 72px; right: 14px; }
 }
 
 /* Quiz header: fixed 100px min-widths on the logo and counter overflow a phone once
@@ -865,8 +865,8 @@ body::after {
 /* ── Audio indicator ── */
 .audio-indicator {
   position: fixed;
-  bottom: 60px;
-  left: 24px;
+  top: 78px;
+  right: 20px;
   z-index: 50;
   display: flex;
   align-items: center;
@@ -923,25 +923,6 @@ body::after {
 }
 
 /* ── Filter Walkthrough Tour ── */
-.tour-overlay {
-  position: fixed;
-  inset: 0;
-  background: transparent;
-  z-index: 300;
-  pointer-events: none;
-}
-
-.tour-spotlight {
-  position: fixed;
-  z-index: 301;
-  border-radius: 8px;
-  box-shadow:
-    0 0 0 3px var(--coral),
-    0 0 0 9999px rgba(10, 8, 5, 0.35);
-  pointer-events: none;
-  transition: all 0.35s var(--ease-dream);
-}
-
 .tour-tooltip {
   position: fixed;
   z-index: 302;
