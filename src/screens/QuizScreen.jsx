@@ -7,80 +7,80 @@ const QUESTIONS = [
     id: 1,
     question: "Be honest: why are you really thinking about leaving?",
     options: [
-      { label: "I want to feel more connected — to people, place, and daily life", value: 'A' },
-      { label: "I want options. I don't want one city, one job, one life to be the whole story", value: 'B' },
-      { label: "I want to live somewhere that actually inspires me when I walk out the door", value: 'C' },
-      { label: "I've thought about this carefully — taxes, cost, opportunity. The numbers make sense", value: 'D' },
+      { label: "I want energy and culture — bold art, buzzing streets, a city that never runs out of things to show me", value: 'A' },
+      { label: "I want to slow all the way down — warm water, salt air, absolutely nowhere to be", value: 'B' },
+      { label: "I want space and silence — somewhere quiet enough to hear myself think again", value: 'C' },
+      { label: "I want to feel more connected — to people, place, and daily life", value: 'D' },
     ]
   },
   {
     id: 2,
     question: "You've just arrived in a new city. What do you do first?",
     options: [
-      { label: "Find a local market or neighbourhood spot and talk to someone who actually lives there", value: 'A' },
-      { label: "Open my laptop, check the co-working spaces, confirm the SIM card works", value: 'B' },
-      { label: "Walk until something beautiful stops me — a door, a square, a café with the right light", value: 'C' },
-      { label: "Look up the expat forums. Who's already built a life here and what do they wish they'd known?", value: 'D' },
+      { label: "Head straight into the busiest market or neighbourhood and let the energy pull me in", value: 'A' },
+      { label: "Find the water, kick off my shoes, and just breathe", value: 'B' },
+      { label: "Look for the nearest trail, forest, or quiet edge of town", value: 'C' },
+      { label: "Find whoever's lived here the longest and ask them to show me around", value: 'D' },
     ]
   },
   {
     id: 3,
     question: "A friend asks what you're looking for abroad. You say...",
     options: [
-      { label: "Somewhere I can actually belong. A real neighbourhood, real relationships", value: 'A' },
-      { label: "Somewhere I'm not stuck. I want to be free to stay or go", value: 'B' },
-      { label: "Somewhere beautiful. Life is short and I want to be moved by where I live", value: 'C' },
-      { label: "Somewhere that makes sense for the next ten years — financially, legally, practically", value: 'D' },
+      { label: "Somewhere alive — culture, art, a scene I can actually be part of", value: 'A' },
+      { label: "Somewhere I can finally exhale — slow mornings, warm water, no rush", value: 'B' },
+      { label: "Somewhere quiet and wild, where the landscape does most of the talking", value: 'C' },
+      { label: "Somewhere I can actually belong. A real neighbourhood, real relationships", value: 'D' },
     ]
   },
   {
     id: 4,
     question: "What would make you feel like you'd truly made it abroad?",
     options: [
-      { label: "The café owner knows my order. I have a regular table. People know my name", value: 'A' },
-      { label: "I wake up knowing I could be anywhere in the world by Thursday if I wanted", value: 'B' },
-      { label: "I'm living inside something I used to only see in photographs", value: 'C' },
-      { label: "I've got residency sorted, my setup is stable, and I'm building something real here", value: 'D' },
+      { label: "I know the best hole-in-the-wall spots, and half the neighbourhood recognises me on the street", value: 'A' },
+      { label: "I've stopped checking the time. The days blur together in the best way", value: 'B' },
+      { label: "I've found my own quiet trail, my own view, my own sanctuary", value: 'C' },
+      { label: "The café owner knows my order. I have a regular table. People know my name", value: 'D' },
     ]
   },
   {
     id: 5,
     question: "What's the thing you're most willing to give up to live abroad?",
     options: [
-      { label: "Comfort and familiarity — if it means more warmth and connection somewhere new", value: 'A' },
-      { label: "Stability and routine — I'd trade those for freedom without hesitation", value: 'B' },
-      { label: "Convenience — I'll deal with bureaucracy and chaos if the place is extraordinary", value: 'C' },
-      { label: "My social life at home — I'm playing a longer game and I can make that trade", value: 'D' },
+      { label: "Predictability — I want something unexpected around every corner", value: 'A' },
+      { label: "Ambition, for a while — I'd trade the hustle for ease without hesitation", value: 'B' },
+      { label: "Convenience — I'll live somewhere remote if it means real peace and quiet", value: 'C' },
+      { label: "Comfort and familiarity — if it means more warmth and connection somewhere new", value: 'D' },
     ]
   },
   {
     id: 6,
     question: "You're having a hard week abroad — homesick, frustrated, nothing's working. What gets you through?",
     options: [
-      { label: "A neighbour brings food. Someone checks in. The community I've built shows up", value: 'A' },
-      { label: "I book a cheap flight somewhere new. A change of scene resets everything", value: 'B' },
-      { label: "I walk somewhere beautiful and remember why I came. The city earns it back", value: 'C' },
-      { label: "I call someone at home, then remember why I left. Both things can be true", value: 'D' },
+      { label: "I go find something happening — a market, a show, anything with energy", value: 'A' },
+      { label: "I get in the water or watch the sunset. It resets everything", value: 'B' },
+      { label: "I go for a long walk somewhere quiet and let my head clear", value: 'C' },
+      { label: "A neighbour brings food. Someone checks in. The community I've built shows up", value: 'D' },
     ]
   },
   {
     id: 7,
     question: "What's your relationship with language barriers?",
     options: [
-      { label: "I'll learn the language. That's part of belonging — you meet people halfway", value: 'A' },
-      { label: "I want somewhere English-friendly at minimum. I'm moving fast enough that deep fluency isn't realistic", value: 'B' },
-      { label: "Language barriers are part of the texture. Struggling to order a coffee somewhere beautiful is fine by me", value: 'C' },
-      { label: "I'll learn what I need for legal and financial purposes. The rest will follow with time", value: 'D' },
+      { label: "Half the fun is piecing it together on the fly, mid-market, mid-conversation", value: 'A' },
+      { label: "I don't overthink it — a smile and slow living go a long way", value: 'B' },
+      { label: "I don't need much language where I'm headed. It's mostly just me and the landscape", value: 'C' },
+      { label: "I'll learn the language. That's part of belonging — you meet people halfway", value: 'D' },
     ]
   },
   {
     id: 8,
     question: "Someone asks how long you're planning to stay. You say...",
     options: [
-      { label: "Indefinitely. If it becomes home, why leave?", value: 'A' },
-      { label: "At least a year, then I'll see. I don't like planning too far ahead", value: 'B' },
-      { label: "Long enough to really know it — probably two or three years", value: 'C' },
-      { label: "I'm thinking in decades. This is a proper life relocation, not an experiment", value: 'D' },
+      { label: "As long as it stays interesting. Could be a year, could be a decade", value: 'A' },
+      { label: "Indefinitely, if the sun keeps setting over water like this", value: 'B' },
+      { label: "As long as the quiet holds", value: 'C' },
+      { label: "Indefinitely. If it becomes home, why leave?", value: 'D' },
     ]
   },
   {
@@ -88,8 +88,8 @@ const QUESTIONS = [
     question: "Which of these would make you fall in love with a destination?",
     options: [
       { label: "Stumbling onto a street party and being pulled into a stranger's home for dinner", value: 'A' },
-      { label: "Discovering the visa is easier than I thought and there's a great co-working space two minutes away", value: 'B' },
-      { label: "Turning a corner and seeing something so beautiful I have to sit down", value: 'C' },
+      { label: "A hammock, warm water, and absolutely nowhere to be", value: 'B' },
+      { label: "Turning a corner and finding a view so big it stops me cold", value: 'C' },
       { label: "Reading that three people I respect have quietly put down roots here in the last two years", value: 'D' },
     ]
   },
@@ -97,10 +97,10 @@ const QUESTIONS = [
     id: 10,
     question: "Ten years from now, the version of you that made the right choice abroad...",
     options: [
-      { label: "Has a village. Close friends, rituals, a life that feels genuinely inhabited", value: 'A' },
-      { label: "Has lived in five places and wouldn't trade a single one. The freedom was the point", value: 'B' },
-      { label: "Lives somewhere so beautiful it still surprises them on a Tuesday morning", value: 'C' },
-      { label: "Has built something — a business, a home, a foundation — that couldn't have happened anywhere else", value: 'D' },
+      { label: "Still finds something new around every corner. Never bored, always curious", value: 'A' },
+      { label: "Lives somewhere the ocean is part of daily life. Slower, lighter, unbothered", value: 'B' },
+      { label: "Has a view they never get tired of, and a quiet life built around it", value: 'C' },
+      { label: "Has a village. Close friends, rituals, a life that feels genuinely inhabited", value: 'D' },
     ]
   },
 ]
