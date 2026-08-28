@@ -50,6 +50,9 @@ const introCSS = `
   .intro-cta:hover  { background: #3B4A2A; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,30,34,0.32); }
   .intro-cta:active { transform: translateY(0); }
 
+  /* the coral wordmark is light and thin — it disappears into the sky in the artwork */
+  .intro-logo img { filter: drop-shadow(0 1px 10px rgba(253,250,247,0.95)) drop-shadow(0 0 22px rgba(253,250,247,0.75)); }
+
   @media (max-width: 600px) {
     .intro-cta { font-size: 0.9rem; padding: 15px 26px; }
   }
@@ -97,7 +100,7 @@ export default function IntroScreen({ onStartQuiz }) {
       <div className="intro-scrim" aria-hidden="true" />
 
       <div style={s.content}>
-        <div className="header-logo animate-dreamFadeUp" style={{ animationDelay: '0.2s' }}>
+        <div className="header-logo intro-logo animate-dreamFadeUp" style={{ animationDelay: '0.2s' }}>
           <img src="/HomeAbroad-Logo_Landscape-Color.webp" alt="Home Abroad" className="logo-img" />
         </div>
 
