@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react'
+import * as THREE from 'three'
 import Papa from 'papaparse'
 import HoverCard from '../components/HoverCard.jsx'
 import WaxSeal from '../components/WaxSeal.jsx'
@@ -246,6 +247,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
   const [hoveredDest,  setHoveredDest]  = useState(null)
   const [mousePos,     setMousePos]     = useState({ x: 0, y: 0 })
   const [globeSize,    setGlobeSize]    = useState({ w: 800, h: 600 })
+  const [countriesGeo, setCountriesGeo] = useState(null)
 
   const globeRef      = useRef(null)
   const mainRef       = useRef(null)
@@ -290,6 +292,20 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
       setAudioPlaying(true)
     }
   }
+
+  /* ── load vector country shapes for the globe (rendered natively, no photo texture) ── */
+  useEffect(() => {
+    fetch('/data/world-countries.geojson')
+      .then(res => res.json())
+      .then(geo => setCountriesGeo(geo))
+      .catch(() => setCountriesGeo({ features: [] }))
+  }, [])
+
+  /* ── ocean material for the globe sphere — flat navy, no image texture ── */
+  const oceanMaterial = useMemo(
+    () => new THREE.MeshPhongMaterial({ color: '#1a2535', shininess: 3 }),
+    []
+  )
 
   /* ── pre-populate personality filter from quiz result ── */
   useEffect(() => {
@@ -677,10 +693,16 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                     ref={globeRef}
                     width={globeSize.w}
                     height={globeSize.h || window.innerHeight - 64}
-                    globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
+                    globeMaterial={oceanMaterial}
                     backgroundColor="rgba(0,0,0,0)"
                     atmosphereColor="#B78A63"
                     atmosphereAltitude={0.15}
+                    // Vector country shapes — rendered natively, crisp at any zoom/DPI
+                    polygonsData={countriesGeo?.features ?? []}
+                    polygonCapColor={() => 'rgba(217,185,142,0.95)'}
+                    polygonSideColor={() => 'rgba(161,91,68,0.28)'}
+                    polygonStrokeColor={() => '#7A5A3E'}
+                    polygonAltitude={0.008}
                     // Invisible cylinders — drive Three.js raycasting for hover + click
                     pointsData={globeData}
                     pointLat="lat"
