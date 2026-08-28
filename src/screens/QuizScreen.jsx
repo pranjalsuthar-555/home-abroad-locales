@@ -67,21 +67,48 @@ const quizCSS = `
   .dot-stamp {
     animation: waxStampPress 0.45s var(--ease-spring) both;
   }
+  /* Illustration beside the question rather than above it, so a question and its four
+     answers fit on screen together without scrolling. */
+  .quiz-layout {
+    width: 100%;
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 44px;
+    align-items: center;
+  }
+  .quiz-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 0;
+  }
   .quiz-vignette {
-    width: 148px;
-    height: 148px;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 16px;
     display: block;
-    margin-bottom: 18px;
-    box-shadow: 0 6px 20px rgba(27,30,34,0.10);
+    justify-self: end;
+    box-shadow: 0 10px 30px rgba(27,30,34,0.12);
     animation: dreamFadeUp 0.5s var(--ease-dream) both;
   }
-  @media (max-width: 600px) {
-    .quiz-vignette { width: 104px; height: 104px; margin-bottom: 12px; }
+
+  @media (max-width: 900px) {
+    .quiz-layout { grid-template-columns: 1fr; gap: 20px; justify-items: center; }
+    .quiz-body   { align-items: center; text-align: center; }
+    .quiz-vignette { max-width: 200px; justify-self: center; }
   }
-  /* the illustration is decorative; on very short screens it costs more than it adds */
-  @media (max-height: 600px) {
+  /* four answer cards plus the question don't fit a phone screen at desktop spacing */
+  @media (max-width: 600px) {
+    .quiz-card { padding: 14px 16px !important; gap: 10px !important; }
+    .quiz-body h2 { margin-bottom: 18px !important; }
+    .quiz-layout { gap: 14px; }
+  }
+  /* stacked on a phone the illustration competes with the answers for height */
+  @media (max-width: 900px) and (max-height: 720px) {
     .quiz-vignette { display: none; }
   }
 `
@@ -215,16 +242,19 @@ export default function QuizScreen({ onQuizComplete }) {
           aria-hidden="true"
         />
 
-        <div className={contentClass} style={{ ...s.content, position: 'relative', zIndex: 1 }}>
+        <div className={`quiz-layout ${contentClass}`} style={{ position: 'relative', zIndex: 1 }}>
+          {/* no key here: changing src is enough to swap the image, and a changing key
+              left the previous question's image mounted instead of replacing it */}
           <img
-            key={currentQuestion}
             className="quiz-vignette"
             src={`/quiz/q${currentQuestion + 1}.webp`}
             alt=""
             aria-hidden="true"
-            width="148"
-            height="148"
+            width="420"
+            height="420"
           />
+
+          <div className="quiz-body">
           <span style={s.qLabel}>{t('quiz.questionLabel', { n: currentQuestion + 1 })}</span>
           <h2 style={s.qText}>{q.question}</h2>
 
@@ -241,7 +271,7 @@ export default function QuizScreen({ onQuizComplete }) {
                   onClick={() => handleAnswer(value)}
                   onMouseEnter={() => { if (!advancing) setHoveredCard(value) }}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className="animate-dreamFadeUp"
+                  className="animate-dreamFadeUp quiz-card"
                   style={{
                     '--base-rotate': baseRotate,
                     ...s.card,
@@ -273,6 +303,7 @@ export default function QuizScreen({ onQuizComplete }) {
                 </button>
               )
             })}
+          </div>
           </div>
         </div>
 
@@ -348,7 +379,8 @@ const s = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '80px 1.5rem 100px',
+    justifyContent: 'center',
+    padding: '32px 1.5rem 40px',
     position: 'relative',
     overflow: 'hidden',
   },
