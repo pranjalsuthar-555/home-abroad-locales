@@ -247,7 +247,11 @@ export default function HoverCard({ destination: d, x = 0, y = 0, mode = 'toolti
         style={{
           position: 'fixed',
           top: '64px', right: 0, bottom: 0,
-          width: '400px',
+          // was a hard 400px, which hung off the left edge of any phone narrower than
+          // that. (The .slide-panel mobile rule in globals.css targets a class this
+          // component never had, so it never applied.)
+          width: 'min(400px, 100vw)',
+          maxWidth: '100vw',
           background: 'var(--white)',
           boxShadow: '-4px 0 28px rgba(27,30,34,0.13)',
           overflowY: 'auto',
