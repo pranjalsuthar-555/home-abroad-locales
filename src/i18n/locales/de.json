@@ -158,5 +158,65 @@
       "localWriter": "Lokale Stimme"
     },
     "emptyStateHint": "Passe deine Filter an oder setze sie zurück."
+  },
+  "card": {
+    "localVoice": "Stimme vor Ort",
+    "readOnSubstack": "Auf Substack lesen",
+    "yourMatch": "Deine Übereinstimmung",
+    "closePanel": "Panel schließen",
+    "trend": {
+      "up": "↑ Aufwärts",
+      "down": "↓ Abwärts",
+      "stable": "→ Stabil"
+    },
+    "fields": {
+      "personalities": {
+        "label": "Reise-Persönlichkeit des Ortes",
+        "tip": "Die Reisetypen, zu denen dieser Ort am besten passt — nach Lebensstil, Tempo und Prioritäten. Fahre über eine Markierung, um mehr zu erfahren."
+      },
+      "costUSD": {
+        "label": "Ø Lebenshaltungskosten / Monat",
+        "tip": "Geschätztes Monatsbudget für ein angenehmes Leben als Auswanderer, inklusive Miete, Essen, Transport und Freizeit."
+      },
+      "suitabilityScore": {
+        "label": "Eignung für Auswanderer",
+        "tip": "Gesamtnote von 1 bis 5 aus Lebenshaltungskosten, Sicherheit, Gesundheitsversorgung, Offenheit gegenüber Auswanderern und Lebensqualität."
+      },
+      "countryTrend": {
+        "label": "Ländertrend",
+        "tip": "Die Entwicklung des Landes im letzten Jahrzehnt bei Demokratie, Regierungsführung und menschlicher Entwicklung."
+      },
+      "languages": {
+        "label": "Gesprochene Sprachen",
+        "tip": "Die hier am häufigsten gesprochenen Sprachen. Hilfreich, um einzuschätzen, wie leicht der Alltag ohne die Landessprache fällt."
+      },
+      "religions": {
+        "label": "Vorherrschende Religionen",
+        "tip": "Die wichtigsten religiösen Traditionen, die Kultur, gesellschaftliche Normen und öffentliches Leben prägen."
+      },
+      "advantages": {
+        "label": "Vorteile",
+        "tip": "Die wichtigsten Gründe, warum Auswanderer diesen Ort wählen und lieben — seine echten Stärken."
+      },
+      "disadvantages": {
+        "label": "Nachteile",
+        "tip": "Die tatsächlichen Schwierigkeiten vor Ort — ehrliche Hinweise darauf, was diesen Ort anstrengend macht oder nicht für jeden geeignet."
+      },
+      "tourismWebsite": {
+        "label": "Offizielle Tourismusseite",
+        "tip": "Das offizielle Tourismusportal mit Informationen zu Visa, Einreise und Reiseplanung."
+      },
+      "writers": {
+        "label": "Stimme vor Ort",
+        "tip": "Ein Substack von jemandem, der wirklich hier lebt — echte Perspektive vor Ort, kein Reisejournalismus."
+      }
+    },
+    "personalityTips": {
+      "urban": "Lebendiges Stadtleben, kultureller Reichtum und ein dynamisches Tempo.",
+      "coastal": "Strand- und Inselziele mit entspanntem Leben im Freien und warmem Klima.",
+      "nature": "Berge, Wälder und ländliche Orte für alle, die Natur um sich brauchen.",
+      "rooted": "Starker Zusammenhalt und ein warmer Alltag im menschlichen Maßstab."
+    },
+    "trendExplainer": "Entwicklung von Wirtschaft, Sicherheit und Lebensqualität in den letzten 2–3 Jahren"
   }
 }

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import { FIELD_TOOLTIPS, FieldLabel, PersonalityTag } from './FieldTooltips.jsx'
+import { useTranslation } from 'react-i18next'
+import { FieldLabel, PersonalityTag } from './FieldTooltips.jsx'
 
 export default function PostcardModal({ destination: d, onClose, result }) {
+  const { t } = useTranslation()
   const [localVoiceOpen, setLocalVoiceOpen] = useState(false)
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function PostcardModal({ destination: d, onClose, result }) {
     : trend.includes('↓') || trend.toLowerCase().includes('declin')
     ? 'down'
     : 'stable'
-  const trendLabel = trendDir === 'up' ? '↑ Growing' : trendDir === 'down' ? '↓ Declining' : '→ Stable'
+  const trendLabel = t(`card.trend.${trendDir}`)
 
   return (
     <div className="pc-overlay" onClick={onClose}>
@@ -122,9 +124,9 @@ export default function PostcardModal({ destination: d, onClose, result }) {
               {d.tourismWebsite && (
                 <span className="pc-tooltip-trigger">
                   <a href={d.tourismWebsite} target="_blank" rel="noopener noreferrer" className="pc-link">
-                    🌐 Official Tourism Site
+                    🌐 {t('card.fields.tourismWebsite.label')}
                   </a>
-                  <div className="pc-tooltip-box">{FIELD_TOOLTIPS.tourismWebsite.tip}</div>
+                  <div className="pc-tooltip-box">{t('card.fields.tourismWebsite.tip')}</div>
                 </span>
               )}
               {d.writers?.length > 0 && (
@@ -134,7 +136,7 @@ export default function PostcardModal({ destination: d, onClose, result }) {
                     onClick={() => setLocalVoiceOpen(o => !o)}
                   >
                     <span className="local-voice-icon">✍️</span>
-                    <span className="local-voice-title">Local Voice</span>
+                    <span className="local-voice-title">{t('card.localVoice')}</span>
                     <span className="local-voice-toggle">{localVoiceOpen ? '−' : '+'}</span>
                   </div>
                   {localVoiceOpen && (
@@ -152,7 +154,7 @@ export default function PostcardModal({ destination: d, onClose, result }) {
                             rel="noopener noreferrer"
                             className="local-voice-cta"
                           >
-                            {w.name} — Read on Substack ↗
+                            {w.name} — {t('card.readOnSubstack')} ↗
                           </a>
                         ))}
                       </div>

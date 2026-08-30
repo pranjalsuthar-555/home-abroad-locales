@@ -1,8 +1,18 @@
 import { useState } from 'react'
-import { FieldLabel, PersonalityTag, FIELD_TOOLTIPS } from './FieldTooltips.jsx'
+import { useTranslation } from 'react-i18next'
+import { FieldLabel, PersonalityTag } from './FieldTooltips.jsx'
 
 function CardBody({ d, compact }) {
+  const { t } = useTranslation()
   const trend = d.countryTrend
+  /* Airtable stores the trend in English ("↑ Improving"). Keep that as the data,
+     but derive the direction from it and show the translated wording. */
+  const trendLower = (trend || '').toLowerCase()
+  const trendDir =
+    trend?.includes('↑') || trendLower.includes('grow') || trendLower.includes('improv') ? 'up'
+    : trend?.includes('↓') || trendLower.includes('declin') ? 'down'
+    : 'stable'
+  const trendLabel = t(`card.trend.${trendDir}`)
   const gap   = compact ? '8px' : '14px'
   const firstPersonalityEmoji = d.personalities?.[0]?.split(' ')[0] ?? '📍'
   const [localVoiceOpen, setLocalVoiceOpen] = useState(false)
@@ -90,7 +100,7 @@ function CardBody({ d, compact }) {
         <div className="trend-section">
           {!compact
             ? <FieldLabel fieldKey="countryTrend" />
-            : <span className="trend-label">Country Trend</span>
+            : <span className="trend-label">{t('card.fields.countryTrend.label')}</span>
           }
           <div className="trend-display">
             <span className={`trend-badge ${
@@ -99,10 +109,10 @@ function CardBody({ d, compact }) {
                 : trend.includes('↓') || trend.toLowerCase().includes('declin')
                 ? 'trend-down'
                 : 'trend-stable'
-            }`}>{trend}</span>
+            }`}>{trendLabel}</span>
             {!compact && (
               <span className="trend-explainer">
-                Economic, safety &amp; quality-of-life trajectory over the past 2–3 years
+                {t('card.trendExplainer')}
               </span>
             )}
           </div>
@@ -169,9 +179,9 @@ function CardBody({ d, compact }) {
               rel="noopener noreferrer"
               style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--lion)', textDecoration: 'underline' }}
             >
-              Official Tourism Site ↗
+              {t('card.fields.tourismWebsite.label')} ↗
             </a>
-            <div className="pc-tooltip-box">{FIELD_TOOLTIPS.tourismWebsite.tip}</div>
+            <div className="pc-tooltip-box">{t('card.fields.tourismWebsite.tip')}</div>
           </span>
         ) : (
           <a
@@ -180,7 +190,7 @@ function CardBody({ d, compact }) {
             rel="noopener noreferrer"
             style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--lion)', textDecoration: 'underline' }}
           >
-            Official Tourism Site ↗
+            {t('card.fields.tourismWebsite.label')} ↗
           </a>
         )
       )}
@@ -193,7 +203,7 @@ function CardBody({ d, compact }) {
             onClick={() => setLocalVoiceOpen(o => !o)}
           >
             <span className="local-voice-icon">✍️</span>
-            <span className="local-voice-title">Local Voice</span>
+            <span className="local-voice-title">{t('card.localVoice')}</span>
             <span className="local-voice-toggle">{localVoiceOpen ? '−' : '+'}</span>
           </div>
           {localVoiceOpen && (
@@ -211,7 +221,7 @@ function CardBody({ d, compact }) {
                     rel="noopener noreferrer"
                     className="local-voice-cta"
                   >
-                    {w.name} — Read on Substack ↗
+                    {w.name} — {t('card.readOnSubstack')} ↗
                   </a>
                 ))}
               </div>
@@ -226,6 +236,7 @@ function CardBody({ d, compact }) {
 
 /* ─── Public component ─── */
 export default function HoverCard({ destination: d, x = 0, y = 0, mode = 'tooltip', onClose, result }) {
+  const { t } = useTranslation()
   if (!d) return null
 
   /* ── Panel mode ── */
@@ -247,7 +258,7 @@ export default function HoverCard({ destination: d, x = 0, y = 0, mode = 'toolti
         {/* close button */}
         <button
           onClick={onClose}
-          aria-label="Close panel"
+          aria-label={t('card.closePanel')}
           style={{
             position: 'absolute', top: '14px', right: '14px',
             // backed disc so it stays visible over the panel's image header too
@@ -273,8 +284,8 @@ export default function HoverCard({ destination: d, x = 0, y = 0, mode = 'toolti
             <div className="hc-personality-badge">
               <span className="hc-personality-emoji">{result.emoji}</span>
               <div className="hc-personality-text">
-                <span className="hc-personality-match-label">Your Match</span>
-                <span className="hc-personality-name">{result.key}</span>
+                <span className="hc-personality-match-label">{t('card.yourMatch')}</span>
+                <span className="hc-personality-name">{t(`personalities.${result.i18nKey}.name`)}</span>
               </div>
             </div>
           </div>

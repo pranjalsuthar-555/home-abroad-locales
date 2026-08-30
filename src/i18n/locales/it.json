@@ -158,5 +158,65 @@
       "localWriter": "Voce locale"
     },
     "emptyStateHint": "Prova a modificare o azzerare i filtri."
+  },
+  "card": {
+    "localVoice": "Voce locale",
+    "readOnSubstack": "Leggi su Substack",
+    "yourMatch": "La tua affinità",
+    "closePanel": "Chiudi il pannello",
+    "trend": {
+      "up": "↑ In crescita",
+      "down": "↓ In calo",
+      "stable": "→ Stabile"
+    },
+    "fields": {
+      "personalities": {
+        "label": "Personalità della destinazione",
+        "tip": "I profili di viaggiatore a cui questa destinazione si adatta meglio, per stile di vita, ritmo e priorità. Passa sopra ogni etichetta per saperne di più."
+      },
+      "costUSD": {
+        "label": "Costo della vita medio / mese",
+        "tip": "Budget mensile stimato per una vita confortevole da expat, inclusi affitto, cibo, trasporti e tempo libero."
+      },
+      "suitabilityScore": {
+        "label": "Punteggio di idoneità per expat",
+        "tip": "Punteggio complessivo da 1 a 5 su costo della vita, sicurezza, accesso alle cure, accoglienza verso gli expat e qualità della vita."
+      },
+      "countryTrend": {
+        "label": "Tendenza del Paese",
+        "tip": "La direzione presa dal Paese nell'ultimo decennio su democrazia, governance e sviluppo umano."
+      },
+      "languages": {
+        "label": "Lingue parlate",
+        "tip": "Le lingue più diffuse qui. Utile per capire quanto sarà semplice la quotidianità senza la lingua locale."
+      },
+      "religions": {
+        "label": "Religioni prevalenti",
+        "tip": "Le principali tradizioni religiose che plasmano la cultura locale, le norme sociali e la vita pubblica."
+      },
+      "advantages": {
+        "label": "Vantaggi",
+        "tip": "I motivi principali per cui gli expat scelgono e amano questa destinazione — i suoi veri punti di forza."
+      },
+      "disadvantages": {
+        "label": "Svantaggi",
+        "tip": "Le difficoltà reali che si incontrano qui — note oneste su ciò che rende questa destinazione impegnativa, o non adatta a tutti."
+      },
+      "tourismWebsite": {
+        "label": "Sito turistico ufficiale",
+        "tip": "Il portale turistico ufficiale, con informazioni su visti, requisiti d'ingresso e organizzazione del viaggio."
+      },
+      "writers": {
+        "label": "Voce locale",
+        "tip": "Un Substack scritto da chi vive davvero qui — uno sguardo reale sul posto, non giornalismo di viaggio."
+      }
+    },
+    "personalityTips": {
+      "urban": "Vita urbana vivace, ricchezza culturale e un ritmo dinamico.",
+      "coastal": "Destinazioni di mare e isole, con una vita all'aperto rilassata e un clima caldo.",
+      "nature": "Montagna, bosco e campagna, per chi ha bisogno di natura intorno.",
+      "rooted": "Legami comunitari forti e una quotidianità calda, a misura d'uomo."
+    },
+    "trendExplainer": "Andamento economico, della sicurezza e della qualità della vita negli ultimi 2–3 anni"
   }
 }

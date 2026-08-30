@@ -1,53 +1,9 @@
-export const FIELD_TOOLTIPS = {
-  personalities: {
-    label: 'Destination Personality',
-    tip: 'The traveler archetypes this destination suits best, based on lifestyle, pace, and priorities. Hover each tag to learn more.',
-  },
-  costUSD: {
-    label: 'Avg. Cost of Living / Month',
-    tip: 'Estimated monthly budget for a comfortable expat lifestyle including rent, food, transport, and leisure. Based on Numbeo data, updated 2024.',
-  },
-  suitabilityScore: {
-    label: 'Expat Suitability Score',
-    tip: "A 1–5 composite score across: cost of living, visa accessibility, safety, quality of life, and expat community strength. Sourced from Elle Griffin's Living Abroad database at elysian.press.",
-  },
-  countryTrend: {
-    label: 'Country Trend',
-    tip: 'The economic, safety, and quality-of-life trajectory over the past 2–3 years. ↑ Growing = conditions improving for expats. → Stable = consistent. ↓ Declining = worsening conditions.',
-  },
-  languages: {
-    label: 'Languages Spoken',
-    tip: 'The most commonly spoken languages in this destination. Useful for gauging how easy daily life will be without the local language.',
-  },
-  religions: {
-    label: 'Predominant Religions',
-    tip: 'The primary religious traditions shaping local culture, social norms, and public life.',
-  },
-  advantages: {
-    label: 'Advantages',
-    tip: 'Key reasons expats choose and love this destination — the genuine strengths that make it stand out.',
-  },
-  disadvantages: {
-    label: 'Disadvantages',
-    tip: 'Real challenges expats face here — honest notes on what makes this destination difficult or not for everyone.',
-  },
-  tourismWebsite: {
-    label: 'Official Tourism Site',
-    tip: 'The official government or regional tourism portal for visa information, entry requirements, and travel planning.',
-  },
-  writers: {
-    label: 'Local Voice',
-    tip: 'A Substack written by someone who actually lives here — real on-the-ground perspective, not travel journalism.',
-  },
-}
+import { useTranslation } from 'react-i18next'
 
-export const PERSONALITY_TAG_TIPS = {
-  'urban explorer': 'Vibrant city life, cultural richness, and a dynamic urban pace of living.',
-  'coastal dreamer': 'Beach and island destinations with a relaxed, outdoor lifestyle and warm climate.',
-  'nature seeker': 'Mountain, forest, and rural destinations for those who need natural surroundings.',
-  'community rooter': 'Strong local community bonds and a warm, human-scale pace of everyday life.',
-  'global nomad': 'Well-connected destinations popular with international expats and remote workers.',
-}
+/* Labels and tips live in src/i18n/locales/*.json under card.fields.*
+   These are our own UI strings — the Airtable field names are only used
+   server-side as data keys and never surface here, so translating them
+   needs no change to the base. */
 
 export function tagClass(p = '') {
   const l = p.toLowerCase()
@@ -59,28 +15,43 @@ export function tagClass(p = '') {
 }
 
 export function FieldLabel({ fieldKey }) {
-  const tooltip = FIELD_TOOLTIPS[fieldKey]
-  if (!tooltip) return null
+  const { t, i18n } = useTranslation()
+  // a key we don't have copy for shouldn't render an empty label
+  if (!i18n.exists(`card.fields.${fieldKey}.label`)) return null
   return (
     <span className="pc-tooltip-trigger">
       <span className="pc-field-label">
-        {tooltip.label}
+        {t(`card.fields.${fieldKey}.label`)}
         <span className="pc-info-dot">?</span>
       </span>
-      <div className="pc-tooltip-box">{tooltip.tip}</div>
+      <div className="pc-tooltip-box">{t(`card.fields.${fieldKey}.tip`)}</div>
     </span>
   )
 }
 
+/* Airtable personality tags are English ("🌴 Coastal Dreamer"); match on that to pick
+   the tip, but show the translated name. Unknown tags fall through untouched. */
+function personalityKeyFor(tag = '') {
+  const l = tag.toLowerCase()
+  if (l.includes('urban'))   return 'urban'
+  if (l.includes('coastal')) return 'coastal'
+  if (l.includes('nature'))  return 'nature'
+  if (l.includes('rooted'))  return 'rooted'
+  return null
+}
+
 export function PersonalityTag({ tag }) {
-  const tipKey = Object.keys(PERSONALITY_TAG_TIPS).find(k => tag.toLowerCase().includes(k))
-  const tip = tipKey ? PERSONALITY_TAG_TIPS[tipKey] : null
+  const { t } = useTranslation()
+  const key = personalityKeyFor(tag)
   const cls = `tag ${tagClass(tag)}`
-  if (!tip) return <span className={cls}>{tag}</span>
+  if (!key) return <span className={cls}>{tag}</span>
+
+  const emoji = (tag.match(/^\s*(\p{Extended_Pictographic}\uFE0F?)/u) || [])[1]
+  const name  = t(`personalities.${key}.name`)
   return (
     <span className="pc-tooltip-trigger">
-      <span className={cls}>{tag}</span>
-      <div className="pc-tooltip-box pc-tooltip-tag">{tip}</div>
+      <span className={cls}>{emoji ? `${emoji} ${name}` : name}</span>
+      <div className="pc-tooltip-box pc-tooltip-tag">{t(`card.personalityTips.${key}`)}</div>
     </span>
   )
 }
