@@ -249,12 +249,17 @@ export default function HoverCard({ destination: d, x = 0, y = 0, mode = 'toolti
           onClick={onClose}
           aria-label="Close panel"
           style={{
-            position: 'absolute', top: '16px', right: '16px',
-            background: 'none', border: 'none', cursor: 'pointer',
-            fontSize: '1.2rem', color: 'var(--slate)', lineHeight: 1,
-            transition: 'transform 0.3s var(--ease-spring)',
+            position: 'absolute', top: '14px', right: '14px',
+            // backed disc so it stays visible over the panel's image header too
+            background: 'rgba(253,250,247,0.94)',
+            border: '1px solid rgba(27,30,34,0.12)',
+            cursor: 'pointer',
+            fontSize: '1rem', color: 'var(--ink)', lineHeight: 1,
+            boxShadow: '0 2px 10px rgba(27,30,34,0.30)',
+            backdropFilter: 'blur(4px)',
+            transition: 'transform 0.3s var(--ease-spring), background 0.2s',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: '28px', height: '28px', borderRadius: '50%', zIndex: 1,
+            width: '32px', height: '32px', borderRadius: '50%', zIndex: 5,
           }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'rotate(90deg)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'rotate(0deg)' }}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useDestinations } from './data/useDestinations.js'
 import { rehydrateResult } from './data/personalities.js'
 import IntroScreen      from './screens/IntroScreen.jsx'
@@ -27,6 +27,37 @@ export default function App() {
   const [personalityResult, setPersonalityResult] = useState(savedResult)
 
   const { destinations, loading: destLoading, error: destError } = useDestinations()
+
+  /* ── Back button walks the screens instead of leaving the site ──
+     This is a single page with no per-screen URLs, so the browser had exactly one
+     history entry: pressing Back anywhere — including right after viewing a
+     destination — dropped the user out of the app. Each screen now records an entry,
+     so Back retraces explorer → reveal → quiz → intro and only exits from the first
+     screen. (The destination card pushes its own entry in ExplorerScreen, so Back
+     there closes the card before touching these.) ── */
+  const skipPushRef = useRef(false)
+
+  useEffect(() => {
+    window.history.replaceState({ haScreen: currentScreen }, '')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if (skipPushRef.current) { skipPushRef.current = false; return }
+    if (window.history.state?.haScreen === currentScreen) return
+    window.history.pushState({ haScreen: currentScreen }, '')
+  }, [currentScreen])
+
+  useEffect(() => {
+    const onPop = e => {
+      const screen = e.state?.haScreen
+      if (!screen) return
+      skipPushRef.current = true      // restoring, don't push a duplicate entry
+      setCurrentScreen(screen)
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
 
   function handleStartQuiz() {
     setCurrentScreen('quiz')

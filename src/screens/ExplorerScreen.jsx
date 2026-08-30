@@ -372,6 +372,34 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
     return () => obs.disconnect()
   }, [])
 
+  /* ── browser Back closes the destination card instead of leaving the app ──
+     Opening a destination is a view change with no URL of its own, so Back used to
+     navigate away from the site entirely. Pushing a history entry while the card is
+     open means Back pops that entry and returns to the explorer. The ref tracks
+     whether we still own that entry, so closing via ✕ / Esc / the backdrop removes
+     it without risking a second pop that would leave the app. ── */
+  const modalHistoryRef = useRef(false)
+  const selectedDestId = selectedDest?.id ?? null
+  useEffect(() => {
+    if (!selectedDestId) return
+    window.history.pushState({ haDestination: true }, '')
+    modalHistoryRef.current = true
+
+    const onPop = () => {
+      modalHistoryRef.current = false
+      setSelectedDest(null)
+    }
+    window.addEventListener('popstate', onPop)
+
+    return () => {
+      window.removeEventListener('popstate', onPop)
+      if (modalHistoryRef.current) {
+        modalHistoryRef.current = false
+        window.history.back()
+      }
+    }
+  }, [selectedDestId])
+
   /* ── track viewport so layout reacts to resize / orientation change ── */
   useEffect(() => {
     const h = () => {
