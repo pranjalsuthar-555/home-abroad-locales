@@ -16,21 +16,21 @@
     "q1": {
       "q": "Mal ehrlich: Warum denkst du wirklich darüber nach zu gehen?",
       "a": "Ich will mehr Energie und Kultur: mutige Kunst, belebte Straßen und eine Stadt, in der es jeden Tag etwas Neues zu entdecken gibt.",
-      "b": "Ich will langsamer leben, in der Nähe von warmem Wasser wohnen und nicht mehr von einer Sache zur nächsten hetzen.",
+      "b": "Ich will richtig langsamer werden: irgendwo Warmes am Meer, wo das Leben gemächlicher läuft.",
       "c": "Ich will mehr Raum, weniger Ablenkung und genug Ruhe, um wieder klar denken zu können.",
       "d": "Ich will mich stärker mit den Menschen, dem Ort und dem Alltag um mich herum verbunden fühlen."
     },
     "q2": {
       "q": "Du bist gerade in einer neuen Stadt angekommen. Was machst du zuerst?",
       "a": "Ich gehe zum belebtesten Markt oder ins lebhafteste Viertel und erkunde, was mir ins Auge fällt.",
-      "b": "Ich suche das Wasser, ziehe die Schuhe aus und nehme mir einen Moment zum Durchatmen.",
+      "b": "Ich gehe direkt an den Strand, ziehe die Schuhe aus und nehme mir einen Moment zum Durchatmen.",
       "c": "Ich suche den nächsten Wanderweg, Wald oder ruhigen Rand der Stadt.",
       "d": "Ich spreche mit jemandem, der schon lange hier lebt, und frage, wohin ich gehen sollte, um den Ort wirklich zu verstehen."
     },
     "q3": {
       "q": "Ein Freund fragt, was du im Ausland suchst. Du sagst...",
       "a": "Einen Ort voller Kultur, Kunst und Veranstaltungen, an denen ich teilnehmen kann.",
-      "b": "Einen Ort mit langsamen Morgen, warmem Wasser und ohne Druck, sich zu beeilen.",
+      "b": "Einen warmen Ort an der Küste, mit langsamen Morgen und ohne Druck, sich zu beeilen.",
       "c": "Einen ruhigen Ort mitten in der Natur, mit viel Platz, um allein zu sein.",
       "d": "Einen Ort, an den ich gehören kann, wo ich enge Beziehungen aufbaue und Teil eines Viertels werde."
     },
@@ -51,7 +51,7 @@
     "q6": {
       "q": "Du hast eine harte Woche im Ausland: Heimweh, Frust, nichts klappt. Was hilft dir am meisten?",
       "a": "Ich suche mir etwas in der Nähe, was gerade stattfindet — einen Markt, ein Konzert, eine Ausstellung — und lasse mich von der Stimmung tragen.",
-      "b": "Ich schwimme, sitze am Wasser oder schaue dem Sonnenuntergang zu, bis ich ruhiger werde.",
+      "b": "Ich gehe schwimmen oder setze mich hin und schaue dem Sonnenuntergang zu, bis ich ruhiger werde.",
       "c": "Ich mache einen langen Spaziergang in der Natur und nehme mir Zeit, den Kopf frei zu bekommen.",
       "d": "Ein Nachbar bringt Essen, ein Freund meldet sich oder jemand aus meiner Gemeinschaft verbringt Zeit mit mir."
     },
@@ -65,21 +65,21 @@
     "q8": {
       "q": "Jemand fragt, wie lange du bleiben willst. Du sagst...",
       "a": "Solange der Ort mir Neues zum Entdecken bietet. Das können 1 Jahr oder 10 sein.",
-      "b": "Unbegrenzt, solange ich in Wassernähe leben und das langsamere Tempo genießen kann.",
+      "b": "Unbegrenzt, solange das Leben so entspannt bleibt und ich am Ufer aufwache.",
       "c": "Solange ich noch den Raum, die Ruhe und den Zugang zur Natur habe, wegen denen ich gekommen bin.",
       "d": "Unbegrenzt. Wenn ich dort ein Zuhause und eine Gemeinschaft aufbaue, will ich gar nicht mehr weg."
     },
     "q9": {
       "q": "Was würde dich in einen Ort verlieben lassen?",
       "a": "Zufällig in ein Straßenfest zu geraten, mitzufeiern und den Abend beim Essen mit neuen Leuten ausklingen zu lassen.",
-      "b": "Einen Nachmittag in einer Hängematte zu verbringen, warmes Wasser in der Nähe und nichts im Kalender.",
+      "b": "Einen Nachmittag in der Hängematte im Schatten, salzige Luft in der Nähe und nichts im Kalender.",
       "c": "Um eine Ecke zu biegen und eine weite Landschaft zu sehen, die mich innehalten lässt.",
       "d": "Zu sehen, dass Menschen, denen ich vertraue, dort dauerhafte Zuhause, Freundschaften und Routinen aufgebaut haben."
     },
     "q10": {
       "q": "In zehn Jahren: Die Version von dir, die im Ausland die richtige Wahl getroffen hat...",
       "a": "Entdeckt immer noch neue Orte, Menschen und Erlebnisse und langweilt sich selten.",
-      "b": "Lebt in Meeresnähe und hat einen langsameren, leichteren und weniger stressigen Alltag.",
+      "b": "Lebt am Ozean, mit einem langsameren, leichteren und weniger stressigen Alltag.",
       "c": "Hat eine schöne Aussicht, viel Raum und ein ruhiges Leben rund um die Natur.",
       "d": "Hat enge Freunde, vertraute Rituale und eine Gemeinschaft, die sich wie Zuhause anfühlt."
     }

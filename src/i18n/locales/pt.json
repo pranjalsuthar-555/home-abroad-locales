@@ -16,21 +16,21 @@
     "q1": {
       "q": "Seja sincero: por que você está realmente pensando em partir?",
       "a": "Quero mais energia e cultura: arte ousada, ruas movimentadas e uma cidade com algo novo para descobrir todos os dias.",
-      "b": "Quero desacelerar, morar perto de água morna e parar de correr de uma coisa para outra.",
+      "b": "Quero desacelerar de verdade: um lugar quente à beira-mar, onde a vida corre mais devagar.",
       "c": "Quero mais espaço, menos distrações e calma suficiente para voltar a pensar com clareza.",
       "d": "Quero me sentir mais conectado às pessoas, ao lugar e ao dia a dia à minha volta."
     },
     "q2": {
       "q": "Você acabou de chegar a uma cidade nova. O que faz primeiro?",
       "a": "Vou ao mercado ou bairro mais movimentado e exploro o que chamar a minha atenção.",
-      "b": "Procuro a água, tiro os sapatos e paro um momento para respirar.",
+      "b": "Vou direto para a praia, tiro os sapatos e paro um momento para respirar.",
       "c": "Procuro a trilha, a mata ou o canto mais tranquilo mais próximo.",
       "d": "Converso com alguém que mora aqui há muito tempo e pergunto aonde ir para entender o lugar de verdade."
     },
     "q3": {
       "q": "Um amigo pergunta o que você procura no exterior. Você diz...",
       "a": "Um lugar cheio de cultura, arte e eventos dos quais eu possa participar.",
-      "b": "Um lugar com manhãs lentas, água morna e nenhuma pressão para ter pressa.",
+      "b": "Um lugar quente e litorâneo, com manhãs lentas e nenhuma pressão para ter pressa.",
       "c": "Um lugar tranquilo e cercado de natureza, com bastante espaço para ficar sozinho.",
       "d": "Um lugar ao qual eu possa pertencer, criar laços próximos e fazer parte de um bairro."
     },
@@ -51,7 +51,7 @@
     "q6": {
       "q": "Você está tendo uma semana difícil fora: saudade, frustração, nada funciona. O que mais te ajuda?",
       "a": "Procuro algo acontecendo por perto, como uma feira, um show ou uma exposição, e deixo o clima me animar.",
-      "b": "Nado, sento perto da água ou fico vendo o pôr do sol até me sentir mais calmo.",
+      "b": "Vou nadar, ou sento e fico vendo o pôr do sol até me sentir mais calmo.",
       "c": "Faço uma longa caminhada na natureza e me dou tempo para clarear a cabeça.",
       "d": "Um vizinho traz comida, um amigo pergunta como estou ou alguém da minha comunidade passa um tempo comigo."
     },
@@ -65,21 +65,21 @@
     "q8": {
       "q": "Alguém pergunta quanto tempo você pretende ficar. Você diz...",
       "a": "Enquanto o lugar continuar me dando coisas novas para explorar. Pode ser 1 ano ou 10.",
-      "b": "Por tempo indeterminado, se eu puder continuar morando perto da água e curtindo um ritmo mais lento.",
+      "b": "Por tempo indeterminado, enquanto a vida continuar tranquila assim e eu acordar perto da costa.",
       "c": "Enquanto eu ainda tiver o espaço, o silêncio e o acesso à natureza pelos quais vim.",
       "d": "Por tempo indeterminado. Se eu construir um lar e uma comunidade lá, não vou sentir vontade de sair."
     },
     "q9": {
       "q": "O que faria você se apaixonar por um destino?",
       "a": "Encontrar por acaso uma festa de rua, entrar na celebração e terminar a noite jantando com pessoas novas.",
-      "b": "Passar uma tarde numa rede, com água morna por perto e nada na agenda.",
+      "b": "Uma tarde numa rede à sombra, com ar salgado por perto e nada na agenda.",
       "c": "Virar a esquina e encontrar uma paisagem imensa que me faz parar e contemplar tudo.",
       "d": "Ver pessoas em quem confio construindo ali lares, amizades e rotinas duradouras."
     },
     "q10": {
       "q": "Daqui a dez anos, a versão de você que fez a escolha certa no exterior...",
       "a": "Continua descobrindo lugares, pessoas e experiências novas, e raramente se sente entediada.",
-      "b": "Mora perto do mar e tem um dia a dia mais lento, mais leve e menos estressante.",
+      "b": "Mora à beira do oceano, com um dia a dia mais lento, mais leve e menos estressante.",
       "c": "Tem uma vista bonita, bastante espaço e uma vida tranquila construída em torno da natureza.",
       "d": "Tem amigos próximos, rituais familiares e uma comunidade que parece um lar."
     }

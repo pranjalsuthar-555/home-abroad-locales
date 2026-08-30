@@ -16,21 +16,21 @@
     "q1": {
       "q": "Be honest: why are you really thinking about leaving?",
       "a": "I want more energy and culture: bold art, busy streets and a city with something new to discover every day.",
-      "b": "I want to slow down, live near warm water and stop rushing from one thing to the next.",
+      "b": "I want to slow right down — somewhere warm by the sea, where life moves at an easier pace.",
       "c": "I want more space, fewer distractions and enough calm to think clearly again.",
       "d": "I want to feel more connected to the people, place and daily life around me."
     },
     "q2": {
       "q": "You've just arrived in a new city. What do you do first?",
       "a": "Head to the busiest market or neighbourhood and explore whatever catches my attention.",
-      "b": "Find the water, kick off my shoes and take a moment to breathe.",
+      "b": "Head straight for the beach, kick off my shoes and take a moment to breathe.",
       "c": "Look for the nearest trail, forest or peaceful edge of town.",
       "d": "Speak to a long-time resident and ask where I should go to understand the place properly."
     },
     "q3": {
       "q": "A friend asks what you're looking for abroad. You say...",
       "a": "Somewhere full of culture, art and events I can take part in.",
-      "b": "Somewhere with slow mornings, warm water and no pressure to rush.",
+      "b": "Somewhere warm and coastal, with slow mornings and no pressure to rush.",
       "c": "Somewhere peaceful and surrounded by nature, with plenty of room to be alone.",
       "d": "Somewhere I can belong, build close relationships and become part of a neighbourhood."
     },
@@ -51,7 +51,7 @@
     "q6": {
       "q": "You're having a hard week abroad, homesick, frustrated, nothing's working. What gets you through?",
       "a": "I find something happening nearby, such as a market, concert or exhibition, and let the atmosphere lift me.",
-      "b": "I swim, sit by the water or watch the sunset until I feel calmer.",
+      "b": "I go for a swim, or sit and watch the sunset until I feel calmer.",
       "c": "I take a long walk in nature and give myself time to clear my head.",
       "d": "A neighbour brings food, a friend checks in or someone from my community spends time with me."
     },
@@ -65,21 +65,21 @@
     "q8": {
       "q": "Someone asks how long you're planning to stay. You say...",
       "a": "As long as the place keeps giving me new things to explore. That could be 1 year or 10.",
-      "b": "Indefinitely, if I can keep living near the water and enjoying a slower pace.",
+      "b": "Indefinitely, as long as life stays this unhurried and I wake up near the shore.",
       "c": "As long as I still have the space, solitude and access to nature I came for.",
       "d": "Indefinitely. If I build a home and community there, I won't feel the need to leave."
     },
     "q9": {
       "q": "Which of these would make you fall in love with a destination?",
       "a": "Finding a street party by chance, joining the celebration and ending the night over dinner with new people.",
-      "b": "Spending an afternoon in a hammock with warm water nearby and nothing on my schedule.",
+      "b": "An afternoon in a hammock in the shade, salt air nearby and nothing on my schedule.",
       "c": "Turning a corner and finding a vast landscape that makes me stop and take it all in.",
       "d": "Seeing people I trust build lasting homes, friendships and routines there."
     },
     "q10": {
       "q": "Ten years from now, the version of you that made the right choice abroad...",
       "a": "Still discovers new places, people and experiences, and rarely feels bored.",
-      "b": "Lives near the ocean and has a slower, lighter and less stressful daily life.",
+      "b": "Lives by the ocean, with a slower, lighter and less stressful daily life.",
       "c": "Has a beautiful view, plenty of space and a peaceful life built around nature.",
       "d": "Has close friends, familiar rituals and a community that feels like home."
     }
