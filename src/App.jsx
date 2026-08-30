@@ -26,7 +26,7 @@ export default function App() {
 
   const [personalityResult, setPersonalityResult] = useState(savedResult)
 
-  const { destinations, loading: destLoading, error: destError } = useDestinations()
+  const { destinations, loading: destLoading, error: destError, retry: retryDestinations } = useDestinations()
 
   /* ── Back button walks the screens instead of leaving the site ──
      This is a single page with no per-screen URLs, so the browser had exactly one
@@ -96,6 +96,7 @@ export default function App() {
       case 'reveal':
         return (
           <RevealScreen
+            destinationCount={destinations.length}
             result={personalityResult}
             onContinue={handleRevealDone}
             onRetake={handleRestartQuiz}
@@ -109,6 +110,7 @@ export default function App() {
             destinations={destinations}
             destLoading={destLoading}
             destError={destError}
+            onRetryDestinations={retryDestinations}
             onRestartQuiz={handleRestartQuiz}
           />
         )

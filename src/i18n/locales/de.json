@@ -113,7 +113,8 @@
     "percentOfAnswers": "{{pct}} % deiner Antworten",
     "cta": "Zeig mir meine Reiseziele →",
     "subtext": "{{count}} Reiseziele, nur für dich gefiltert",
-    "retake": "Test wiederholen"
+    "retake": "Test wiederholen",
+    "subtextUnknown": "Reiseziele, nur für dich gefiltert"
   },
   "explorer": {
     "search": "Suchen…",
@@ -132,7 +133,7 @@
     "ofTotal": "{{shown}} von {{total}}",
     "exportCsv": "↓ CSV exportieren",
     "loading": "Reiseziele werden geladen…",
-    "loadError": "Reiseziele konnten nicht geladen werden. Bitte lade die Seite neu.",
+    "loadError": "Reiseziele konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.",
     "emptyState": "Keine Reiseziele passen zu deinen aktuellen Filtern.",
     "resetFilters": "Filter zurücksetzen",
     "sections": {
@@ -160,7 +161,8 @@
     "emptyStateHint": "Passe deine Filter an oder setze sie zurück.",
     "audioListen": "Anhören",
     "audioPlaying": "Läuft",
-    "filtersLabel": "Filter"
+    "filtersLabel": "Filter",
+    "retry": "Erneut versuchen"
   },
   "card": {
     "localVoice": "Stimme vor Ort",

@@ -38,9 +38,9 @@ const css = `
   .lang-switcher select:focus-visible { outline: 2px solid var(--redwood); outline-offset: 3px; }
 
   @media (max-width: 600px) {
-    /* clear of the Explorer's audio pill, which sits bottom-left */
-    .lang-switcher { bottom: 14px; right: 14px; padding: 8px 10px 8px 12px; }
-    .lang-switcher select { font-size: 16px; }  /* avoids iOS zoom-on-focus */
+    .lang-switcher { bottom: 14px; right: 14px; padding: 0 10px 0 12px; min-height: 44px; }
+    /* the select itself is the tap target, so it has to carry the 44px, not the pill */
+    .lang-switcher select { font-size: 16px; min-height: 44px; }  /* 16px avoids iOS zoom-on-focus */
   }
 `
 

@@ -12,7 +12,6 @@ const Globe = lazy(() => import('react-globe.gl'))
 
 /* ═══════════════════════ CONSTANTS ═══════════════════════ */
 
-const TOTAL = 561
 
 const DEFAULT_FILTERS = {
   personalities:  [],
@@ -202,6 +201,57 @@ function TrendPills({ options, selected, onChange }) {
   )
 }
 
+/* On phones the table needed ~700px, so the columns people actually decide with
+   (cost, score) sat off-screen behind a horizontal scroll with no affordance.
+   Same data, stacked. */
+function DestinationCards({ rows, onSelect, t }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {rows.map(d => (
+        <button
+          key={d.id}
+          onClick={() => onSelect(d)}
+          className="card destination-card"
+          style={{
+            width: '100%', textAlign: 'left', border: 'none', cursor: 'pointer',
+            padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: '8px',
+            background: 'var(--white)',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '10px' }}>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', color: 'var(--ink)', lineHeight: 1.2 }}>
+              {d.destination}
+            </span>
+            {d.suitabilityScore != null && (
+              <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--redwood)', whiteSpace: 'nowrap' }}>
+                {d.suitabilityScore}/5
+              </span>
+            )}
+          </div>
+
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--slate)' }}>
+            {[d.country, d.region].filter(Boolean).join(' · ')}
+          </span>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+            {d.personalities.slice(0, 2).map(pt => (
+              <span key={pt} className={`tag ${personalityTagClass(pt)}`} style={{ fontSize: '0.62rem' }}>
+                {localisePersonality(pt, t)}
+              </span>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 14px', fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--ink-light)' }}>
+            {d.costUSD != null && <span>{`${d.costUSD.toLocaleString()}`}/mo</span>}
+            {d.languages.length > 0 && <span style={{ color: 'var(--slate)' }}>{d.languages.slice(0, 2).join(', ')}</span>}
+            {d.writers?.length > 0 && <span style={{ color: 'var(--redwood)' }}>{t('card.localVoice')}</span>}
+          </div>
+        </button>
+      ))}
+    </div>
+  )
+}
+
 function TableSkeleton() {
   const COLS = 8
   return (
@@ -260,7 +310,7 @@ function EmptyState({ onReset, t }) {
 
 /* ═══════════════════════ MAIN COMPONENT ═══════════════════════ */
 
-export default function ExplorerScreen({ result, destinations = [], destLoading, destError, onRestartQuiz }) {
+export default function ExplorerScreen({ result, destinations = [], destLoading, destError, onRetryDestinations, onRestartQuiz }) {
   const { t } = useTranslation()
   const [viewMode,    setViewMode]    = useState('globe')
   const [isMobile,    setIsMobile]    = useState(() => window.innerWidth < 900)
@@ -772,7 +822,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                   {t('explorer.resetAll')}
                 </button>
                 <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--slate)' }}>
-                  {t('explorer.ofTotal', { shown: filtered.length, total: TOTAL })}
+                  {t('explorer.ofTotal', { shown: filtered.length, total: destinations.length })}
                 </span>
               </div>
             </aside>
@@ -785,10 +835,12 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           {destLoading && destinations.length === 0 ? (
             <DestinationsLoading t={t} />
           ) : destError ? (
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-              <p style={{ color: 'var(--slate)', fontFamily: 'var(--font-body)', textAlign: 'center' }}>
-                Couldn't load destinations. Please refresh and try again.
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '18px', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+              <p style={{ color: 'var(--slate)', fontFamily: 'var(--font-body)', textAlign: 'center', maxWidth: '340px' }}>
+                {t('explorer.loadError')}
               </p>
+              {/* refreshing the page was previously the only way to recover */}
+              <button className="btn-ghost" onClick={onRetryDestinations}>{t('explorer.retry')}</button>
             </div>
           ) : filtered.length === 0 ? (
             <EmptyState onReset={resetFilters} t={t} />
@@ -868,14 +920,16 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
           ) : (
 
             /* ════ TABLE VIEW ════ */
-            <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
+            <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '14px' : '24px' }}>
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
                 <button className="btn-ghost" onClick={() => downloadCSV(filtered)} style={{ fontSize: '0.85rem', padding: '8px 16px' }}>
                   {t('explorer.exportCsv')}
                 </button>
               </div>
 
-              {destLoading ? <TableSkeleton /> : (
+              {destLoading ? <TableSkeleton /> : isMobile ? (
+                <DestinationCards rows={filtered} onSelect={setSelectedDest} t={t} />
+              ) : (
                 <div className="card explorer-table-wrap" style={{ overflow: 'auto' }}>
                   <table className="explorer-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '700px' }}>
                     <thead>

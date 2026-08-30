@@ -113,7 +113,8 @@
     "percentOfAnswers": "{{pct}}% delle tue risposte",
     "cta": "Mostrami le mie destinazioni →",
     "subtext": "{{count}} destinazioni, filtrate apposta per te",
-    "retake": "Rifai il test"
+    "retake": "Rifai il test",
+    "subtextUnknown": "Destinazioni filtrate apposta per te"
   },
   "explorer": {
     "search": "Cerca…",
@@ -132,7 +133,7 @@
     "ofTotal": "{{shown}} di {{total}}",
     "exportCsv": "↓ Esporta CSV",
     "loading": "Caricamento destinazioni…",
-    "loadError": "Impossibile caricare le destinazioni. Ricarica la pagina e riprova.",
+    "loadError": "Impossibile caricare le destinazioni. Controlla la connessione e riprova.",
     "emptyState": "Nessuna destinazione corrisponde ai filtri attuali.",
     "resetFilters": "Azzera i filtri",
     "sections": {
@@ -160,7 +161,8 @@
     "emptyStateHint": "Prova a modificare o azzerare i filtri.",
     "audioListen": "Ascolta",
     "audioPlaying": "In riproduzione",
-    "filtersLabel": "Filtri"
+    "filtersLabel": "Filtri",
+    "retry": "Riprova"
   },
   "card": {
     "localVoice": "Voce locale",

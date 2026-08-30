@@ -113,7 +113,8 @@
     "percentOfAnswers": "{{pct}}% of your answers",
     "cta": "Show me my destinations →",
     "subtext": "{{count}} destinations, filtered just for you",
-    "retake": "Retake quiz"
+    "retake": "Retake quiz",
+    "subtextUnknown": "Destinations filtered just for you"
   },
   "explorer": {
     "search": "Search…",
@@ -132,7 +133,7 @@
     "ofTotal": "{{shown}} of {{total}}",
     "exportCsv": "↓ Export CSV",
     "loading": "Loading destinations…",
-    "loadError": "Couldn't load destinations. Please refresh and try again.",
+    "loadError": "Couldn't load destinations. Check your connection and try again.",
     "emptyState": "No destinations match your current filters.",
     "resetFilters": "Reset filters",
     "sections": {
@@ -160,7 +161,8 @@
     "emptyStateHint": "Try adjusting or resetting your filters.",
     "audioListen": "Listen",
     "audioPlaying": "Playing",
-    "filtersLabel": "Filters"
+    "filtersLabel": "Filters",
+    "retry": "Try again"
   },
   "card": {
     "localVoice": "Local Voice",

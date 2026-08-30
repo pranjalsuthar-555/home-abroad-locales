@@ -17,6 +17,17 @@ const revealCSS = `
     from { stroke-dashoffset: 200; opacity: 0; }
     to   { stroke-dashoffset: 0;   opacity: 1; }
   }
+  /* Tap-to-skip. Zeroing animation-delay doesn't help once an animation is already
+     running, so this drops the animations entirely and asserts the finished state. */
+  .reveal-instant *,
+  .reveal-instant *::before,
+  .reveal-instant *::after {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
   .reveal-name {
     animation: slowReveal 1.2s var(--ease-reveal) both;
   }
@@ -40,10 +51,20 @@ const revealCSS = `
   }
 `
 
-export default function RevealScreen({ result, onContinue, onRetake }) {
+export default function RevealScreen({ result, destinationCount = 0, onContinue, onRetake }) {
   const { t } = useTranslation()
   const [bgReady, setBgReady] = useState(false)
   const [artOk,   setArtOk]   = useState(true)
+  /* The sequence is a nice first impression and a chore on a retake, so a tap
+     anywhere finishes it immediately. `ready` gates the CTA's pointer events so a
+     tap aimed at the background can't accidentally fire it while it's still fading in. */
+  const [skipped, setSkipped] = useState(false)
+  const [ready,   setReady]   = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setReady(true), skipped ? 0 : 3000)
+    return () => clearTimeout(t)
+  }, [skipped])
 
   useEffect(() => {
     const t = setTimeout(() => setBgReady(true), 1500)
@@ -57,6 +78,8 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
 
   return (
     <div
+      onClick={() => setSkipped(true)}
+      className={skipped ? 'reveal-instant' : undefined}
       style={{
         ...s.root,
         background: bgReady ? background : '#0D0C0B',
@@ -77,7 +100,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         {/* eyebrow label — sweeps in */}
         <span
           className="animate-slowReveal"
-          style={{ ...s.eyebrow, animationDelay: '0.8s' }}
+          style={{ ...s.eyebrow, animationDelay: '0.35s' }}
         >
           {t('reveal.eyebrow')}
         </span>
@@ -87,7 +110,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         {artOk ? (
           <img
             className="animate-waxStamp reveal-portrait"
-            style={{ animationDelay: '1.6s' }}
+            style={{ animationDelay: '0.7s' }}
             src={`/personalities/${primary.i18nKey}.webp`}
             alt={t(`personalities.${primary.i18nKey}.name`)}
             onError={() => setArtOk(false)}
@@ -97,7 +120,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         ) : (
           <span
             className="animate-waxStamp"
-            style={{ animationDelay: '1.6s', fontSize: '4rem', lineHeight: 1.1, display: 'block' }}
+            style={{ animationDelay: '0.7s', fontSize: '4rem', lineHeight: 1.1, display: 'block' }}
             role="img"
             aria-label={t(`personalities.${primary.i18nKey}.name`)}
           >
@@ -109,7 +132,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         <h1
           className="reveal-name"
           style={{
-            animationDelay: '2.2s',
+            animationDelay: '1.05s',
             color: primary.color,
             fontStyle: 'italic',
             fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
@@ -133,7 +156,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
             strokeLinecap="round"
             strokeDasharray="200"
             strokeDashoffset="0"
-            style={{ animation: 'inkLineDraw 0.7s var(--ease-reveal) 3s both' }}
+            style={{ animation: 'inkLineDraw 0.7s var(--ease-reveal) 1.5s both' }}
           />
         </svg>
 
@@ -141,7 +164,7 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         <p
           className="animate-dreamFadeUp"
           style={{
-            animationDelay: '3.6s',
+            animationDelay: '1.75s',
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
             fontSize: '1.2rem',
@@ -155,14 +178,14 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         </p>
 
         {/* you'll love */}
-        <div className="animate-dreamFadeUp" style={{ animationDelay: '4.4s', ...s.youllLove }}>
+        <div className="animate-dreamFadeUp" style={{ animationDelay: '2.1s', ...s.youllLove }}>
           <span style={s.youllLoveLabel}>{t('reveal.youllLove')}</span>
           <span style={s.youllLoveCities}>{t(`personalities.${primary.i18nKey}.youllLove`)}</span>
         </div>
 
         {/* secondary personality — always shown when it exists */}
         {secondary && (
-          <div className="animate-dreamFadeUp" style={{ animationDelay: '5s', ...s.comboBlock }}>
+          <div className="animate-dreamFadeUp" style={{ animationDelay: '2.4s', ...s.comboBlock }}>
             <div style={s.comboDivider}>
               <span style={s.comboDividerLine} />
               <span style={s.comboDividerText}>{t('reveal.blendedWith')}</span>
@@ -195,19 +218,19 @@ export default function RevealScreen({ result, onContinue, onRetake }) {
         )}
 
         {/* CTA */}
-        <div className="animate-dreamFadeUp" style={{ animationDelay: '5.6s', ...s.ctaBlock }}>
+        <div className="animate-dreamFadeUp" style={{ animationDelay: '2.7s', ...s.ctaBlock }}>
           <button
             className="btn-primary animate-waxStamp"
-            style={{ animationDelay: '5.6s' }}
+            style={{ animationDelay: '2.7s', pointerEvents: ready ? 'auto' : 'none' }}
             onClick={() => onContinue(result)}
           >
             {t('reveal.cta')}
           </button>
           <span
             className="animate-dreamFadeIn"
-            style={{ animationDelay: '5.9s', fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--slate)', letterSpacing: '0.01em' }}
+            style={{ animationDelay: '2.9s', fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--slate)', letterSpacing: '0.01em' }}
           >
-            {t('reveal.subtext', { count: 561 })}
+            {destinationCount > 0 ? t('reveal.subtext', { count: destinationCount }) : t('reveal.subtextUnknown')}
           </span>
         </div>
       </div>
