@@ -157,7 +157,10 @@
       "languages": "Idiomas",
       "localWriter": "Autor local"
     },
-    "emptyStateHint": "Tente ajustar ou limpar os seus filtros."
+    "emptyStateHint": "Tente ajustar ou limpar os seus filtros.",
+    "audioListen": "Ouvir",
+    "audioPlaying": "Tocando",
+    "filtersLabel": "Filtros"
   },
   "card": {
     "localVoice": "Voz local",

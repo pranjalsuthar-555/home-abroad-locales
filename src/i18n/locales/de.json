@@ -157,7 +157,10 @@
       "languages": "Sprachen",
       "localWriter": "Lokale Stimme"
     },
-    "emptyStateHint": "Passe deine Filter an oder setze sie zurück."
+    "emptyStateHint": "Passe deine Filter an oder setze sie zurück.",
+    "audioListen": "Anhören",
+    "audioPlaying": "Läuft",
+    "filtersLabel": "Filter"
   },
   "card": {
     "localVoice": "Stimme vor Ort",

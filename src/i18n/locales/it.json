@@ -157,7 +157,10 @@
       "languages": "Lingue",
       "localWriter": "Voce locale"
     },
-    "emptyStateHint": "Prova a modificare o azzerare i filtri."
+    "emptyStateHint": "Prova a modificare o azzerare i filtri.",
+    "audioListen": "Ascolta",
+    "audioPlaying": "In riproduzione",
+    "filtersLabel": "Filtri"
   },
   "card": {
     "localVoice": "Voce locale",

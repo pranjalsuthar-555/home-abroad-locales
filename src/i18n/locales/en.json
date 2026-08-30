@@ -157,7 +157,10 @@
       "languages": "Languages",
       "localWriter": "Local Writer"
     },
-    "emptyStateHint": "Try adjusting or resetting your filters."
+    "emptyStateHint": "Try adjusting or resetting your filters.",
+    "audioListen": "Listen",
+    "audioPlaying": "Playing",
+    "filtersLabel": "Filters"
   },
   "card": {
     "localVoice": "Local Voice",

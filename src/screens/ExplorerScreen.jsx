@@ -581,6 +581,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
               <button
                 key={mode}
                 onClick={() => { setViewMode(mode); setSelectedDest(null) }}
+                className="view-toggle-btn"
                 title={mode === 'globe' ? t('explorer.globeView') : t('explorer.tableView')}
                 style={{
                   width: '36px', height: '34px', border: 'none', cursor: 'pointer',
@@ -599,7 +600,7 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
             onClick={() => setSidebarOpen(o => !o)}
             style={{ padding: '7px 14px', fontSize: '0.82rem' }}
           >
-            {t('explorer.filters')}
+            ⚙ <span className="filters-label">{t('explorer.filtersLabel')}</span>
           </button>
 
           <button
@@ -740,6 +741,12 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                     display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px',
                   }}>
                     <button
+                      onClick={toggleAudio}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
+                    >
+                      {audioPlaying ? '❚❚ ' : '▶ '}{audioPlaying ? t('explorer.audioPlaying') : t('explorer.audioListen')}
+                    </button>
+                    <button
                       onClick={() => { setSidebarOpen(false); startTour() }}
                       style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--slate)', padding: '4px 0' }}
                     >
@@ -817,13 +824,16 @@ export default function ExplorerScreen({ result, destinations = [], destLoading,
                     pointsData={globeData}
                     pointLat="lat"
                     pointLng="lng"
-                    pointColor={() => 'rgba(0,0,0,0)'}
-                    pointAltitude={0.02}
-                    pointRadius={0.7}
+                    pointColor={() => (isMobile ? '#FF5A4E' : 'rgba(0,0,0,0)')}
+                    pointAltitude={isMobile ? 0.035 : 0.02}
+                    pointRadius={isMobile ? 0.45 : 0.7}
                     onPointHover={pt => setHoveredDest(pt ?? null)}
                     onPointClick={pt => setSelectedDest(pt)}
                     // 📍 emoji — visual only, pointer-events:none so it never blocks hit detection
-                    htmlElementsData={globeData}
+                    /* Each HTML pin is a DOM node repositioned every frame — ~300 of them made
+                       phones stutter while rotating. Phones get WebGL points (already present
+                       for hit-testing) instead; desktop keeps the nicer 📍 markers. */
+                    htmlElementsData={isMobile ? [] : globeData}
                     htmlLat={d => d.lat}
                     htmlLng={d => d.lng}
                     htmlAltitude={0.01}

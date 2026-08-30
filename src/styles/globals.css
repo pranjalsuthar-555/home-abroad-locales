@@ -858,15 +858,25 @@ body::after {
   .explorer-count-label       { display: none; }
   .explorer-tour-btn          { display: none; }
   .explorer-retake-btn        { display: none; }
-  .explorer-search            { flex: 1 1 auto !important; min-width: 0; }
-  .explorer-search input      { font-size: 16px; }  /* <16px makes iOS zoom on focus */
-  .explorer-topbar            { padding: 0 0.75rem !important; gap: 0.5rem !important; }
-  .explorer-topbar .logo-img  { max-height: 26px; }
-  /* drawer (z 40) is nearly full-width on phones — keep the floating audio pill under it
-     instead of printing over the filter rows */
-  .audio-indicator .audio-label { display: none; }   /* icon-only on phones */
+  /* the word doesn't fit beside search + view toggle; the gear alone is clear enough */
+  .filters-label              { display: none; }
+  /* search has to stay wide enough to read what you type */
+  .explorer-search            { flex: 1 1 auto !important; min-width: 128px; }
+  .explorer-search input      { font-size: 16px !important; }  /* <16px makes iOS zoom on focus */
+  .view-toggle-btn            { width: 32px !important; }
+  .explorer-topbar            { padding: 0 0.5rem !important; gap: 0.4rem !important; }
+  .explorer-topbar .logo-img  { max-height: 22px; }
+  /* the audio pill can't fit here too — it moves into the filter drawer instead */
+  .explorer-topbar .audio-indicator { display: none; }
 }
 
+/* very narrow phones (iPhone SE and similar) */
+@media (max-width: 380px) {
+  .explorer-search            { min-width: 84px; }
+  .explorer-topbar            { padding: 0 0.35rem !important; gap: 0.3rem !important; }
+  .explorer-topbar .logo-img  { max-height: 20px; }
+  .view-toggle-btn            { width: 28px !important; }
+}
 /* Quiz header: fixed 100px min-widths on the logo and counter overflow a phone once
    the 10 progress dots are between them. */
 @media (max-width: 600px) {
@@ -875,6 +885,8 @@ body::after {
   .quiz-topbar .header-logo { min-width: 0; flex-shrink: 1; overflow: hidden; }
   .quiz-topbar .logo-img    { max-height: 24px; }
 }
+
+.explorer-search input { font-size: 0.82rem; }
 
 /* ── Audio indicator ── */
 /* inline in the explorer header next to the logo, so it can't overlap page content */
