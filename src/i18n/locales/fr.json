@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Score d'adaptation pour expatriés",
-        "tip": "Note globale de 1 à 5 portant sur le coût de la vie, la sécurité, l'accès aux soins, l'accueil des expatriés et la qualité de vie."
+        "tip": "Note globale de 1 à 5 portant sur le coût de la vie, la sécurité, l'accès aux soins, l'accueil des expatriés et la qualité de vie. Méthodologie inspirée du <link>World Report Card</link> d'Elle Griffin sur Elysian."
       },
       "countryTrend": {
         "label": "Tendance du pays",
-        "tip": "L'évolution du pays sur la dernière décennie en matière de démocratie, de gouvernance et de développement humain."
+        "tip": "L'évolution du pays sur la dernière décennie en matière de démocratie, de gouvernance et de développement humain. Méthodologie inspirée du <link>World Report Card</link> d'Elle Griffin sur Elysian."
       },
       "languages": {
         "label": "Langues parlées",

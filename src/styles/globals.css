@@ -602,18 +602,29 @@ body::after {
   transition: border-color 0.2s, color 0.2s;
 }
 .pc-tooltip-trigger:hover .pc-info-dot { border-color: var(--coral); color: var(--coral); }
+/* `display: none/block` took the box fully out of the render tree, so a link inside
+   it could never be hovered onto or clicked even with pointer-events re-enabled — the
+   box would vanish the instant the cursor left the trigger to reach it. Opacity/
+   visibility keeps it present (still positioned absolutely, so it can't affect layout)
+   so hovering the box itself also counts, giving enough of a bridge to reach a link. */
 .pc-tooltip-box {
-  display: none;
   position: absolute; bottom: calc(100% + 8px); left: 0;
   background: var(--white); border: 1px solid var(--almond-dark);
   border-radius: 6px; padding: 10px 12px; width: 220px;
   font-family: var(--font-body); font-size: 0.72rem;
   line-height: 1.55; color: var(--ink-light);
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  z-index: 200; pointer-events: none;
+  z-index: 200;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  transition: opacity 0.12s ease;
 }
-.pc-tooltip-trigger:hover .pc-tooltip-box { display: block; }
+.pc-tooltip-trigger:hover .pc-tooltip-box,
+.pc-tooltip-box:hover {
+  visibility: visible; opacity: 1; pointer-events: auto;
+}
 .pc-tooltip-tag { width: 200px; font-style: italic; }
+.pc-tooltip-link { color: var(--coral); text-decoration: underline; text-underline-offset: 2px; }
+.pc-tooltip-link:hover { color: var(--redwood); }
 
 @media (max-width: 600px) {
   .pc-content, .pc-pros-cons { grid-template-columns: 1fr; }

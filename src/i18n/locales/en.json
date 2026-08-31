@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Expat Suitability Score",
-        "tip": "A 1–5 composite score across cost of living, safety, healthcare access, expat-friendliness and quality of life."
+        "tip": "A 1–5 composite score across cost of living, safety, healthcare access, expat-friendliness and quality of life. Methodology inspired by Elle Griffin's <link>World Report Card</link> on Elysian."
       },
       "countryTrend": {
         "label": "Country Trend",
-        "tip": "The direction the country has moved over the past decade across democracy, governance and human development."
+        "tip": "The direction the country has moved over the past decade across democracy, governance and human development. Methodology inspired by Elle Griffin's <link>World Report Card</link> on Elysian."
       },
       "languages": {
         "label": "Languages Spoken",

@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Punteggio di idoneità per expat",
-        "tip": "Punteggio complessivo da 1 a 5 su costo della vita, sicurezza, accesso alle cure, accoglienza verso gli expat e qualità della vita."
+        "tip": "Punteggio complessivo da 1 a 5 su costo della vita, sicurezza, accesso alle cure, accoglienza verso gli expat e qualità della vita. Metodologia ispirata al <link>World Report Card</link> di Elle Griffin su Elysian."
       },
       "countryTrend": {
         "label": "Tendenza del Paese",
-        "tip": "La direzione presa dal Paese nell'ultimo decennio su democrazia, governance e sviluppo umano."
+        "tip": "La direzione presa dal Paese nell'ultimo decennio su democrazia, governance e sviluppo umano. Metodologia ispirata al <link>World Report Card</link> di Elle Griffin su Elysian."
       },
       "languages": {
         "label": "Lingue parlate",

@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Pontuação de adequação para expatriados",
-        "tip": "Pontuação de 1 a 5 combinando custo de vida, segurança, acesso à saúde, receptividade a expatriados e qualidade de vida."
+        "tip": "Pontuação de 1 a 5 combinando custo de vida, segurança, acesso à saúde, receptividade a expatriados e qualidade de vida. Metodologia inspirada no <link>World Report Card</link> de Elle Griffin, na Elysian."
       },
       "countryTrend": {
         "label": "Tendência do país",
-        "tip": "A direção que o país tomou na última década em democracia, governança e desenvolvimento humano."
+        "tip": "A direção que o país tomou na última década em democracia, governança e desenvolvimento humano. Metodologia inspirada no <link>World Report Card</link> de Elle Griffin, na Elysian."
       },
       "languages": {
         "label": "Idiomas falados",

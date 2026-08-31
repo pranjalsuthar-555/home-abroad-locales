@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Eignung für Auswanderer",
-        "tip": "Gesamtnote von 1 bis 5 aus Lebenshaltungskosten, Sicherheit, Gesundheitsversorgung, Offenheit gegenüber Auswanderern und Lebensqualität."
+        "tip": "Gesamtnote von 1 bis 5 aus Lebenshaltungskosten, Sicherheit, Gesundheitsversorgung, Offenheit gegenüber Auswanderern und Lebensqualität. Methodik inspiriert vom <link>World Report Card</link> von Elle Griffin auf Elysian."
       },
       "countryTrend": {
         "label": "Ländertrend",
-        "tip": "Die Entwicklung des Landes im letzten Jahrzehnt bei Demokratie, Regierungsführung und menschlicher Entwicklung."
+        "tip": "Die Entwicklung des Landes im letzten Jahrzehnt bei Demokratie, Regierungsführung und menschlicher Entwicklung. Methodik inspiriert vom <link>World Report Card</link> von Elle Griffin auf Elysian."
       },
       "languages": {
         "label": "Gesprochene Sprachen",

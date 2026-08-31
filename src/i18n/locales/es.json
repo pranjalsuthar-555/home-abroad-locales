@@ -185,11 +185,11 @@
       },
       "suitabilityScore": {
         "label": "Puntuación de idoneidad para expatriados",
-        "tip": "Puntuación compuesta de 1 a 5 según coste de vida, seguridad, acceso a sanidad, facilidad para expatriados y calidad de vida."
+        "tip": "Puntuación compuesta de 1 a 5 según coste de vida, seguridad, acceso a sanidad, facilidad para expatriados y calidad de vida. Metodología inspirada en el <link>World Report Card</link> de Elle Griffin en Elysian."
       },
       "countryTrend": {
         "label": "Tendencia del país",
-        "tip": "La dirección que ha tomado el país en la última década en democracia, gobernanza y desarrollo humano."
+        "tip": "La dirección que ha tomado el país en la última década en democracia, gobernanza y desarrollo humano. Metodología inspirada en el <link>World Report Card</link> de Elle Griffin en Elysian."
       },
       "languages": {
         "label": "Idiomas hablados",
