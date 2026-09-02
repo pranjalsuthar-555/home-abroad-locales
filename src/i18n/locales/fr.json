@@ -141,7 +141,7 @@
       "region": "Région",
       "language": "Langue",
       "cost": "Coût de la vie (USD/mois)",
-      "suitability": "Adaptation pour expatriés",
+      "suitability": "Adaptation",
       "trend": "Tendance du pays",
       "advantages": "Avantages",
       "dealbreakers": "Rédhibitoires"
@@ -181,11 +181,11 @@
       },
       "costUSD": {
         "label": "Coût de la vie moyen / mois",
-        "tip": "Budget mensuel estimé pour une vie confortable d'expatrié, logement, nourriture, transport et loisirs compris."
+        "tip": "Budget mensuel estimé pour une vie confortable, logement, nourriture, transport et loisirs compris."
       },
       "suitabilityScore": {
-        "label": "Score d'adaptation pour expatriés",
-        "tip": "Note globale de 1 à 5 portant sur le coût de la vie, la sécurité, l'accès aux soins, l'accueil des expatriés et la qualité de vie. Méthodologie inspirée du <link>World Report Card</link> d'Elle Griffin sur Elysian."
+        "label": "Score d'adaptation",
+        "tip": "Note globale de 1 à 5 portant sur le coût de la vie, la sécurité, l'accès aux soins, l'accueil des nouveaux arrivants et la qualité de vie. Méthodologie inspirée du <link>World Report Card</link> d'Elle Griffin sur Elysian."
       },
       "countryTrend": {
         "label": "Tendance du pays",
@@ -201,11 +201,11 @@
       },
       "advantages": {
         "label": "Avantages",
-        "tip": "Les principales raisons pour lesquelles les expatriés choisissent et aiment cette destination — ses véritables atouts."
+        "tip": "Les principales raisons pour lesquelles les nouveaux arrivants choisissent et aiment cette destination — ses véritables atouts."
       },
       "disadvantages": {
         "label": "Inconvénients",
-        "tip": "Les difficultés réelles que rencontrent les expatriés ici — un point honnête sur ce qui rend cette destination difficile, ou pas faite pour tout le monde."
+        "tip": "Les difficultés réelles que rencontrent les nouveaux arrivants ici — un point honnête sur ce qui rend cette destination difficile, ou pas faite pour tout le monde."
       },
       "tourismWebsite": {
         "label": "Site officiel du tourisme",

@@ -50,7 +50,7 @@ export async function onRequestGet({ env }) {
             imageUrl:         f['Picture']?.[0]?.url                         || null,
             tourismWebsite:   f['Official Tourism Website']?.value            || null,
             costUSD:          f['Average Cost of Living for Family (USD)']    ?? null,
-            suitabilityScore: f['Expat Suitability Score']                    ?? null,
+            suitabilityScore: f['Suitability Score']                          ?? null,
             countryTrend:     f['Country Trend']                              || null,
             writers: (f['Substack Name (from Local Writers)'] || []).map((name, i) => ({
               name,

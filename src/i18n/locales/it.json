@@ -141,7 +141,7 @@
       "region": "Regione",
       "language": "Lingua",
       "cost": "Costo della vita (USD/mese)",
-      "suitability": "Idoneità per expat",
+      "suitability": "Idoneità",
       "trend": "Tendenza del Paese",
       "advantages": "Vantaggi",
       "dealbreakers": "Inaccettabili"
@@ -181,11 +181,11 @@
       },
       "costUSD": {
         "label": "Costo della vita medio / mese",
-        "tip": "Budget mensile stimato per una vita confortevole da expat, inclusi affitto, cibo, trasporti e tempo libero."
+        "tip": "Budget mensile stimato per una vita confortevole, inclusi affitto, cibo, trasporti e tempo libero."
       },
       "suitabilityScore": {
-        "label": "Punteggio di idoneità per expat",
-        "tip": "Punteggio complessivo da 1 a 5 su costo della vita, sicurezza, accesso alle cure, accoglienza verso gli expat e qualità della vita. Metodologia ispirata al <link>World Report Card</link> di Elle Griffin su Elysian."
+        "label": "Punteggio di idoneità",
+        "tip": "Punteggio complessivo da 1 a 5 su costo della vita, sicurezza, accesso alle cure, accoglienza verso i nuovi arrivati e qualità della vita. Metodologia ispirata al <link>World Report Card</link> di Elle Griffin su Elysian."
       },
       "countryTrend": {
         "label": "Tendenza del Paese",
@@ -201,7 +201,7 @@
       },
       "advantages": {
         "label": "Vantaggi",
-        "tip": "I motivi principali per cui gli expat scelgono e amano questa destinazione — i suoi veri punti di forza."
+        "tip": "I motivi principali per cui i nuovi arrivati scelgono e amano questa destinazione — i suoi veri punti di forza."
       },
       "disadvantages": {
         "label": "Svantaggi",

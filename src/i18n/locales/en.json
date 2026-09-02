@@ -141,7 +141,7 @@
       "region": "Region",
       "language": "Language",
       "cost": "Cost of Living (USD/mo)",
-      "suitability": "Expat Suitability",
+      "suitability": "Suitability",
       "trend": "Country Trend",
       "advantages": "Advantages",
       "dealbreakers": "Dealbreakers"
@@ -181,11 +181,11 @@
       },
       "costUSD": {
         "label": "Avg. Cost of Living / Month",
-        "tip": "Estimated monthly budget for a comfortable expat lifestyle including rent, food, transport, and leisure."
+        "tip": "Estimated monthly budget for a comfortable lifestyle including rent, food, transport, and leisure."
       },
       "suitabilityScore": {
-        "label": "Expat Suitability Score",
-        "tip": "A 1–5 composite score across cost of living, safety, healthcare access, expat-friendliness and quality of life. Methodology inspired by Elle Griffin's <link>World Report Card</link> on Elysian."
+        "label": "Suitability Score",
+        "tip": "A 1–5 composite score across cost of living, safety, healthcare access, friendliness to newcomers and quality of life. Methodology inspired by Elle Griffin's <link>World Report Card</link> on Elysian."
       },
       "countryTrend": {
         "label": "Country Trend",
@@ -201,11 +201,11 @@
       },
       "advantages": {
         "label": "Advantages",
-        "tip": "Key reasons expats choose and love this destination — the genuine strengths that make it stand out."
+        "tip": "Key reasons newcomers choose and love this destination — the genuine strengths that make it stand out."
       },
       "disadvantages": {
         "label": "Disadvantages",
-        "tip": "Real challenges expats face here — honest notes on what makes this destination difficult, or not for everyone."
+        "tip": "Real challenges newcomers face here — honest notes on what makes this destination difficult, or not for everyone."
       },
       "tourismWebsite": {
         "label": "Official Tourism Site",

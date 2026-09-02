@@ -50,7 +50,7 @@ Most people are a blend. The combination is the real story.
 react-globe.gl + Three.js raycasting for hover and click. Warm atmosphere tint, auto-rotates when idle, pauses on interaction. Destination pins with hover tooltips and click-to-postcard modals.
 
 **8 filter dimensions**
-Personality type · Region · Language · Cost of living (dual-handle slider, USD/month) · Expat suitability score · Country trend · Advantages · Dealbreakers
+Personality type · Region · Language · Cost of living (dual-handle slider, USD/month) · Suitability score · Country trend · Advantages · Dealbreakers
 
 **Destination postcards**
 Full data per location: cost, suitability score, country trend, languages, advantages, disadvantages, local writers with links, personalised note based on your type.
@@ -77,7 +77,7 @@ Soft voice note on first entry. Mute/unmute with animated waveform. The sound te
 
 ## The data
 
-561 destinations. Each record: destination, country, region, personality tags, estimated monthly cost (USD), expat suitability score (1–5), languages spoken, country trend, advantages, dealbreakers, local writers with links, coordinates.
+561 destinations. Each record: destination, country, region, personality tags, estimated monthly cost (USD), suitability score (1–5), languages spoken, country trend, advantages, dealbreakers, local writers with links, coordinates.
 
 ---
 

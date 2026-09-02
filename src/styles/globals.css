@@ -743,7 +743,7 @@ body::after {
   font-style: italic;
 }
 
-/* ── EXPAT SUITABILITY SCORE ── */
+/* ── SUITABILITY SCORE ── */
 .score-section { margin: 12px 0; }
 
 .score-header {

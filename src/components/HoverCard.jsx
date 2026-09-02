@@ -75,13 +75,13 @@ function CardBody({ d, compact }) {
         </div>
       )}
 
-      {/* Expat Suitability Score */}
+      {/* Suitability Score */}
       {d.suitabilityScore != null && (
         <div className="score-section">
           <div className="score-header">
             {!compact
               ? <FieldLabel fieldKey="suitabilityScore" />
-              : <span className="score-label">Expat Suitability</span>
+              : <span className="score-label">Suitability</span>
             }
           </div>
           <div className="score-display">

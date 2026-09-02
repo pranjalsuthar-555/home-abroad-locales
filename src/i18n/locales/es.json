@@ -141,7 +141,7 @@
       "region": "Región",
       "language": "Idioma",
       "cost": "Coste de vida (USD/mes)",
-      "suitability": "Idoneidad para expatriados",
+      "suitability": "Idoneidad",
       "trend": "Tendencia del país",
       "advantages": "Ventajas",
       "dealbreakers": "Inaceptables"
@@ -181,11 +181,11 @@
       },
       "costUSD": {
         "label": "Coste de vida medio / mes",
-        "tip": "Presupuesto mensual estimado para una vida cómoda como expatriado, incluyendo alquiler, comida, transporte y ocio."
+        "tip": "Presupuesto mensual estimado para una vida cómoda, incluyendo alquiler, comida, transporte y ocio."
       },
       "suitabilityScore": {
-        "label": "Puntuación de idoneidad para expatriados",
-        "tip": "Puntuación compuesta de 1 a 5 según coste de vida, seguridad, acceso a sanidad, facilidad para expatriados y calidad de vida. Metodología inspirada en el <link>World Report Card</link> de Elle Griffin en Elysian."
+        "label": "Puntuación de idoneidad",
+        "tip": "Puntuación compuesta de 1 a 5 según coste de vida, seguridad, acceso a sanidad, facilidad de adaptación y calidad de vida. Metodología inspirada en el <link>World Report Card</link> de Elle Griffin en Elysian."
       },
       "countryTrend": {
         "label": "Tendencia del país",
@@ -201,11 +201,11 @@
       },
       "advantages": {
         "label": "Ventajas",
-        "tip": "Las razones principales por las que los expatriados eligen y adoran este destino: sus verdaderos puntos fuertes."
+        "tip": "Las razones principales por las que los recién llegados eligen y adoran este destino: sus verdaderos puntos fuertes."
       },
       "disadvantages": {
         "label": "Desventajas",
-        "tip": "Los retos reales que afrontan los expatriados aquí: apuntes honestos sobre lo que hace difícil este destino, o no apto para todos."
+        "tip": "Los retos reales que afrontan los recién llegados aquí: apuntes honestos sobre lo que hace difícil este destino, o no apto para todos."
       },
       "tourismWebsite": {
         "label": "Web oficial de turismo",

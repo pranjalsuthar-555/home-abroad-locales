@@ -141,7 +141,7 @@
       "region": "Região",
       "language": "Idioma",
       "cost": "Custo de vida (USD/mês)",
-      "suitability": "Adequação para expatriados",
+      "suitability": "Adequação",
       "trend": "Tendência do país",
       "advantages": "Vantagens",
       "dealbreakers": "Impedimentos"
@@ -184,8 +184,8 @@
         "tip": "Orçamento mensal estimado para uma vida confortável no exterior, incluindo aluguel, comida, transporte e lazer."
       },
       "suitabilityScore": {
-        "label": "Pontuação de adequação para expatriados",
-        "tip": "Pontuação de 1 a 5 combinando custo de vida, segurança, acesso à saúde, receptividade a expatriados e qualidade de vida. Metodologia inspirada no <link>World Report Card</link> de Elle Griffin, na Elysian."
+        "label": "Pontuação de adequação",
+        "tip": "Pontuação de 1 a 5 combinando custo de vida, segurança, acesso à saúde, receptividade a recém-chegados e qualidade de vida. Metodologia inspirada no <link>World Report Card</link> de Elle Griffin, na Elysian."
       },
       "countryTrend": {
         "label": "Tendência do país",
@@ -201,7 +201,7 @@
       },
       "advantages": {
         "label": "Vantagens",
-        "tip": "As principais razões pelas quais os expatriados escolhem e amam este destino — os seus pontos fortes reais."
+        "tip": "As principais razões pelas quais os recém-chegados escolhem e amam este destino — os seus pontos fortes reais."
       },
       "disadvantages": {
         "label": "Desvantagens",
